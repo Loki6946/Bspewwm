@@ -1,0 +1,78 @@
+(deflisten volume-data 
+  :initial "0"
+  `scripts/volume.sh`
+)
+
+(defvar vol-popup-open false)
+
+(defwidget volume []
+  (box 
+    :class "volume-widget"
+    :width 30
+    :halign "center"
+    :orientation "h"
+    (button 
+      :class "volume-button"
+      :orientation "h"
+      :onclick `scripts/toggle-vol-popup.sh`
+      (label
+        :class "volume-label"
+        :text {volume-data == "muted" ? "" : volume-data < 33 ? "" : volume-data < 50 ? "" : ""}
+      )
+    )
+  )
+)
+
+(defwindow vol-popup
+  :monitor 0
+  :geometry (geometry
+    :x "-5px"      
+    :y "35px"     
+    :width "200px"
+    :height "0px"
+    :anchor "top right")   
+  :stacking "fg"
+  (vol-popup-widget))
+
+(defwidget vol-popup-widget []
+  (revealer
+    :reveal vol-popup-open
+    :transition "slidedown"  
+    :duration "200ms"
+    (box
+      :orientation "h"
+      :space-evenly false
+      :halign "center"
+      :spacing 10
+      (button
+        :class "vol-button"
+        :onclick "pamixer -t" 
+        (label
+          :class "vol-label"
+          :xalign {volume-data == "muted" ? 0.45 : 0.55}
+          :yalign {volume-data == "muted" ? 0.5 : 0.4}
+          :text {volume-data == "muted" ? "" : volume-data}
+        )
+      )
+      (overlay 
+        :halign "start"
+        :hexpand true
+        (scale
+          :class "vol-slider"
+          :orientation "h"
+          :width 150
+          :min 0
+          :max 101
+          :active {volume-data != "muted"}
+          :value {volume-data == "muted" ? 0 : volume-data}
+          :onchange "pamixer --set-volume {}"
+        )
+        (label
+          :class "vol-slider-label"
+          :xalign 0.06
+          :text ""
+        )
+      )
+    )
+  )
+)

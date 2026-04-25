@@ -1,0 +1,60 @@
+@import "../../color.scss";
+
+.volume-widget {
+  border-radius: 20px 5px 5px 20px;
+  background-color: $surface;
+}
+
+.volume-button:hover {
+  border-radius: 20px 5px 5px 20px;
+  background-color: $surface-variant;
+}
+
+.volume-label {
+  font-family: "Material Icons Round";
+  font-size: 16px;
+}
+
+.vol-popup {
+  padding: 5px;
+  border-radius: 50px;
+  background-color: $background;
+}
+
+.vol-button {
+  min-width: 33px;
+  border-radius: 50px;
+  background-color: $surface;
+}
+
+.vol-button:hover {
+  background-color: $surface-variant;
+}
+
+.vol-label {
+  font-size: 15px;
+}
+
+.vol-slider slider {
+  border-radius: 0 50px 50px 0;
+  min-width: 0px;
+  min-height: 0px;
+}
+
+.vol-slider trough {
+  border-radius: 50px;
+  min-height: 30px;
+  background-color: $surface;
+}
+
+.vol-slider highlight {
+  border-radius: 50px;
+  min-width: 33px;
+  background-color: $on-surface;
+}
+
+.vol-slider-label {
+  color: $background;
+  font-family: "Material Icons Round";
+  font-size: 17px;
+}

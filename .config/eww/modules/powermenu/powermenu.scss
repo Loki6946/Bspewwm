@@ -1,0 +1,41 @@
+@import "../../color.scss";
+
+.power-widget {
+  border-radius: 50px;
+  background-color: $surface;
+}
+
+.power-button:hover {
+  border-radius: 50px;
+  background-color: $surface-variant;
+}
+
+.power-label {
+  font-family: "Material Icons Round";
+  font-size: 16px;
+}
+
+.pow-popup {
+  padding: 10px;
+  border-radius: 18px;
+  background-color: $background;
+}
+
+.pow-popup-button {
+  min-width: 50px;
+  padding: 12px;
+  border-radius: 15px;
+  border: 2px solid transparent;
+  background-color: $surface;
+  transition: border-color 0.25s, background-color 0.25s;
+}
+
+.pow-popup-button:hover {
+  border-color: $on-surface-variant;
+  background-color: $surface-variant;
+}
+
+.pow-popup-label {
+  font-family: "Material Icons Round";
+  font-size: 25px;
+}

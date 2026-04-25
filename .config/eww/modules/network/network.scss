@@ -1,0 +1,11 @@
+@import "../../color.scss";
+
+.network-widget {
+  border-radius: 5px 20px 20px 5px;
+  background-color: $surface;
+}
+
+.network-label {
+  font-family: "Material Icons Round";
+  font-size: 16px;
+}

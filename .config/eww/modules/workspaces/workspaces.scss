@@ -1,0 +1,25 @@
+@import "../../color.scss";
+
+.workspaces {
+  padding: 5px;
+  border-radius: 50px;
+  background-color: $surface;
+}
+
+.workspace-item {
+  min-height: 12px;
+  min-width: 13px;
+  border-radius: 50px;
+  background-color: $on-surface-dim;
+  transition: 0.2s;
+
+  &.active {
+    min-width: 35px;
+    border-radius: 50px;
+    background-color: $on-surface;    
+  }
+  
+  &.occupied {
+    background-color: $on-surface-variant;		
+  }
+}

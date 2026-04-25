@@ -1,0 +1,77 @@
+(defvar pow-popup-open false)
+
+(defwidget powermenu []
+  (box 
+    :class "power-widget"
+    :width 25
+    :halign "center"
+    :orientation "h"
+    (button 
+      :class "power-button"
+      :orientation "h"
+      :onclick `scripts/toggle-pow-popup.sh`
+      (label
+        :class "power-label"
+        :xalign 0.5
+        :text ""
+      )
+    )
+  )
+)
+
+(defwindow pow-popup
+  :monitor 0
+  :geometry (geometry
+    :x "5px"     
+    :y "36px"     
+    :width "250px"
+    :height "0px"
+    :anchor "top left")
+  :stacking "fg"
+  (pow-popup-widget))
+
+(defwidget pow-popup-widget []
+  (revealer
+    :reveal pow-popup-open
+    :transition "slidedown"  ; or slideleft, slideright, slideup, crossfade
+    :duration "200ms"
+    (box
+      :orientation "h"
+      :space-evenly true
+      :halign "center"
+      :spacing 10
+      (button
+        :class "pow-popup-button"
+        :onclick "scripts/toggle-pow-popup.sh && systemctl poweroff"
+        (label
+          :class "pow-popup-label"
+          :text ""
+        )
+      )
+      (button
+        :class "pow-popup-button"
+        :onclick "scripts/toggle-pow-popup.sh && systemctl reboot"
+        (label
+          :class "pow-popup-label"
+          :text ""
+        )
+      )
+      (button
+        :class "pow-popup-button"
+        :onclick "scripts/toggle-pow-popup.sh && systemctl suspend"
+        (label
+          :class "pow-popup-label"
+          :text ""
+        )
+      )
+      (button
+        :class "pow-popup-button"
+        :onclick "scripts/toggle-pow-popup.sh && bspc quit"
+        (label
+          :class "pow-popup-label"
+          :text ""
+        )
+      )
+    )
+  )
+)

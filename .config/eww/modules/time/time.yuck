@@ -1,0 +1,16 @@
+(defpoll time-data :interval "10s" 
+        "date '+%H:%M'")
+
+(defwidget time []
+  (box 
+    :class "time-widget"
+    :width 50
+    :halign "center"
+    :orientation "h"
+    (button 
+      :orientation "h"
+      :class "time-button"
+      {time-data}
+    )
+  )
+)
