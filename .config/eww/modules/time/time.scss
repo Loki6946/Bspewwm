@@ -1,6 +1,11 @@
 @import "../../color.scss";
 
 .time-widget {
+  padding: 0px 8px 0px 8px;
   border-radius: 50px;
   background-color: $surface;
+}
+
+.time-text {
+  font-size: 12px;
 }

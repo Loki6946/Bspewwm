@@ -6,7 +6,6 @@
 (defwidget network []
   (box 
     :class "network-widget"
-    :width 30
     :halign "center"
     :orientation "h"
     (button 
@@ -14,7 +13,6 @@
       :orientation "h"
       (label
         :class "network-label"
-        :xalign 0.45
         :text {network-data.essid == "lo" ? "" : network-data.signal == "" ? "" : network-data.signal < 25 ? "" : network-data.signal < 50 ? "" : network-data.signal < 75 ? "" : ""}
       )
     )

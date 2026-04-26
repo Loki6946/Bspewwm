@@ -5,12 +5,16 @@
   background-color: $surface;
 }
 
+.volume-button {
+  padding: 0 6px 0 6px;
+}
+
 .volume-button:hover {
   border-radius: 20px 5px 5px 20px;
   background-color: $surface-variant;
 }
 
-.volume-label {
+.volume-icon {
   font-family: "Material Icons Round";
   font-size: 16px;
 }
@@ -21,39 +25,39 @@
   background-color: $background;
 }
 
-.vol-button {
+.vol-popup-button {
   min-width: 33px;
   border-radius: 50px;
   background-color: $surface;
 }
 
-.vol-button:hover {
+.vol-popup-button:hover {
   background-color: $surface-variant;
 }
 
-.vol-label {
+.vol-popup-icon {
   font-size: 15px;
 }
 
-.vol-slider slider {
+.vol-popup-slider slider {
   border-radius: 0 50px 50px 0;
   min-width: 0px;
   min-height: 0px;
 }
 
-.vol-slider trough {
+.vol-popup-slider trough {
   border-radius: 50px;
   min-height: 30px;
   background-color: $surface;
 }
 
-.vol-slider highlight {
+.vol-popup-slider highlight {
   border-radius: 50px;
   min-width: 33px;
   background-color: $on-surface;
 }
 
-.vol-slider-label {
+.vol-popup-slider-icon {
   color: $background;
   font-family: "Material Icons Round";
   font-size: 17px;

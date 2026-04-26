@@ -8,7 +8,6 @@
 (defwidget volume []
   (box 
     :class "volume-widget"
-    :width 30
     :halign "center"
     :orientation "h"
     (button 
@@ -16,7 +15,7 @@
       :orientation "h"
       :onclick `scripts/toggle-vol-popup.sh`
       (label
-        :class "volume-label"
+        :class "volume-icon"
         :text {volume-data == "muted" ? "" : volume-data < 33 ? "" : volume-data < 50 ? "" : ""}
       )
     )
@@ -45,12 +44,12 @@
       :halign "center"
       :spacing 10
       (button
-        :class "vol-button"
+        :class "vol-popup-button"
         :onclick "pamixer -t" 
         (label
-          :class "vol-label"
-          :xalign {volume-data == "muted" ? 0.45 : 0.55}
-          :yalign {volume-data == "muted" ? 0.5 : 0.4}
+          :class "vol-popup-icon"
+          :xalign {volume-data == "muted" ? 0.45 : 0.54}
+          :yalign {volume-data == "muted" ? 0.5 : 0.35}
           :text {volume-data == "muted" ? "" : volume-data}
         )
       )
@@ -58,7 +57,7 @@
         :halign "start"
         :hexpand true
         (scale
-          :class "vol-slider"
+          :class "vol-popup-slider"
           :orientation "h"
           :width 150
           :min 0
@@ -68,7 +67,7 @@
           :onchange "pamixer --set-volume {}"
         )
         (label
-          :class "vol-slider-label"
+          :class "vol-popup-slider-icon"
           :xalign 0.06
           :text ""
         )

@@ -3,7 +3,6 @@
 (defwidget powermenu []
   (box 
     :class "power-widget"
-    :width 25
     :halign "center"
     :orientation "h"
     (button 
@@ -12,7 +11,6 @@
       :onclick `scripts/toggle-pow-popup.sh`
       (label
         :class "power-label"
-        :xalign 0.5
         :text ""
       )
     )
@@ -33,7 +31,7 @@
 (defwidget pow-popup-widget []
   (revealer
     :reveal pow-popup-open
-    :transition "slidedown"  ; or slideleft, slideright, slideup, crossfade
+    :transition "slidedown" 
     :duration "200ms"
     (box
       :orientation "h"
@@ -43,33 +41,73 @@
       (button
         :class "pow-popup-button"
         :onclick "scripts/toggle-pow-popup.sh && systemctl poweroff"
-        (label
-          :class "pow-popup-label"
-          :text ""
+        (box
+          :orientation "v"
+          :space-evenly false
+          :valign "center"
+          :spacing 5
+          (label
+            :class "pow-popup-icon"
+            :text ""
+          )
+          (label
+            :class "pow-popup-text"
+            :text "Power"
+          )
         )
       )
       (button
         :class "pow-popup-button"
         :onclick "scripts/toggle-pow-popup.sh && systemctl reboot"
-        (label
-          :class "pow-popup-label"
-          :text ""
+        (box
+          :orientation "v"
+          :space-evenly false
+          :valign "center"
+          :spacing 5
+          (label
+            :class "pow-popup-icon"
+            :text ""
+          )
+          (label
+            :class "pow-popup-text"
+            :text "Reboot"
+          )
         )
       )
       (button
         :class "pow-popup-button"
         :onclick "scripts/toggle-pow-popup.sh && systemctl suspend"
-        (label
-          :class "pow-popup-label"
-          :text ""
+        (box
+          :orientation "v"
+          :space-evenly false
+          :valign "center"
+          :spacing 5
+          (label
+            :class "pow-popup-icon"
+            :text ""
+          )
+          (label
+            :class "pow-popup-text"
+            :text "Sleep"
+          )
         )
       )
       (button
         :class "pow-popup-button"
         :onclick "scripts/toggle-pow-popup.sh && bspc quit"
-        (label
-          :class "pow-popup-label"
-          :text ""
+        (box
+          :orientation "v"
+          :space-evenly false
+          :valign "center"
+          :spacing 5
+          (label
+            :class "pow-popup-icon"
+            :text ""
+          )
+          (label
+            :class "pow-popup-text"
+            :text "Exit"
+          )
         )
       )
     )
