@@ -1,0 +1,55 @@
+(deflisten music-data
+  :initial '{"name": "", "title": "", "artist": "", "artUrl": "", "status": "Stopped", "length": "", "lengthStr": ""}'
+  `scripts/music.sh`)
+
+(defwidget music []
+  (box
+    :class "music-widget"
+    :orientation "h"
+    :space-evenly false
+    :spacing 10
+    :visible {music-data.status != "Stopped" && music-data.title != ""}
+
+    ; album art
+    (box
+      :class "music-art"  
+      :style "background-image: url('${music-data.artUrl}');")
+      :space-evenly false   
+      :orientation "h" 
+
+    ; title + artist
+    (box
+      :orientation "v"
+      :valign "center"
+      (label
+        :class "music-title"
+        :text `${music-data.title} - ${music-data.artist}`
+        :limit-width 200
+        :halign "start"
+      )
+    )
+
+    ; controls
+    (box
+      :class "music-btn-box"
+      :orientation "h"
+      :spacing 8
+      :valign "center"
+      (button
+        :class "music-btn"
+        :onclick "playerctl previous"
+        ""
+      )
+      (button
+        :class "music-btn"
+        :onclick "playerctl play-pause"
+        {music-data.status == "Playing" ? "" : ""}
+      )
+      (button
+        :class "music-btn"
+        :onclick "playerctl next"
+        ""
+      )
+    )
+  )
+)
