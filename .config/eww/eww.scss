@@ -4,12 +4,13 @@
   font-weight: bold;
 }
 
+@import "./color.scss";
 @import "modules/workspaces/workspaces.scss";
 @import "modules/time/time.scss";
 @import "modules/volume/volume.scss";
 @import "modules/network/network.scss";
 @import "modules/powermenu/powermenu.scss";
-@import "./color.scss";
+@import "modules/music/music.scss";
 
 // Global Styles
 .bar {

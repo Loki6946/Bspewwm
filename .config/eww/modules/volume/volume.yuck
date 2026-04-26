@@ -5,6 +5,7 @@
 
 (defvar vol-popup-open false)
 
+; volume icon on bar
 (defwidget volume []
   (box 
     :class "volume-widget"
@@ -22,6 +23,7 @@
   )
 )
 
+; volume popup window
 (defwindow vol-popup
   :monitor 0
   :geometry (geometry
@@ -33,11 +35,14 @@
   :stacking "fg"
   (vol-popup-widget))
 
+; volume popup content
 (defwidget vol-popup-widget []
   (revealer
     :reveal vol-popup-open
     :transition "slidedown"  
     :duration "200ms"
+
+    ; volume level/mute button
     (box
       :orientation "h"
       :space-evenly false
@@ -53,6 +58,8 @@
           :text {volume-data == "muted" ? "" : volume-data}
         )
       )
+
+      ; volume slider
       (overlay 
         :halign "start"
         :hexpand true

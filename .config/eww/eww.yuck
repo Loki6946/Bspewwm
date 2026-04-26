@@ -3,6 +3,7 @@
 (include "modules/volume/volume.yuck")
 (include "modules/network/network.yuck")
 (include "modules/powermenu/powermenu.yuck")
+(include "modules/music/music.yuck")
 
 (defwidget bar []
   (box 
@@ -33,22 +34,6 @@
     )
   )
 )
-
-(defwidget music []
-  (box 
-    :class "music"
-    :orientation "h"
-    :space-evenly false
-    :halign "center"
-    (label
-      :truncate true
-      :text {music != "" ? "🎵${music}" : ""}
-    )
-  )
-)
-
-(deflisten music :initial ""
-  "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
 
 (defwindow bar
   :monitor 0

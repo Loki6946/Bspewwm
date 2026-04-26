@@ -1,5 +1,6 @@
 (defvar pow-popup-open false)
 
+; powermenu icon on bar
 (defwidget powermenu []
   (box 
     :class "power-widget"
@@ -17,6 +18,7 @@
   )
 )
 
+; powermenu popup window
 (defwindow pow-popup
   :monitor 0
   :geometry (geometry
@@ -28,6 +30,7 @@
   :stacking "fg"
   (pow-popup-widget))
 
+; powermenu popup content
 (defwidget pow-popup-widget []
   (revealer
     :reveal pow-popup-open
@@ -38,6 +41,8 @@
       :space-evenly true
       :halign "center"
       :spacing 10
+
+      ; poweroff button
       (button
         :class "pow-popup-button"
         :onclick "scripts/toggle-pow-popup.sh && systemctl poweroff"
@@ -56,6 +61,8 @@
           )
         )
       )
+
+      ; reboot button
       (button
         :class "pow-popup-button"
         :onclick "scripts/toggle-pow-popup.sh && systemctl reboot"
@@ -74,6 +81,8 @@
           )
         )
       )
+
+      ; sleep button
       (button
         :class "pow-popup-button"
         :onclick "scripts/toggle-pow-popup.sh && systemctl suspend"
@@ -92,6 +101,8 @@
           )
         )
       )
+
+      ; exit bspwm button
       (button
         :class "pow-popup-button"
         :onclick "scripts/toggle-pow-popup.sh && bspc quit"
