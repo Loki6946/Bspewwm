@@ -9,3 +9,6 @@
 - xcorners
 - picom
 - vicinae
+- mpd
+- mpDris2
+- jq
