@@ -13,9 +13,10 @@
     ; album art
     (box
       :class "music-art"  
-      :style "background-image: url('${music-data.artUrl}');")
+      :style "background-image: url('${music-data.artUrl}');"
       :space-evenly false   
-      :orientation "h" 
+      :orientation "h"
+    )
 
     ; title + artist
     (box

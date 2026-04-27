@@ -1,15 +1,14 @@
 .music-widget {
-  padding: 0 3px 0 2px;
+  padding: 0 3px 0 0px;
   border-radius: 50px;
   background-color: $surface;
 }
 
 .music-art {
-  margin: 1px 0px 1px 0px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  min-width: 21px;
+  min-width: 24px;
   border-radius: 50px;
 }
 
@@ -20,7 +19,7 @@
 }
 
 .music-btn-box {
-  padding: 2px 2px 2px 2px;
+  padding: 2px;
   border-radius: 50px;
   background-color: $surface-variant;
 }
