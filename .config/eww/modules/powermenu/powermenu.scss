@@ -47,3 +47,50 @@
   font-weight: 600;
   font-size: 10px;
 }
+
+.pow-confirm {
+  padding: 10px;
+  border-radius: 18px;
+  background-color: $background;
+}
+
+.pow-confirm-text-head {
+  color: $on-surface;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.pow-confirm-text-desc {
+  color: $on-surface-variant;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.pow-confirm-yes {
+  min-width: 120px;
+  font-size: 12px;
+  padding: 0 5px;
+  border-radius: 15px;
+  border: 1px solid $on-surface-dim;
+  background-color: $surface;
+  transition: border-color 0.25s, background-color 0.25s;
+}
+
+.pow-confirm-yes:hover {
+  border-color: $on-surface-variant;
+  background-color: $surface-variant;
+}
+
+.pow-confirm-no {
+  min-width: 120px;
+  font-size: 12px;
+  padding: 0 5px;
+  border-radius: 15px;
+  border: 1px solid $surface-variant;
+  background-color: transparent;
+  transition: background-color 0.25s;
+}
+
+.pow-confirm-no:hover {
+  background-color: $surface;
+}
