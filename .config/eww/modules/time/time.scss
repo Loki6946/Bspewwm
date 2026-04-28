@@ -1,9 +1,68 @@
-.time-widget {
+.time-button {
   padding: 0px 8px 0px 8px;
   border-radius: 50px;
   background-color: $surface;
+  transition: background-color 100ms; 
 }
 
-.time-text {
+.time-button:active {
+  background-color: $surface-variant;
+}
+
+.cal-popup {
+  padding: 10px;
+  border-radius: 18px;
+  background-color: $background;
+}
+
+.cal-popup-time-date-box {
+  padding: 5px 0;
+}
+
+.popup-time {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.popup-date {
+  color: $on-surface-variant;
   font-size: 12px;
+  font-weight: 400;
+}
+
+.cal-box {
+  padding: 8px;
+  border-radius: 12px;
+  border: 1px solid $on-surface-dim;
+  background-color: $surface;
+  
+}
+
+calendar {
+  color: $on-surface;
+  font-weight: 500;
+}
+
+calendar {
+  & > * {
+    padding: 3px 1px;
+  }
+}
+
+calendar.highlight {
+  color: $on-surface-variant;
+}
+
+calendar:selected {
+  color: $accent;
+  font-weight: bold;
+}
+
+calendar:indeterminate {
+  color: $on-surface-variant;
+
+}
+
+calendar.header {
+  color: $on-surface;
 }

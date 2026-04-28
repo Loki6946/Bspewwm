@@ -1,5 +1,9 @@
-(defpoll time-data :interval "10s" 
-        "date '+%A, %B %e, %H:%M'")
+(defpoll datetime
+  :interval "10s"
+  "date '+{\"time\":\"%H:%M\",\"date\":\"%A,  %B %e,  %Y\"}'"
+)
+
+(defvar cal-popup-open false)
 
 (defwidget time []
   (box 
@@ -8,11 +12,61 @@
     :hexpand true
     :orientation "h"
     (button 
-      :orientation "h"
       :class "time-button"
+      :orientation "h"
+      :onclick "scripts/cal-toggle.sh"
       (label
         :class "time-text"
-        :text {time-data}
+        :text {datetime.time}
+      )
+    )
+  )
+)
+
+(defwindow cal-popup
+  :monitor 0
+  :geometry (geometry
+    :x "-5px"
+    :y "36px"
+    :width "220px"
+    :anchor "top right")
+  :stacking "fg"
+  (cal-popup-widget)
+)
+
+(defwidget cal-popup-widget []
+  (revealer
+    :reveal cal-popup-open
+    :transition "slidedown"  
+    :duration "200ms"
+    (box
+      :orientation "v"
+      :halign "center"
+      :space-evenly false
+      (box
+        :class "cal-popup-time-date-box"
+        :orientation "v"
+        :halign "center"
+        (label
+          :class "popup-time"
+          :text {datetime.time}
+        )
+        (label
+          :class "popup-date"
+          :text {datetime.date}
+        )
+      )
+      (box
+        :class "cal-box"
+        :orientation "v"
+        (calendar
+          :class "calendar"
+          :show-details false
+          :show-heading true
+          :show-day-names true
+          :show-week-numbers false
+          :onclick "echo selected: {0}/{1}/{2}"
+        )
       )
     )
   )
