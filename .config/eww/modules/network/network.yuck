@@ -4,8 +4,7 @@
 )
 
 (defwidget network []
-  (box 
-    :class "network-widget"
+  (box
     :halign "center"
     :orientation "h"
     (button 

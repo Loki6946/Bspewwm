@@ -1,14 +1,11 @@
-.volume-widget {
-  border-radius: 20px 5px 5px 20px;
-  background-color: $surface;
-}
-
 .volume-button {
   padding: 0 6px 0 6px;
+  border-radius: 20px 5px 5px 20px;
+  background-color: $surface;
+  transition: background-color 100ms; 
 }
 
-.volume-button:hover {
-  border-radius: 20px 5px 5px 20px;
+.volume-button:active {
   background-color: $surface-variant;
 }
 
@@ -27,9 +24,10 @@
   min-width: 33px;
   border-radius: 50px;
   background-color: $surface;
+  transition: background-color 100ms;
 }
 
-.vol-popup-button:hover {
+.vol-popup-button:active {
   background-color: $surface-variant;
 }
 
@@ -52,7 +50,7 @@
 .vol-popup-slider highlight {
   border-radius: 50px;
   min-width: 33px;
-  background-color: $on-surface;
+  background-color: $accent;
 }
 
 .vol-popup-slider-icon {

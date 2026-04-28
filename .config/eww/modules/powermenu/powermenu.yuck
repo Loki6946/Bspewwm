@@ -6,7 +6,6 @@
 ; powermenu icon on bar
 (defwidget powermenu []
   (box 
-    :class "power-widget"
     :halign "center"
     :orientation "h"
     (button 

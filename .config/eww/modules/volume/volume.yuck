@@ -1,6 +1,6 @@
 (deflisten volume-data 
   :initial "0"
-  `scripts/volume.sh`
+  "scripts/volume.sh"
 )
 
 (defvar vol-popup-open false)
@@ -8,13 +8,12 @@
 ; volume icon on bar
 (defwidget volume []
   (box 
-    :class "volume-widget"
     :halign "center"
     :orientation "h"
     (button 
       :class "volume-button"
       :orientation "h"
-      :onclick `scripts/toggle-vol-popup.sh`
+      :onclick "scripts/vol-popup-toggle.sh"
       (label
         :class "volume-icon"
         :text {volume-data == "muted" ? "" : volume-data < 33 ? "" : volume-data < 50 ? "" : ""}
@@ -33,7 +32,8 @@
     :height "0px"
     :anchor "top right")   
   :stacking "fg"
-  (vol-popup-widget))
+  (vol-popup-widget)
+)
 
 ; volume popup content
 (defwidget vol-popup-widget []
@@ -53,8 +53,8 @@
         :onclick "pamixer -t" 
         (label
           :class "vol-popup-icon"
-          :xalign {volume-data == "muted" ? 0.45 : 0.54}
-          :yalign {volume-data == "muted" ? 0.5 : 0.35}
+          :xalign {volume-data == "muted" ? 0.45 : 0.5}
+          :yalign {volume-data == "muted" ? 0.5 : 0.5}
           :text {volume-data == "muted" ? "" : volume-data}
         )
       )
