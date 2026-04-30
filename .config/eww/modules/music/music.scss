@@ -34,3 +34,68 @@
 .music-btn:active {
   color: $accent;
 }
+
+.music-popup {
+  padding: 10px;
+  border-radius: 18px;
+  background-color: $background;
+}
+
+.music-popup-art {
+  min-width: 72px;
+  min-height: 72px;
+  border-radius: 12px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.music-popup-title {
+  color: $on-surface;
+  font-size: 14px;
+}
+
+.music-popup-artist {
+  color: $on-surface-variant;
+  font-size: 12px;
+  font-weight: 500;
+  padding-bottom: 5px;
+}
+
+.music-popup-player {
+  color: $on-surface-variant;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px;
+  border-radius: 50px;
+  background-color: $surface;
+}
+
+.music-popup-progress slider {
+  min-width: 0px;
+  min-height: 0px;
+}
+
+.music-popup-progress trough {
+  min-height: 3px;
+  border-radius: 50px;
+  margin: 10px 0 10px 0;
+  background-color: $surface;
+}
+
+.music-popup-progress highlight {
+  border-radius: 50px;
+  background-color: $accent-dim;
+}
+
+.music-popup-btn {
+  color: $on-surface;
+  font-family: "Material Icons Round";
+  font-size: 20px;
+}
+
+.music-popup-length {
+  color: $on-surface-variant;
+  font-size: 12px;
+  font-weight: 500;
+}
