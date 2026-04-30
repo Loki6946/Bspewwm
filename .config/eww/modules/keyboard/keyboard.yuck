@@ -1,0 +1,19 @@
+(deflisten keyboard-layout
+  :initial "us"
+  "scripts/get-kb-layout.sh"
+)
+
+(defwidget keyboard []
+  (box
+    :halign "center"
+    :orientation "h"
+    (button 
+      :class "keyboard-button"
+      :orientation "h"
+      (label
+        :class "keyboard-label"
+        :text {keyboard-layout}
+      )
+    )
+  )
+)
