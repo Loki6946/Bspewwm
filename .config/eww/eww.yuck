@@ -4,6 +4,7 @@
 (include "modules/network/network.yuck")
 (include "modules/powermenu/powermenu.yuck")
 (include "modules/music/music.yuck")
+(include "modules/keyboard/keyboard.yuck")
 
 (defwidget bar []
   (box 
@@ -28,6 +29,7 @@
       :space-evenly false 
       :halign "end"
       :spacing 5
+      (keyboard)
       (volume)
       (network)
       (time)
