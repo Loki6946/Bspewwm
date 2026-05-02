@@ -1,0 +1,16 @@
+(defwidget color-picker []
+  (box
+    :halign "center"
+    :orientation "h"
+    (button 
+      :class "color-picker-button"
+      :orientation "h"
+      :onclick "gpick -p -s -o | xclip -selection clipboard" 
+      (label
+        :class "color-picker-label"
+        :yalign 0.6
+        :text ""
+      )
+    )
+  )
+)
