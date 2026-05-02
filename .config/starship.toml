@@ -1,0 +1,143 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[](fg:#1A1C16)\
+$os\
+$username\
+[](bg:#2C3023 fg:#1A1C16)\
+$directory\
+[](fg:#2C3023 bg:#424834)\
+$git_branch\
+$git_status\
+[](fg:#424834 bg:#434639)\
+$c\
+$elixir\
+$elm\
+$golang\
+$gradle\
+$haskell\
+$java\
+$julia\
+$maven\
+$nodejs\
+$bun\
+$nim\
+$rust\
+$scala\
+[](fg:#434639 bg:#1E2712)\
+$docker_context\
+[](fg:#1E2712 bg:#CEE595)\
+$time\
+[ ](fg:#CEE595)\
+"""
+
+[username]
+show_always = true
+style_user = "bg:#1A1C16 fg:#E1E4D8"
+style_root = "bg:#1A1C16 fg:#E1E4D8"
+format = '[$user ]($style)'
+disabled = false
+
+[os]
+style = "bg:#1A1C16 fg:#E1E4D8"
+disabled = true
+
+[directory]
+style = "bg:#2C3023 fg:#E1E4D8"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:#424834 fg:#E1E4D8"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:#424834 fg:#CEE595"
+format = '[$all_status$ahead_behind ]($style)'
+
+[c]
+symbol = " "
+style = "bg:#434639 fg:#E1E4D8"
+format = '[ $symbol ($version) ]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:#1E2712 fg:#E1E4D8"
+format = '[ $symbol $context ]($style)'
+
+[elixir]
+symbol = " "
+style = "bg:#434639 fg:#E1E4D8"
+format = '[ $symbol ($version) ]($style)'
+
+[elm]
+symbol = " "
+style = "bg:#434639 fg:#E1E4D8"
+format = '[ $symbol ($version) ]($style)'
+
+[golang]
+symbol = " "
+style = "bg:#434639 fg:#E1E4D8"
+format = '[ $symbol ($version) ]($style)'
+
+[gradle]
+style = "bg:#434639 fg:#E1E4D8"
+format = '[ $symbol ($version) ]($style)'
+
+[haskell]
+symbol = " "
+style = "bg:#434639 fg:#E1E4D8"
+format = '[ $symbol ($version) ]($style)'
+
+[java]
+symbol = " "
+style = "bg:#434639 fg:#E1E4D8"
+format = '[ $symbol ($version) ]($style)'
+
+[julia]
+symbol = " "
+style = "bg:#434639 fg:#E1E4D8"
+format = '[ $symbol ($version) ]($style)'
+
+[maven]
+style = "bg:#434639 fg:#E1E4D8"
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:#434639 fg:#E1E4D8"
+format = '[ $symbol ($version) ]($style)'
+
+[bun]
+symbol = ""
+style = "bg:#434639 fg:#E1E4D8"
+format = '[ $symbol ($version) ]($style)'
+
+[nim]
+symbol = "󰆥 "
+style = "bg:#434639 fg:#E1E4D8"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#434639 fg:#E1E4D8"
+format = '[ $symbol ($version) ]($style)'
+
+[scala]
+symbol = " "
+style = "bg:#434639 fg:#E1E4D8"
+format = '[ $symbol ($version) ]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:#CEE595 fg:#1E2712"
+format = '[ 󰌪 $time ]($style)'
