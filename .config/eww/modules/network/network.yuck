@@ -1,7 +1,11 @@
 (deflisten network-data
-  :initial '{"essid": "lo", "signal": ""}'
+  :initial '{"essid": "lo", "signal": "", "radio": "enabled"}'
   `scripts/network.sh`
 )
+
+(defvar network-popup-open false)
+
+(defvar switch-on false)
 
 (defwidget network []
   (box
@@ -10,10 +14,102 @@
     (button 
       :class "network-button"
       :orientation "h"
+      :onclick "scripts/net-popup-toggle.sh"
       (label
         :class "network-label"
+        :yalign 0.6
         :text {network-data.essid == "lo" ? "" : network-data.signal == "" ? "" : network-data.signal < 25 ? "" : network-data.signal < 50 ? "" : network-data.signal < 75 ? "" : ""}
       )
     )
+  )
+)
+
+(defwidget switch [state onclick]
+  (button
+    :class {state ? "switch switch-on" : "switch switch-off"}
+    :valign "center"
+    :onclick onclick
+    (box
+      :class "switch-thumb"
+    )
+  )
+)
+
+(defwindow network-popup
+  :monitor 0
+  :geometry (geometry
+    :x "-5px"
+    :y "36px"
+    :width "220px"
+    :anchor "top right")
+  :stacking "fg"
+  (network-popup-widget))
+
+(defwidget network-popup-widget []
+  (revealer
+    :reveal network-popup-open
+    :transition "slidedown"  
+    :duration "200ms"
+    (box
+      :class "network-popup-box"
+      :orientation "v"
+      :space-evenly false
+      :spacing 10
+
+      ; header
+      (box
+        :orientation "h"
+        :halign "fill"
+        :space-evenly false
+        :valign "center"
+        (label
+          :class "network-popup-title"
+          :text "Wi-Fi"
+          :halign "start"
+          :hexpand true
+        )
+        (switch
+          :state {network-data.radio == "enabled"}
+          :onclick "scripts/net-radio-toggle.sh"
+        )
+      )
+
+      ; connection info
+      (box
+        :class "network-popup-info"
+        :orientation "h"
+        :space-evenly false
+        :spacing 10
+        :visible {network-data.radio == "enabled"}
+        (label
+          :class "network-popup-signal"
+          :text {network-data.essid == "lo" ? "" : network-data.signal == "" ? "" : network-data.signal < 25 ? "" : network-data.signal < 50 ? "" : network-data.signal < 75 ? "" : ""}
+        )
+        (box
+          :orientation "v"
+          :hexpand true
+          (label
+            :class "network-popup-ssid"
+            :text {network-data.essid == "lo" ? "Not connected" : network-data.essid}
+            :halign "start"
+            :truncate true
+            :limit-width 20
+          )
+          (label
+            :class "network-popup-status"
+            :text {network-data.essid == "lo" ? "" : "Connected"}
+            :halign "start"
+          )
+        )
+      )
+
+      ; wifi off message
+      (label
+        :class "network-popup-status-off"
+        :text "Wi-Fi is turned off"
+        :halign "center"
+        :visible {network-data.radio == "disabled"}
+      )
+    ) 
   )
 )
