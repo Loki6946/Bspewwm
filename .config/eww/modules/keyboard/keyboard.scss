@@ -1,6 +1,14 @@
 .keyboard-button {
-  padding: 0 5px 0 5px;
-  margin-right: 2px;
+  padding: 0 4px 0 4px;
+  margin-right: 4px;
   border-radius: 20px;
   background-color: $surface;
+}
+
+.keyboard-icon {
+  font-family: "Material Icons Round";
+}
+
+.keyboard-label {
+  font-weight: 500;
 }

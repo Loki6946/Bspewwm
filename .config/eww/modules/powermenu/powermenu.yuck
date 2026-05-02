@@ -14,6 +14,7 @@
       :onclick "scripts/pow-popup-toggle.sh"
       (label
         :class "power-label"
+        :yalign 0.6
         :text ""
       )
     )

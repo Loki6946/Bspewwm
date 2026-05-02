@@ -16,6 +16,7 @@
       :onclick "scripts/vol-popup-toggle.sh"
       (label
         :class "volume-icon"
+        :yalign 0.6
         :text {volume-data == "muted" ? "" : volume-data < 33 ? "" : volume-data < 50 ? "" : ""}
       )
     )

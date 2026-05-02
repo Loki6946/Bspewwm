@@ -1,6 +1,6 @@
 .time-button {
-  padding: 0px 8px 0px 8px;
-  margin-left: 2px;
+  padding: 0px 5px 0px 5px;
+  margin-left: 4px;
   border-radius: 50px;
   background-color: $surface;
   transition: background-color 100ms; 
@@ -17,7 +17,7 @@
 }
 
 .cal-popup-time-date-box {
-  padding: 5px 0;
+  padding: 8px 0;
 }
 
 .popup-time {
@@ -46,7 +46,7 @@ calendar {
 
 calendar {
   & > * {
-    padding: 3px 1px;
+    padding: 5px 2px;
   }
 }
 

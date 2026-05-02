@@ -1,6 +1,6 @@
 .volume-button {
-  padding: 0 6px 0 6px;
-  border-radius: 20px 5px 5px 20px;
+  padding: 0 6px 0 5px;
+  border-radius: 5px;
   background-color: $surface;
   transition: background-color 100ms; 
 }
@@ -11,7 +11,7 @@
 
 .volume-icon {
   font-family: "Material Icons Round";
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .vol-popup {

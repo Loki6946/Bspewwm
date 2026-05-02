@@ -10,9 +10,17 @@
     (button 
       :class "keyboard-button"
       :orientation "h"
-      (label
-        :class "keyboard-label"
-        :text {keyboard-layout}
+      (box
+        :orientation "h"
+        :spacing 2
+        (label
+          :class "keyboard-icon"
+          :text ""
+        )
+        (label
+          :class "keyboard-label"
+          :text {keyboard-layout}
+        )
       )
     )
   )
