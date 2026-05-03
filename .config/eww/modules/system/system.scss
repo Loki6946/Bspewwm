@@ -1,0 +1,52 @@
+.system-button {
+  padding: 0 10px 0 10px;
+  border-radius: 20px;
+  background-color: $surface;
+  transition: background-color 200ms linear; 
+}
+
+.system-button:active {
+  background-color: $surface-variant;
+}
+
+.sys-popup {
+  padding: 10px;
+  border-radius: 18px;
+  background-color: $background;
+}
+
+.sys-popup-header {
+  color: $on-surface;
+  padding: 5px 8px;
+  border-radius: 50px;
+  background-color: $surface;
+}
+
+.sys-popup-header-icon {
+  font-family: "Material Icons Round";
+  font-size: 15px;
+}
+
+.sys-popup-usage {
+  padding: 6px 0;
+  border-bottom: 2px solid $surface;
+}
+
+.sys-popup-system {
+  padding: 6px 0 0 0;
+}
+
+.sys-popup-info {
+  padding: 6px;
+  border-radius: 7px;
+  background-color: $surface;
+}
+
+.sys-popup-name {
+  color: $on-surface;
+}
+
+.sys-popup-value {
+  color: $on-surface-variant;
+  font-weight: 500;
+}

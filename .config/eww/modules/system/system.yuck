@@ -1,0 +1,186 @@
+(defpoll sysinfo
+  :interval "30s"
+  :initial '{"cpu_name": "", "gpu_name": "", "os": "", "kernel": "", "total_ram": "", "uptime": ""}'
+  `scripts/sysinfo.sh`)
+
+(defvar sys-popup-open false)
+
+(defwidget system []
+  (box
+    :halign "center"
+    :orientation "h"
+    (button 
+      :class "system-button"
+      :orientation "h"
+      :onclick "scripts/sys-popup-toggle.sh" 
+      (label
+        :class "system-label"
+        :yalign 0.6
+        :text "i"
+      )
+    )
+  )
+)
+
+(defwindow sys-popup
+  :monitor 0
+  :geometry (geometry
+    :x "5px"     
+    :y "36px"     
+    :width "250px"
+    :height "0px"
+    :anchor "top left")
+  :stacking "fg"
+  (sys-popup-widget)
+)
+
+(defwidget sys-popup-widget []
+  (revealer
+    :reveal sys-popup-open
+    :transition "slidedown"
+    :duration "250ms"
+    (box
+      :space-evenly false
+      :orientation "v"
+      (box
+        :class "sys-popup-header"
+        :halign "start"
+        :space-evenly false
+        :orientation "h"
+        :spacing 5;
+        (label
+          :class "sys-popup-header-icon"
+          :text ""
+        )
+        (label
+          :class "sys-popup-header-text"
+          :text "System"
+        )
+      )
+
+      (box
+        :class "sys-popup-usage"
+        :orientation "v"
+        :spacing 6
+        (box
+          :class "sys-popup-info"
+          :orientation "h"
+          (label
+            :class "sys-popup-name"
+            :halign "start"
+            :text "CPU"
+          )
+          (label
+            :class "sys-popup-value"
+            :halign "end"
+            :text "${round(EWW_CPU.avg, 0)}%"
+          )
+        )
+        (box
+          :class "sys-popup-info"
+          :orientation "h"
+          (label
+            :class "sys-popup-name"
+            :halign "start"
+            :text "Memory"
+          )
+          (label
+            :class "sys-popup-value"
+            :halign "end"
+            :text "${round(EWW_RAM.used_mem_perc, 0)}%"
+          )
+        )
+        (box
+          :class "sys-popup-info"
+          :orientation "h"
+          (label
+            :class "sys-popup-name"
+            :halign "start"
+            :text "Uptime"
+          )
+          (label
+            :class "sys-popup-value"
+            :halign "end"
+            :text {sysinfo.uptime}
+          )
+        )
+      )
+
+      (box
+        :class "sys-popup-system"
+        :orientation "v"
+        :spacing 6
+        (box
+          :class "sys-popup-info"
+          :orientation "v"
+          (label
+            :class "sys-popup-name"
+            :halign "start"
+            :text "CPU"
+          )
+          (label
+            :class "sys-popup-value"
+            :halign "start"
+            :text {sysinfo.cpu_name}
+          )
+        )
+        (box
+          :class "sys-popup-info"
+          :orientation "v"
+          (label
+            :class "sys-popup-name"
+            :halign "start"
+            :text "GPU"
+          )
+          (label
+            :class "sys-popup-value"
+            :halign "start"
+            :text {sysinfo.gpu_name}
+          )
+        )
+        (box
+          :class "sys-popup-info"
+          :orientation "v"
+          (label
+            :class "sys-popup-name"
+            :halign "start"
+            :text "Memory"
+          )
+          (label
+            :class "sys-popup-value"
+            :halign "start"
+            :text {sysinfo.total_ram}
+          )
+        )
+        (box
+          :class "sys-popup-info"
+          :orientation "v"
+          (label
+            :class "sys-popup-name"
+            :halign "start"
+            :text "OS"
+          )
+          (label
+            :class "sys-popup-value"
+            :halign "start"
+            :text {sysinfo.os}
+          )
+        )
+        (box
+          :class "sys-popup-info"
+          :orientation "v"
+          (label
+            :class "sys-popup-name"
+            :halign "start"
+            :text "Kernel"
+          )
+          (label
+            :class "sys-popup-value"
+            :halign "start"
+            :text {sysinfo.kernel}
+          )
+        )
+      )
+    )
+  )
+)
