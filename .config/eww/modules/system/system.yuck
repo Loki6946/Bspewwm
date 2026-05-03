@@ -1,14 +1,14 @@
 (defpoll sysinfo
   :interval "30s"
   :initial '{"cpu_name": "", "gpu_name": "", "os": "", "kernel": "", "total_ram": "", "uptime": ""}'
-  `scripts/sysinfo.sh`)
+  "scripts/sysinfo.sh")
 
 (defvar sys-popup-open false)
 
 (defwidget system []
   (box
-    :halign "center"
     :orientation "h"
+    :halign "center"
     (button 
       :class "system-button"
       :orientation "h"
@@ -40,13 +40,13 @@
     :transition "slidedown"
     :duration "250ms"
     (box
-      :space-evenly false
       :orientation "v"
+      :space-evenly false
       (box
         :class "sys-popup-header"
+        :orientation "h"
         :halign "start"
         :space-evenly false
-        :orientation "h"
         :spacing 5;
         (label
           :class "sys-popup-header-icon"

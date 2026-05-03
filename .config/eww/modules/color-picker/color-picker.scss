@@ -2,11 +2,11 @@
   padding: 0 5px 0 5px;
   border-radius: 20px 7px 7px 20px;
   background-color: $surface;
-  transition: background-color 100ms; 
-}
-
-.color-picker-button:active {
-  background-color: $surface-variant;
+  transition: background-color 200ms linear;
+  
+  &:active {
+    background-color: $surface-variant;
+  }
 }
 
 .color-picker-label {

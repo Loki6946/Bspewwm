@@ -2,11 +2,11 @@
   padding: 0 4px 0 4px;
   border-radius: 50px;
   background-color: $surface;
-  transition: background-color 0.1s; 
-}
+  transition: background-color 200ms linear;
 
-.power-button:active {
-  background-color: $surface-variant;
+  &:active {
+    background-color: $surface-variant;
+  }
 }
 
 .power-label {
@@ -24,14 +24,12 @@
   min-width: 70px;
   padding: 8px;
   border-radius: 15px;
-  border: 1px solid $on-surface-dim;
   background-color: $surface;
-  transition: border-color 0.25s, background-color 0.25s;
-}
+  transition: background-color 150ms linear;
 
-.pow-popup-button:hover {
-  border-color: $on-surface-variant;
-  background-color: $surface-variant;
+  &:hover {
+    background-color: $surface-variant;
+  }
 }
 
 .pow-popup-icon {
@@ -41,7 +39,7 @@
 
 .pow-popup-text {
   color: $on-surface-variant;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 10px;
 }
 
@@ -69,13 +67,12 @@
   color: $background;
   padding: 0 5px;
   border-radius: 15px;
-  border: 1px solid $accent-variant;
   background-color: $accent;
-  transition: border-color 0.25s, background-color 0.25s;
-}
-
-.pow-confirm-yes:hover {
-  background-color: $accent-dim;
+  transition: background-color 150ms linear;
+  
+  &:hover {
+    background-color: $accent-dim;
+  }
 }
 
 .pow-confirm-no {
@@ -83,11 +80,10 @@
   font-size: 12px;
   padding: 0 5px;
   border-radius: 15px;
-  border: 1px solid $surface-variant;
-  background-color: transparent;
-  transition: background-color 0.25s;
-}
-
-.pow-confirm-no:hover {
   background-color: $surface;
+  transition: background-color 150ms linear;
+
+  &:hover {
+    background-color: $surface-variant;
+  }
 }

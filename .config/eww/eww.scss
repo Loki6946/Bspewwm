@@ -7,6 +7,8 @@
 @import "modules/music/music.scss";
 @import "modules/keyboard/keyboard.scss";
 @import "modules/color-picker/color-picker.scss";
+@import "modules/system/system.scss";
+
 
 * {
   all: unset; // Unsets everything so you can style everything from scratch
@@ -16,10 +18,7 @@
 
 // Global Styles
 .bar {
-  background-color: $background;
   color: $on-surface;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px 10px;
+  background-color: $background;
 }

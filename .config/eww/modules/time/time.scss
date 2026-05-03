@@ -3,11 +3,11 @@
   margin-left: 4px;
   border-radius: 50px;
   background-color: $surface;
-  transition: background-color 100ms; 
-}
+  transition: background-color 200ms linear;
 
-.time-button:active {
-  background-color: $surface-variant;
+  &:active {
+    background-color: $surface-variant;
+  }
 }
 
 .cal-popup {
@@ -21,6 +21,7 @@
 }
 
 .popup-time {
+  color: $on-surface;
   font-size: 30px;
   font-weight: 600;
 }
@@ -28,15 +29,13 @@
 .popup-date {
   color: $on-surface-variant;
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .cal-box {
   padding: 8px;
   border-radius: 12px;
-  border: 1px solid $on-surface-dim;
   background-color: $surface;
-  
 }
 
 calendar {

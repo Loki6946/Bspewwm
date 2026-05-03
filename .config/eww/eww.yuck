@@ -6,6 +6,8 @@
 (include "modules/music/music.yuck")
 (include "modules/keyboard/keyboard.yuck")
 (include "modules/color-picker/color-picker.yuck")
+(include "modules/system/system.yuck")
+
 
 (defwidget bar []
   (box 
@@ -17,6 +19,7 @@
       :halign "start"
       :spacing 5
       (powermenu)
+      (system)
       (workspaces)
     )
     (box 

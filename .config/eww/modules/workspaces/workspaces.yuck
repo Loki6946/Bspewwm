@@ -1,16 +1,16 @@
 (deflisten ws-focused
   :initial "0"
-  `scripts/ws-focused.sh`)
+  "scripts/ws-focused.sh")
 
 (deflisten ws-occupied
-	`scripts/ws-occupied.sh`)
+	"scripts/ws-occupied.sh")
 
 (defwidget workspaces []
   (box 
     :class "workspaces"
     :orientation "h"
-    :space-evenly false
     :halign "start"
+    :space-evenly false
     :spacing 4
     (button 
       :orientation "h"

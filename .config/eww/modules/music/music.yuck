@@ -1,6 +1,6 @@
 (deflisten music-data
   :initial '{"name": "", "title": "", "artist": "", "artUrl": "", "status": "Stopped", "length": "", "lengthStr": ""}'
-  `scripts/music.sh`)
+  "scripts/music.sh")
 
 ; (defpoll music-length   
 ;   :interval "2s"
@@ -26,10 +26,10 @@
 
     ; album art
     (box
-      :class "music-art"  
+      :class "music-art"
+      :orientation "h"
       :style "background-image: url('${music-data.artUrl}');"
       :space-evenly false   
-      :orientation "h"
     )
 
     ; title + artist
@@ -37,9 +37,9 @@
       :onclick "scripts/music-popup-toggle.sh"
       (label
         :class "music-title"
-        :text `${music-data.title} - ${music-data.artist}`
         :limit-width 200
         :halign "start"
+        :text `${music-data.title} - ${music-data.artist}`
       )
     )
 
@@ -47,8 +47,8 @@
     (box
       :class "music-btn-box"
       :orientation "h"
-      :spacing 8
       :valign "center"
+      :spacing 8
       (button
         :class "music-btn"
         :onclick "playerctl previous"

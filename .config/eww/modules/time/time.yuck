@@ -8,9 +8,9 @@
 (defwidget time []
   (box 
     :class "time-widget"
+    :orientation "h"
     :halign "center"
     :hexpand true
-    :orientation "h"
     (button 
       :class "time-button"
       :orientation "h"
@@ -38,7 +38,7 @@
   (revealer
     :reveal cal-popup-open
     :transition "slidedown"  
-    :duration "200ms"
+    :duration "250ms"
     (box
       :orientation "v"
       :halign "center"

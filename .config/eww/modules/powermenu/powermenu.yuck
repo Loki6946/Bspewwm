@@ -6,8 +6,8 @@
 ; powermenu icon on bar
 (defwidget powermenu []
   (box 
-    :halign "center"
     :orientation "h"
+    :halign "center"
     (button 
       :class "power-button"
       :orientation "h"
@@ -39,7 +39,7 @@
   (revealer
     :reveal pow-popup-open
     :transition "slidedown" 
-    :duration "200ms"
+    :duration "250ms"
     (box
       :orientation "h"
       :space-evenly true
@@ -147,12 +147,12 @@
   (revealer
     :reveal pow-confirm-open
     :transition "slidedown"
-    :duration "200ms"
+    :duration "250ms"
     (box
-      :class "pow-confirm-box"
       :orientation "v"
-      :spacing 15
+      :class "pow-confirm-box"
       :halign "center"
+      :spacing 15
 
       ; message box
       (box

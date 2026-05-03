@@ -2,11 +2,11 @@
   padding: 0 10px 0 10px;
   border-radius: 20px;
   background-color: $surface;
-  transition: background-color 200ms linear; 
-}
+  transition: background-color 200ms linear;
 
-.system-button:active {
-  background-color: $surface-variant;
+  &:active {
+    background-color: $surface-variant;
+  }
 }
 
 .sys-popup {

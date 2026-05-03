@@ -2,11 +2,11 @@
   padding: 0 6px 0 5px;
   border-radius: 7px 20px 20px 7px;
   background-color: $surface;
-  transition: background-color 100ms;
-}
+  transition: background-color 200ms linear;
 
-.network-button:active {
-  background-color: $surface-variant;
+  &:active {
+    background-color: $surface-variant;
+  }
 }
 
 .network-label {
@@ -56,18 +56,21 @@
 }
 
 .network-popup-title {
+  color: $on-surface;
   padding: 3px 5px;
   border-radius: 50px;
   background-color: $surface
 }
 
 .network-popup-info {
+  color: $on-surface;
   padding: 8px;
   border-radius: 10px;
   background-color: $surface;
 }
 
 .network-popup-signal {
+  color: $on-surface;
   font-family: "Material Icons Round";
   font-size: 20px;
 }

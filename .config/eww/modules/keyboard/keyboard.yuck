@@ -5,8 +5,8 @@
 
 (defwidget keyboard []
   (box
-    :halign "center"
     :orientation "h"
+    :halign "center"
     (button 
       :class "keyboard-button"
       :orientation "h"

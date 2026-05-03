@@ -1,6 +1,6 @@
 (deflisten network-data
   :initial '{"essid": "lo", "signal": "", "radio": "enabled"}'
-  `scripts/network.sh`
+  "scripts/network.sh"
 )
 
 (defvar network-popup-open false)
@@ -9,11 +9,10 @@
 
 (defwidget network []
   (box
-    :halign "center"
     :orientation "h"
+    :halign "center"
     (button 
       :class "network-button"
-      :orientation "h"
       :onclick "scripts/net-popup-toggle.sh"
       (label
         :class "network-label"
@@ -49,7 +48,7 @@
   (revealer
     :reveal network-popup-open
     :transition "slidedown"  
-    :duration "200ms"
+    :duration "250ms"
     (box
       :class "network-popup-box"
       :orientation "v"
@@ -60,13 +59,13 @@
       (box
         :orientation "h"
         :halign "fill"
-        :space-evenly false
         :valign "center"
+        :space-evenly false
         (label
           :class "network-popup-title"
-          :text "Wi-Fi"
           :halign "start"
           :hexpand true
+          :text "Wi-Fi"
         )
         (switch
           :state {network-data.radio == "enabled"}

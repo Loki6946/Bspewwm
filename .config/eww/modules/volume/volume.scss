@@ -2,11 +2,11 @@
   padding: 0 6px 0 5px;
   border-radius: 5px;
   background-color: $surface;
-  transition: background-color 100ms; 
-}
+  transition: background-color 200ms linear;
 
-.volume-button:active {
-  background-color: $surface-variant;
+  &:active {
+    background-color: $surface-variant;
+  }
 }
 
 .volume-icon {
@@ -24,11 +24,11 @@
   min-width: 33px;
   border-radius: 50px;
   background-color: $surface;
-  transition: background-color 100ms;
-}
+  transition: background-color 200ms linear;
 
-.vol-popup-button:active {
-  background-color: $surface-variant;
+  &:active {
+    background-color: $surface-variant;
+  }
 }
 
 .vol-popup-icon {

@@ -1,7 +1,7 @@
 (defwidget color-picker []
   (box
-    :halign "center"
     :orientation "h"
+    :halign "center"
     (button 
       :class "color-picker-button"
       :orientation "h"

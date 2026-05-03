@@ -9,7 +9,7 @@
   min-width: 13px;
   border-radius: 50px;
   background-color: $on-surface-dim;
-  transition: 0.2s;
+  transition: min-width 300ms cubic-bezier(0.2, 0, 0, 1.0), background-color 150ms;
 
   &.active {
     min-width: 35px;
