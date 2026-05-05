@@ -1,6 +1,6 @@
 (defpoll datetime
   :interval "10s"
-  "date '+{\"time\":\"%H:%M\",\"date\":\"%A,  %B %e,  %Y\"}'"
+  "date '+{\"time\":\"%H:%M\",\"date\":\"%a, %B %e\"}'"
 )
 
 (defvar calendar-popup-open false)
@@ -43,16 +43,18 @@
       :halign "center"
       :space-evenly false
       (box
-        :class "calendar-popup-time-date-box"
-        :orientation "v"
-        :halign "center"
-        (label
-          :class "popup-time"
-          :text {datetime.time}
-        )
+        :class "calendar-popup-date-box"
+        :orientation "h"
+        :halign "fill"
         (label
           :class "popup-date"
+          :halign "start"
           :text {datetime.date}
+        )
+        (label
+          :class "popup-icon"
+          :halign "end"
+          :text ""
         )
       )
       (box

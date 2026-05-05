@@ -15,30 +15,30 @@
 }
 
 .calendar-popup {
-  padding: $spacing-sm;
   @include floating-window();
 }
 
-.calendar-popup-time-date-box {
-  padding: $spacing-sm 0;
-}
-
-.popup-time {
-  color: $on-surface;
-  font-size: 30px;
-  font-weight: 600;
+.calendar-popup-date-box {
+  padding: $spacing-md $spacing-md $spacing-sm $spacing-md;
+  border-bottom: 2px solid $surface;
 }
 
 .popup-date {
-  color: $on-surface-variant;
-  font-size: 12px;
+  color: $on-surface;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.popup-icon {
+  color: $on-surface;
+  font-family: "Material Icons Round";
+  font-size: 18px;
   font-weight: 500;
 }
 
 .calendar-box {
   padding: $spacing-sm $spacing-sm 0 $spacing-sm;
   border-radius: $radius-sm;
-  background-color: $surface;
 }
 
 calendar {
@@ -57,8 +57,7 @@ calendar.highlight {
 }
 
 calendar:selected {
-  color: $accent;
-  font-weight: 700;
+  color: $error;
 }
 
 calendar:indeterminate {
