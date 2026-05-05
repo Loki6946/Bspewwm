@@ -61,7 +61,7 @@
 }
 
 .power-confirm-btn {
-  color: $on-surface;
+  color: $accent-dim;
   font-size: 12px;
   min-width: 75px;
   padding: $spacing-sm 0;
@@ -71,14 +71,5 @@
 
   &:hover {
     background-color: $surface;
-  }
-}
-
-.power-confirm-btn.confirm {
-  color: $background;
-  background-color: $error;
-
-  &:hover {
-    background-color: $error-dim;
   }
 }

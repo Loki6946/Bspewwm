@@ -180,13 +180,13 @@
         :space-evenly false
         :spacing 5
         (button
-          :class "power-confirm-btn cancel"
+          :class "power-confirm-btn"
           :halign "end"
           :onclick "scripts/power-cancel.sh"
           "Cancel"
         )
         (button
-          :class "power-confirm-btn confirm"
+          :class "power-confirm-btn"
           :halign "end"
           :onclick "scripts/power-execute.sh"
           "${power-pending-name}"

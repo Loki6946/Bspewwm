@@ -11,7 +11,7 @@
   animation-iteration-count: 1;
 }
 
-@mixin floating-window($radius: $radius-lg) {
+@mixin floating-window($radius: $radius-xl) {
   background-color: $background;
   border: 1px solid $surface;
   border-radius: $radius;

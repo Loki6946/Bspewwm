@@ -47,11 +47,11 @@
 }
 
 .sysinfo-popup-info.start {
-  border-radius: $radius-sm $radius-sm $radius-xs $radius-xs;
+  border-radius: $radius-md $radius-md $radius-xs $radius-xs;
 }
 
 .sysinfo-popup-info.end {
-  border-radius: $radius-xs $radius-xs $radius-sm $radius-sm;
+  border-radius: $radius-xs $radius-xs $radius-md $radius-md;
 }
 
 .sysinfo-popup-name {
