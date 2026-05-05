@@ -1,0 +1,16 @@
+(defwidget search []
+  (box
+    :orientation "h"
+    :halign "center"
+    (button 
+      :class "search-trigger"
+      :orientation "h"
+      :halign "center"
+      :onclick "vicinae toggle" 
+      (label
+        :class "search-trigger-icon"
+        :text ""
+      )
+    )
+  )
+)

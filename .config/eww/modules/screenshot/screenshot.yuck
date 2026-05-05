@@ -1,0 +1,88 @@
+(defvar screenshot-popup-open false)
+
+(defvar screenshot-delay 0)
+
+(defwidget screenshot []
+  (box
+    :orientation "h"
+    :halign "center"
+    (button 
+      :class "screenshot-trigger"
+      :orientation "h"
+      :halign "center"
+      :onclick "scripts/screenshot-popup-toggle.sh" 
+      (label
+        :class "screenshot-trigger-icon"
+        :text ""
+      )
+    )
+  )
+)
+
+(defwindow screenshot-popup
+  :monitor 0
+  :geometry (geometry
+    :x "0px"     
+    :y "-36px"     
+    :width "100px"
+    :height "0px"
+    :anchor "bottom center")
+  :stacking "fg"
+  (screenshot-popup-widget)
+)
+
+(defwidget screenshot-popup-widget []
+  (revealer
+    :reveal screenshot-popup-open
+    :transition "slidedown" 
+    :duration "250ms"
+    (box
+      :orientation "h"
+      :space-evenly false
+      :spacing 5
+      (box
+        :class "screenshot-popup-background"
+        :orientation "h"
+        :space-evenly true
+        :spacing 5
+        (button
+          :class "screenshot-popup-action-btn"
+          :onclick "gnome-screenshot -d ${screenshot-delay} & scripts/screenshot-popup-toggle.sh"
+          (label
+            :class "screenshot-popup-action-icon"
+            :text ""
+          )
+        )
+        (button
+          :class "screenshot-popup-action-btn"
+          :onclick "gnome-screenshot -d ${screenshot-delay} -a & scripts/screenshot-popup-toggle.sh"
+          (label
+            :class "screenshot-popup-action-icon"
+            :text ""
+          )
+        )
+        (button
+          :class "screenshot-popup-action-btn"
+          :onclick "scripts/screenshot-cycle-delay.sh"
+          (label
+            :class {screenshot-delay == 0 ? "screenshot-popup-action-icon" : "screenshot-popup-action-text"}
+            :text {screenshot-delay == 0 ? "" : "${screenshot-delay}s"}
+          )
+        )
+      )
+      (box
+        :class "screenshot-popup-background-alt"
+        :valign "center"
+        :space-evenly false
+        (button
+          :class "screenshot-popup-action-btn-alt"
+          :onclick "scripts/screenshot-popup-toggle.sh"
+          (label
+            :class "screenshot-popup-action-icon-alt"
+            :text ""
+          )
+        )
+      )
+    )
+  )
+)

@@ -5,31 +5,32 @@
 
 (defvar network-popup-open false)
 
-(defvar switch-on false)
+(defvar network-radio-optimistic false)
 
 (defwidget network []
   (box
     :orientation "h"
     :halign "center"
     (button 
-      :class "network-button"
-      :onclick "scripts/net-popup-toggle.sh"
+      :class "network-trigger"
+      :halign "center"
+      :onclick "scripts/network-popup-toggle.sh"
       (label
-        :class "network-label"
-        :yalign 0.6
+        :class "network-trigger-icon"
         :text {network-data.essid == "lo" ? "" : network-data.signal == "" ? "" : network-data.signal < 25 ? "" : network-data.signal < 50 ? "" : network-data.signal < 75 ? "" : ""}
       )
     )
   )
 )
 
-(defwidget switch [state onclick]
-  (button
-    :class {state ? "switch switch-on" : "switch switch-off"}
-    :valign "center"
-    :onclick onclick
+(defwidget switch [onclick]
+  (eventbox
+    :cursor "pointer"
+    :onclick "${onclick} & eww update network-radio-optimistic=${!network-radio-optimistic}"
     (box
-      :class "switch-thumb"
+      :class {network-radio-optimistic ? "switch switch-on" : "switch switch-off"}
+      :valign "center"
+      (box :class "switch-thumb")
     )
   )
 )
@@ -53,7 +54,7 @@
       :class "network-popup-box"
       :orientation "v"
       :space-evenly false
-      :spacing 10
+      :spacing 15
 
       ; header
       (box
@@ -69,7 +70,7 @@
         )
         (switch
           :state {network-data.radio == "enabled"}
-          :onclick "scripts/net-radio-toggle.sh"
+          :onclick "scripts/network-radio-toggle.sh"
         )
       )
 

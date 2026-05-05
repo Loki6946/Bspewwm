@@ -1,0 +1,17 @@
+.keyboard-trigger {
+  padding: 0 $spacing-xs 0 $spacing-xs;
+  margin-right: $spacing-xs;
+  border-radius: $radius-full;
+  background-color: $surface;
+}
+
+.keyboard-trigger-icon {
+  font-family: "Material Icons Round";
+  font-size: $bar-icon-size;
+  font-weight: $bar-icon-weight;
+}
+
+.keyboard-trigger-text {
+  font-size: $bar-text-size;
+  font-weight: $bar-text-weight;
+}

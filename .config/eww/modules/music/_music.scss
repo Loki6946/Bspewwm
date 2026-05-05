@@ -1,34 +1,35 @@
 .music-widget {
   padding: 0 3px 0 0px;
-  border-radius: 50px;
+  border-radius: $radius-full;
   background-color: $surface;
 }
 
 .music-art {
   min-width: 24px;
-  border-radius: 50px;
+  border-radius: $radius-full;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
 
 .music-title {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: $bar-text-size;
+  font-weight: $bar-text-weight;
   color: $on-surface;
 }
 
 .music-btn-box {
-  padding: 2px;
-  border-radius: 50px;
+  padding: 3px;
+  border-radius: $radius-full;
   background-color: $surface-variant;
 }
 
 .music-btn {
-  font-size: 14px;
-  font-family: "Material Icons Round";
   color: $on-surface;
-  border-radius: 50px;
+  font-family: "Material Icons Round";
+  font-size: $bar-icon-size;
+  font-weight: $bar-icon-weight;
+  border-radius: $radius-full;
   transition: color 100ms linear;
 
   &:active {

@@ -1,46 +1,32 @@
-(deflisten ws-focused
+(deflisten workspace-focused
   :initial "0"
-  "scripts/ws-focused.sh")
+  "scripts/workspace-focused.sh")
 
-(deflisten ws-occupied
-	"scripts/ws-occupied.sh")
+(deflisten workspace-occupied
+	"scripts/workspace-occupied.sh")
+
+(defwidget workspace-item [id]
+  (button 
+    :orientation "h"
+    :class {workspace-focused == id ? "workspace-item active" : workspace-occupied =~ "\\b${id}\\b" ? "workspace-item occupied" : "workspace-item"}
+	  :onclick "bspwm-slidefx -w ${id}" 
+  )
+)
 
 (defwidget workspaces []
-  (box 
-    :class "workspaces"
-    :orientation "h"
-    :halign "start"
-    :space-evenly false
-    :spacing 4
-    (button 
+  (eventbox
+    :onscroll "[ '{}' = 'up' ] && bspwm-slidefx -w prev || bspwm-slidefx -w next"
+    (box 
+      :class "workspaces"
       :orientation "h"
-      :class "workspace-item ${ws-focused == "1" ? "active" :
-	    ws-occupied =~ "\\b1\\b" ? "occupied" : ""}"
-	    :onclick "bspwm-slidefx -w 1" 
-    )
-    (button 
-      :orientation "h"
-	    :class "workspace-item ${ws-focused == "2" ? "active" :
-	    ws-occupied =~ "\\b2\\b" ? "occupied" : ""}"	
-	    :onclick "bspwm-slidefx -w 2" 
-    ) 
-    (button 
-      :orientation "h"
-	    :class "workspace-item ${ws-focused == "3" ? "active" :
-	    ws-occupied =~ "\\b3\\b" ? "occupied" : ""}"
-	    :onclick "bspwm-slidefx -w 3" 
-    )
-    (button 
-      :orientation "h"
-	    :class "workspace-item ${ws-focused == "4" ? "active" :
-	    ws-occupied =~ "\\b4\\b" ? "occupied" : ""}"
-	    :onclick "bspwm-slidefx -w 4" 
-    )
-    (button 
-      :orientation "h"
-	    :class "workspace-item ${ws-focused == "5" ? "active" :
-	    ws-occupied =~ "\\b5\\b" ? "occupied" : ""}"
-	    :onclick "bspwm-slidefx -w 5" 
+      :halign "start"
+      :space-evenly false
+      :spacing 4
+      (workspace-item :id "1")
+      (workspace-item :id "2")
+      (workspace-item :id "3")
+      (workspace-item :id "4")
+      (workspace-item :id "5")
     )
   )
 )

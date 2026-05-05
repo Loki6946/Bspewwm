@@ -3,12 +3,12 @@
     :orientation "h"
     :halign "center"
     (button 
-      :class "color-picker-button"
+      :class "color-picker-trigger"
       :orientation "h"
+      :halign "center"
       :onclick "gpick -p -s -o | xclip -selection clipboard" 
       (label
-        :class "color-picker-label"
-        :yalign 0.6
+        :class "color-picker-trigger-icon"
         :text ""
       )
     )

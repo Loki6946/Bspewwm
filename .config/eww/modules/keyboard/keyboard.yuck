@@ -1,6 +1,6 @@
 (deflisten keyboard-layout
   :initial "us"
-  "scripts/get-kb-layout.sh"
+  "scripts/get-keyboard-layout.sh"
 )
 
 (defwidget keyboard []
@@ -8,17 +8,17 @@
     :orientation "h"
     :halign "center"
     (button 
-      :class "keyboard-button"
+      :class "keyboard-trigger"
       :orientation "h"
       (box
         :orientation "h"
         :spacing 2
         (label
-          :class "keyboard-icon"
+          :class "keyboard-trigger-icon"
           :text ""
         )
         (label
-          :class "keyboard-label"
+          :class "keyboard-trigger-text"
           :text {keyboard-layout}
         )
       )

@@ -1,0 +1,71 @@
+.time-trigger {
+  padding: 0px $spacing-sm 0px $spacing-sm;
+  margin-left: $spacing-xs;
+  border-radius: $radius-full;
+  background-color: $surface;
+
+  &:active {
+    @include ripple-animation()
+  }
+}
+
+.time-trigger-text {
+  font-size: $bar-text-size;
+  font-weight: $bar-text-weight;
+}
+
+.calendar-popup {
+  padding: $spacing-sm;
+  @include floating-window();
+}
+
+.calendar-popup-time-date-box {
+  padding: $spacing-sm 0;
+}
+
+.popup-time {
+  color: $on-surface;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.popup-date {
+  color: $on-surface-variant;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.calendar-box {
+  padding: $spacing-sm $spacing-sm 0 $spacing-sm;
+  border-radius: $radius-sm;
+  background-color: $surface;
+}
+
+calendar {
+  color: $on-surface;
+  font-weight: 500;
+}
+
+calendar {
+  & > * {
+    padding: $spacing-sm $spacing-xs;
+  }
+}
+
+calendar.highlight {
+  color: $on-surface-variant;
+}
+
+calendar:selected {
+  color: $accent;
+  font-weight: 700;
+}
+
+calendar:indeterminate {
+  color: transparent;
+
+}
+
+calendar.header {
+  color: $on-surface;
+}

@@ -1,0 +1,64 @@
+.sysinfo-trigger {
+  min-width: 22px;
+  min-height: 22px;
+  border-radius: $radius-full;
+  background-color: $surface;
+
+  &:active {
+    @include ripple-animation()
+  }
+}
+
+.sysinfo-trig {
+  font-size: $bar-icon-size;
+  font-weight: $bar-icon-weight;
+}
+
+.sysinfo-popup {
+  padding: $spacing-sm;
+  @include floating-window();
+}
+
+.sysinfo-popup-header {
+  color: $on-surface;
+  padding: $spacing-sm;
+  border-radius: $radius-full;
+  background-color: $surface;
+}
+
+.sysinfo-popup-header-text {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.sysinfo-popup-usage {
+  padding: $spacing-xs 0;
+  border-bottom: 2px solid $surface;
+}
+
+.sysinfo-popup-system {
+  padding: $spacing-xs 0 0 0;
+}
+
+.sysinfo-popup-info {
+  padding: $spacing-sm;
+  border-radius: $radius-xs;
+  background-color: $surface;
+}
+
+.sysinfo-popup-info.start {
+  border-radius: $radius-sm $radius-sm $radius-xs $radius-xs;
+}
+
+.sysinfo-popup-info.end {
+  border-radius: $radius-xs $radius-xs $radius-sm $radius-sm;
+}
+
+.sysinfo-popup-name {
+  color: $on-surface;
+}
+
+.sysinfo-popup-value {
+  color: $on-surface-variant;
+  font-weight: 500;
+}

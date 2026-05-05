@@ -1,4 +1,6 @@
 @import "./color.scss";
+@import "./variables";
+@import "./mixins";
 @import "modules/workspaces/workspaces.scss";
 @import "modules/time/time.scss";
 @import "modules/volume/volume.scss";
@@ -7,12 +9,15 @@
 @import "modules/music/music.scss";
 @import "modules/keyboard/keyboard.scss";
 @import "modules/color-picker/color-picker.scss";
-@import "modules/system/system.scss";
+@import "modules/sysinfo/sysinfo.scss";
+@import "modules/search/search.scss";
+@import "modules/screenshot/screenshot.scss";
 
 
 * {
   all: unset; // Unsets everything so you can style everything from scratch
   font-family: "Roboto";
+  font-size: 12px;
   font-weight: bold;
 }
 

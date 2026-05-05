@@ -1,0 +1,57 @@
+.volume-trigger {
+  min-width: 22px;
+  border-radius: $radius-xs;
+  background-color: $surface;
+
+  &:active {
+    @include ripple-animation()
+  }
+}
+
+.volume-trigger-icon {
+  font-family: "Material Icons Round";
+  font-size: $bar-icon-size;
+  font-weight: $bar-icon-weight;
+}
+
+.volume-popup {
+  padding: $spacing-xs;
+  @include floating-window($radius-full);
+}
+
+.volume-popup-button {
+  min-width: 32px;
+  border-radius: $radius-full;
+  background-color: $surface;
+
+  &:active {
+    @include ripple-animation()
+  }
+}
+
+.volume-popup-icon {
+  font-size: 15px;
+}
+
+.volume-popup-slider slider {
+  min-width: 0px;
+  min-height: 0px;
+}
+
+.volume-popup-slider trough {
+  border-radius: $radius-full;
+  min-height: 30px;
+  background-color: $surface;
+}
+
+.volume-popup-slider highlight {
+  border-radius: $radius-full;
+  min-width: 33px;
+  background-color: $accent;
+}
+
+.volume-popup-slider-icon {
+  color: $background;
+  font-family: "Material Icons Round";
+  font-size: 17px;
+}

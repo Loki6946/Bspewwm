@@ -1,0 +1,60 @@
+.screenshot-trigger {
+  min-width: 22px;
+  background-color: $surface;
+  
+  &:active {
+    @include ripple-animation()
+  }
+}
+
+.screenshot-trigger-icon {
+  font-family: "Material Icons Round";
+  font-size: $bar-icon-size;
+  font-weight: $bar-icon-weight;
+}
+
+.screenshot-popup {
+  background-color: transparent;
+}
+
+.screenshot-popup-background {
+  padding: $spacing-sm;
+  @include floating-window($radius-full);
+}
+
+.screenshot-popup-action-btn {
+  padding: $spacing-md;
+  border-radius: $radius-full;
+  background-color: transparent;
+  transition: background-color 150ms linear;
+
+  &:hover {
+    background-color: $surface;
+  }
+}
+
+.screenshot-popup-action-icon {
+  font-family: "Material Icons Round";
+  font-size: 16px;
+}
+
+.screenshot-popup-action-text {
+  font-size: 12px;
+}
+
+.screenshot-popup-action-btn-alt {
+  padding: $spacing-lg;
+  border-radius: $radius-md;
+  background-color: $error;
+  transition: background-color 150ms linear;
+
+  &:hover {
+    background-color: $error-dim;
+  }
+}
+
+.screenshot-popup-action-icon-alt {
+  color: $on-error;
+  font-family: "Material Icons Round";
+  font-size: 16px;
+}

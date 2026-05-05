@@ -3,7 +3,7 @@
   "scripts/volume.sh"
 )
 
-(defvar vol-popup-open false)
+(defvar volume-popup-open false)
 
 ; volume icon on bar
 (defwidget volume []
@@ -11,12 +11,11 @@
     :orientation "h"
     :halign "center"
     (button 
-      :class "volume-button"
+      :class "volume-trigger"
       :orientation "h"
-      :onclick "scripts/vol-popup-toggle.sh"
+      :onclick "scripts/volume-popup-toggle.sh"
       (label
-        :class "volume-icon"
-        :yalign 0.6
+        :class "volume-trigger-icon"
         :text {volume-data == "muted" ? "" : volume-data < 33 ? "" : volume-data < 50 ? "" : ""}
       )
     )
@@ -24,7 +23,7 @@
 )
 
 ; volume popup window
-(defwindow vol-popup
+(defwindow volume-popup
   :monitor 0
   :geometry (geometry
     :x "-5px"      
@@ -33,13 +32,13 @@
     :height "0px"
     :anchor "top right")   
   :stacking "fg"
-  (vol-popup-widget)
+  (volume-popup-widget)
 )
 
 ; volume popup content
-(defwidget vol-popup-widget []
+(defwidget volume-popup-widget []
   (revealer
-    :reveal vol-popup-open
+    :reveal volume-popup-open
     :transition "slidedown"  
     :duration "250ms"
 
@@ -50,11 +49,12 @@
       :halign "center"
       :spacing 10
       (button
-        :class "vol-popup-button"
+        :class "volume-popup-button"
+        :halign "center"
         :onclick "pamixer -t" 
         (label
-          :class "vol-popup-icon"
-          :xalign {volume-data == "muted" ? 0.45 : 0.5}
+          :class "volume-popup-icon"
+          :xalign {volume-data == "muted" ? 0.5 : 0.5}
           :yalign {volume-data == "muted" ? 0.5 : 0.5}
           :text {volume-data == "muted" ? "" : volume-data}
         )
@@ -65,7 +65,7 @@
         :halign "start"
         :hexpand true
         (scale
-          :class "vol-popup-slider"
+          :class "volume-popup-slider"
           :orientation "h"
           :width 150
           :min 0
@@ -75,7 +75,7 @@
           :onchange "pamixer --set-volume {}"
         )
         (label
-          :class "vol-popup-slider-icon"
+          :class "volume-popup-slider-icon"
           :xalign 0.06
           :text ""
         )

@@ -1,0 +1,15 @@
+.search-trigger {
+  min-width: 22px;
+  border-radius: $radius-2xl 0 0 $radius-2xl;
+  background-color: $surface;
+  
+  &:active {
+    @include ripple-animation()
+  }
+}
+
+.search-trigger-icon {
+  font-family: "Material Icons Round";
+  font-size: $bar-icon-size;
+  font-weight: $bar-icon-weight;
+}

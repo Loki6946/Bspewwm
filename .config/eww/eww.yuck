@@ -6,7 +6,9 @@
 (include "modules/music/music.yuck")
 (include "modules/keyboard/keyboard.yuck")
 (include "modules/color-picker/color-picker.yuck")
-(include "modules/system/system.yuck")
+(include "modules/sysinfo/sysinfo.yuck")
+(include "modules/search/search.yuck")
+(include "modules/screenshot/screenshot.yuck")
 
 
 (defwidget bar []
@@ -19,7 +21,7 @@
       :halign "start"
       :spacing 5
       (powermenu)
-      (system)
+      (sysinfo)
       (workspaces)
     )
     (box 
@@ -34,7 +36,12 @@
       :halign "end"
       :spacing 3
       (keyboard)
-      (color-picker)
+      (box
+        :orientation "h"
+        (search)
+        (screenshot)
+        (color-picker)
+      )
       (volume)
       (network)
       (time)
@@ -48,6 +55,7 @@
   :geometry (geometry :x "0%"
                       :y "0%"
                       :width "100%"
+                      :height "4.2%"
                       :anchor "top center")
   :stacking "bg"
   :reserve (struts :side "top" :distance "4%")

@@ -1,0 +1,15 @@
+.color-picker-trigger {
+  min-width: 22px;
+  border-radius: 0 $radius-xs $radius-xs 0;
+  background-color: $surface;
+  
+  &:active {
+    @include ripple-animation()
+  }
+}
+
+.color-picker-trigger-icon {
+  font-family: "Material Icons Round";
+  font-size: $bar-icon-size;
+  font-weight: $bar-icon-weight;
+}
