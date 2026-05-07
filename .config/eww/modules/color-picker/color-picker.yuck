@@ -1,3 +1,6 @@
+(defvar color-picker-popup-open false)
+(defvar color-picker-value "#000000")
+
 (defwidget color-picker []
   (box
     :orientation "h"
@@ -6,10 +9,51 @@
       :class "color-picker-trigger"
       :orientation "h"
       :halign "center"
-      :onclick "gpick -p -s -o | xclip -selection clipboard" 
+      :onclick "scripts/color-picker.sh" 
       (label
         :class "color-picker-trigger-icon"
         :text ""
+      )
+    )
+  )
+)
+
+(defwindow color-picker-popup
+  :monitor 0
+  :geometry (geometry
+    :x "0px"
+    :y "-36px"
+    :width "0px"
+    :height "0px"
+    :anchor "bottom center")
+  :stacking "fg"
+  (color-picker-popup-widget))
+
+(defwidget color-picker-popup-widget []
+  (box
+    :orientation "h"
+    :space-evenly false
+    :spacing 20
+    (box
+      :orientation "h"
+      :space-evenly false
+      :spacing 8
+      (box
+        :class "color-picker-preview"
+        :style "background-color: ${color-picker-value};"
+      )
+      (label
+        :class "color-picker-text"
+        :text '"${color-picker-value}" Copied to clipboard'
+      )
+    )
+    (button
+      :class "color-picker-close-btn"
+      :halign "end"
+      :onclick "scripts/color-picker-popup-close.sh"
+      (label
+        :class "color-picker-close-text"
+        :text "Exit"
       )
     )
   )

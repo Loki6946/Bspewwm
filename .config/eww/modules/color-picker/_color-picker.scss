@@ -9,7 +9,40 @@
 }
 
 .color-picker-trigger-icon {
-  font-family: "Material Icons Round";
+  font-family: $font-icon;
   font-size: $bar-icon-size;
   font-weight: $bar-icon-weight;
+}
+
+.color-picker-popup {
+  @include floating-window($radius-xs);
+  padding: $spacing-md;
+}
+
+.color-picker-preview {
+  min-width: 22px;
+  min-height: 22px;
+  border-radius: $radius-full;
+}
+
+.color-picker-text {
+  font-size: $font-size-sm;
+  color: $on-surface;
+  font-weight: $font-weight-medium;
+}
+
+.color-picker-close-btn {
+  padding: 0 $spacing-sm;
+  border-radius: $radius-full;
+  transition: background-color 150ms linear;
+
+  &:hover {
+    background-color: $surface;
+  }
+}
+
+.color-picker-close-text {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $accent;
 }
