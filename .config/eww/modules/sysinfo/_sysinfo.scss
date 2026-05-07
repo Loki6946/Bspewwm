@@ -27,8 +27,8 @@
 }
 
 .sysinfo-popup-header-text {
-  font-size: 12px;
-  font-weight: 700;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
 }
 
 .sysinfo-popup-usage {
@@ -56,9 +56,12 @@
 
 .sysinfo-popup-name {
   color: $on-surface;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
 }
 
 .sysinfo-popup-value {
   color: $on-surface-variant;
-  font-weight: 500;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
 }

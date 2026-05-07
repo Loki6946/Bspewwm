@@ -25,15 +25,15 @@
 
 .popup-date {
   color: $on-surface;
-  font-size: 18px;
-  font-weight: 500;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
 }
 
 .popup-icon {
-  color: $on-surface;
-  font-family: "Material Icons Round";
-  font-size: 18px;
-  font-weight: 500;
+  color: $on-surface-variant;
+  font-family: $font-icon;
+  font-size: $icon-size-md;
+  font-weight: $font-weight-medium;
 }
 
 .calendar-box {
@@ -43,7 +43,7 @@
 
 calendar {
   color: $on-surface;
-  font-weight: 500;
+  font-weight: $font-weight-medium;
 }
 
 calendar {

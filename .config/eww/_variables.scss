@@ -4,6 +4,29 @@ $bar-text-weight: 500;
 $bar-icon-size: 14px;
 $bar-icon-weight: 500;
 
+// Font families
+$font-text: "Roboto";
+$font-icon: "Material Icons Round";
+
+// Font sizes — for popups, panels, widgets
+$font-size-xs: 10px;   // secondary labels, captions
+$font-size-sm: 12px;   // small text, descriptions
+$font-size-md: 14px;   // body text, default
+$font-size-lg: 16px;   // emphasized body
+$font-size-xl: 20px;   // titles
+$font-size-2xl: 24px;  // large titles
+
+// Icon sizes — for popups, panels, widgets
+$icon-size-sm: 14px;
+$icon-size-md: 18px;
+$icon-size-lg: 22px;
+$icon-size-xl: 28px;
+
+// Font weights
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
 // Corner radius
 $radius-xs: 4px;
 $radius-sm: 8px;

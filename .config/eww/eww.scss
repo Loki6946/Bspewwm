@@ -16,9 +16,8 @@
 
 * {
   all: unset; // Unsets everything so you can style everything from scratch
-  font-family: "Roboto";
-  font-size: 12px;
-  font-weight: bold;
+  font-family: $font-text;
+  font-size: $font-size-sm;
 }
 
 // Global Styles

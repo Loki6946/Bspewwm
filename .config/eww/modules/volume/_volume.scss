@@ -9,7 +9,7 @@
 }
 
 .volume-trigger-icon {
-  font-family: "Material Icons Round";
+  font-family: $font-icon;
   font-size: $bar-icon-size;
   font-weight: $bar-icon-weight;
 }
@@ -20,7 +20,7 @@
 }
 
 .volume-popup-button {
-  min-width: 32px;
+  min-width: 30px;
   border-radius: $radius-full;
   background-color: $surface;
 
@@ -30,7 +30,8 @@
 }
 
 .volume-popup-icon {
-  font-size: 15px;
+  font-size: $icon-size-sm;
+  font-weight: $font-weight-medium;
 }
 
 .volume-popup-slider slider {
@@ -46,12 +47,12 @@
 
 .volume-popup-slider highlight {
   border-radius: $radius-full;
-  min-width: 33px;
+  min-width: 32px;
   background-color: $accent;
 }
 
 .volume-popup-slider-icon {
   color: $background;
-  font-family: "Material Icons Round";
-  font-size: 17px;
+  font-family: $font-icon;
+  font-size: $icon-size-md;
 }

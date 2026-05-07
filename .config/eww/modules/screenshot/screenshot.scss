@@ -8,7 +8,7 @@
 }
 
 .screenshot-trigger-icon {
-  font-family: "Material Icons Round";
+  font-family: $font-icon;
   font-size: $bar-icon-size;
   font-weight: $bar-icon-weight;
 }
@@ -34,12 +34,14 @@
 }
 
 .screenshot-popup-action-icon {
-  font-family: "Material Icons Round";
-  font-size: 16px;
+  font-family: $font-icon;
+  font-size: $icon-size-md;
+  font-weight: $font-weight-medium;
 }
 
 .screenshot-popup-action-text {
-  font-size: 12px;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
 }
 
 .screenshot-popup-action-btn-alt {
@@ -55,6 +57,7 @@
 
 .screenshot-popup-action-icon-alt {
   color: $on-error;
-  font-family: "Material Icons Round";
-  font-size: 16px;
+  font-family: $font-icon;
+  font-size: $icon-size-md;
+  font-weight: $font-weight-medium;
 }

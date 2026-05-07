@@ -26,11 +26,11 @@
 
 .music-btn {
   color: $on-surface;
-  font-family: "Material Icons Round";
+  font-family: $font-icon;
   font-size: $bar-icon-size;
   font-weight: $bar-icon-weight;
   border-radius: $radius-full;
-  transition: color 100ms linear;
+  transition: color 150ms linear;
 
   &:active {
     color: $on-surface-variant;
