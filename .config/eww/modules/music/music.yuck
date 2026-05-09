@@ -55,7 +55,7 @@
         ""
       )
       (button
-        :class "music-btn"
+        :class "music-btn play"
         :onclick "playerctl play-pause"
         {music-data.status == "Playing" ? "" : ""}
       )

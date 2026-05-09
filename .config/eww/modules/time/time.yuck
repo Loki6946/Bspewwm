@@ -47,12 +47,12 @@
         :orientation "h"
         :halign "fill"
         (label
-          :class "popup-date"
+          :class "calendar-popup-date"
           :halign "start"
           :text {datetime.date}
         )
         (label
-          :class "popup-icon"
+          :class "calendar-popup-icon"
           :halign "end"
           :text ""
         )

@@ -19,17 +19,17 @@
 }
 
 .calendar-popup-date-box {
-  padding: $spacing-md $spacing-md $spacing-sm $spacing-md;
+  padding: $spacing-lg $spacing-lg $spacing-sm $spacing-lg;
   border-bottom: 2px solid $surface;
 }
 
-.popup-date {
+.calendar-popup-date {
   color: $on-surface;
   font-size: $font-size-lg;
   font-weight: $font-weight-medium;
 }
 
-.popup-icon {
+.calendar-popup-icon {
   color: $on-surface-variant;
   font-family: $font-icon;
   font-size: $icon-size-md;
@@ -37,7 +37,7 @@
 }
 
 .calendar-box {
-  padding: $spacing-sm $spacing-sm 0 $spacing-sm;
+  padding: $spacing-md $spacing-md 0 $spacing-md;
   border-radius: $radius-sm;
 }
 

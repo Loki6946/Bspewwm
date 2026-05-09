@@ -47,6 +47,7 @@
         :spacing 5
         (button
           :class "screenshot-popup-action-btn"
+          :tooltip "Screen"
           :onclick "gnome-screenshot -d ${screenshot-delay} & scripts/screenshot-popup-toggle.sh"
           (label
             :class "screenshot-popup-action-icon"
@@ -55,6 +56,7 @@
         )
         (button
           :class "screenshot-popup-action-btn"
+          :tooltip "Region"
           :onclick "gnome-screenshot -d ${screenshot-delay} -a & scripts/screenshot-popup-toggle.sh"
           (label
             :class "screenshot-popup-action-icon"
@@ -63,6 +65,7 @@
         )
         (button
           :class "screenshot-popup-action-btn"
+          :tooltip "Delay"
           :onclick "scripts/screenshot-cycle-delay.sh"
           (label
             :class {screenshot-delay == 0 ? "screenshot-popup-action-icon" : "screenshot-popup-action-text"}

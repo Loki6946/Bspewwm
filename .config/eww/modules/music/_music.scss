@@ -37,6 +37,14 @@
   }
 }
 
+.music-btn.play {
+  color: $accent;
+
+  &:active {
+    color: $accent-dim;
+  }
+}
+
 // .music-popup {
 //   padding: 10px;
 //   border-radius: 18px;
