@@ -1,5 +1,5 @@
 .music-widget {
-  padding: 0 3px 0 0px;
+  padding: 0 0px 0 0px;
   border-radius: $radius-full;
   background-color: $surface;
 }
@@ -19,7 +19,7 @@
 }
 
 .music-btn-box {
-  padding: 3px;
+  padding: $spacing-xs;
   border-radius: $radius-full;
   background-color: $surface-variant;
 }
