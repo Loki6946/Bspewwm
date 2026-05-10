@@ -85,4 +85,38 @@
 
 .network-popup-status-off {
   color: $on-surface-variant;
+  margin-bottom: $spacing-xxl;
+}
+
+.network-notif {
+  @include floating-window($radius-xs);
+  padding: $spacing-md;
+}
+
+.network-notif-icon {
+  color: $on-surface;
+  font-family: $font-icon;
+  font-size: $icon-size-md;
+}
+
+.network-notif-text {
+  font-size: $font-size-sm;
+  color: $on-surface;
+  font-weight: $font-weight-medium;
+}
+
+.network-notif-close-btn {
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $radius-full;
+  transition: background-color 150ms linear;
+
+  &:hover {
+    background-color: $surface;
+  }
+}
+
+.network-notif-close-text {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $accent;
 }

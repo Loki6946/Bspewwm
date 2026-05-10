@@ -4,8 +4,11 @@
 )
 
 (defvar network-popup-open false)
+(defvar network-radio-optimistic true)
 
-(defvar network-radio-optimistic false)
+(defvar network-notif-open false)
+(defvar network-notif-message "")
+(defvar network-notif-icon "wifi")
 
 (defwidget network []
   (box
@@ -41,6 +44,7 @@
     :x "-5px"
     :y "36px"
     :width "220px"
+    :height "0px"
     :anchor "top right")
   :stacking "fg"
   (network-popup-widget))
@@ -111,5 +115,48 @@
         :visible {network-data.radio == "disabled"}
       )
     ) 
+  )
+)
+
+(defwindow network-notif
+  :monitor 0
+  :geometry (geometry
+    :x "0px"
+    :y "-36px"
+    :width "100px"
+    :height "0px"
+    :anchor "bottom center")
+  :stacking "fg"
+  (network-notif-widget))
+
+(defwidget network-notif-widget []
+  (box
+    :orientation "h"
+    :space-evenly false
+    :spacing 20
+    (box
+      :orientation "h"
+      :space-evenly false
+      :halign "center"
+      :spacing 8
+      (label
+        :class "network-notif-icon"
+        :valign "center"
+        :text {network-notif-icon}
+      )
+      (label
+        :class "network-notif-text"
+        :text {network-notif-message}
+      )
+    )
+    (button
+      :class "network-notif-close-btn"
+      :halign "end"
+      :onclick "scripts/network-notif-close.sh"
+      (label
+        :class "network-notif-close-text"
+        :text "Exit"
+      )
+    )
   )
 )
