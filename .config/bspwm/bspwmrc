@@ -3,13 +3,13 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 get_color() {
-  awk -F'[ :;#]+' -v name="$1" '$0 ~ "^\\$" name ":"{print $2}' ~/.config/eww/color.scss
+  awk -F'[ :;#]+' -v name="$1" '$0 ~ "^\\$" name ":"{print $2}' ~/.config/eww/_color.scss
 }
 
-bspc monitor -d 1 2 3 4 5
+bspc monitor -d 1 2 3 4 5 
 
 bspc config border_width         2
-bspc config window_gap          12
+bspc config window_gap          10
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
@@ -24,23 +24,32 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 bspc rule -a vicinae border=off
+bspc rule -a Gnome-screenshot state=floating
 
 bspc config swallow_first_click true
 bspc config pointer_follows_focus false
 
 # Disable rounded corner on monocle layout
-bspc subscribe desktop_layout | while read -r _ _ Desktop State; do
-  if [ "$State" = "monocle" ]; then
-    bspc query -N -d "$Desktop" | xargs -I{} xprop -id {} -f _PICOM_ROUNDED 32c -set _PICOM_ROUNDED 1
-  elif [ "$(bspc config window_gap)" -gt 0 ]; then
-    bspc query -N -d "$Desktop" | xargs -I{} xprop -id {} -remove _PICOM_ROUNDED
+bspc subscribe desktop_layout | while read -r Event
+do
+  Desktop=$(echo "$Event" | awk '{print $3}')
+  State=$(echo "$Event" | awk '{print $4}')
+  if [ "$State" = "monocle" ]; then 
+    bspc query -N -d $Desktop | while read -r Node
+    do
+      xprop -id $Node -f _PICOM_ROUNDED 32c -set _PICOM_ROUNDED 1
+    done
+  elif [ $(bspc config window_gap) -gt 0 ]; then
+    bspc query -N -d $Desktop | while read -r Node
+    do
+      xprop -id $Node -remove _PICOM_ROUNDED
+    done
   fi
 done &
 
 ## Autostart
-
 # Kill if already running
-killall vicinae-server eww-daemon picom xcorners 2>/dev/null
+killall -9 vicinae-server eww-daemon picom xcorners
 
 # Set custom resolution
 bash $HOME/.set-resolution.sh &
@@ -57,7 +66,7 @@ nitrogen --restore &
 picom &
 
 # Set rounded wallpaper
-xcorners -y 32 -r 15 -c $(get_color background)FF -1 &
+xcorners -y 32 -r 16 -c $(get_color background)FF -1 &
 
 # Fix cursor
 xsetroot -cursor_name left_ptr &

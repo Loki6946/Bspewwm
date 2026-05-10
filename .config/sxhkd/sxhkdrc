@@ -10,6 +10,10 @@ super + Return
 alt + @space
       vicinae toggle
 
+# file manager
+alt + f
+      nemo
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -19,13 +23,13 @@ super + Escape
 #
 
 alt + equal
-      ~/.config/eww/scripts/vol-osd-toggle.sh --up
+      ~/.config/eww/scripts/volume-osd-toggle.sh --up
 
 alt + minus
-      ~/.config/eww/scripts/vol-osd-toggle.sh --down
+      ~/.config/eww/scripts/volume-osd-toggle.sh --down
 
 alt + shift + minus
-      ~/.config/eww/scripts/vol-osd-toggle.sh --toggle
+      ~/.config/eww/scripts/volume-osd-toggle.sh --toggle
 
 #
 # bspwm hotkeys
