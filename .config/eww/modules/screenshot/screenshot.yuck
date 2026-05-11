@@ -24,7 +24,7 @@
   :geometry (geometry
     :x "0px"     
     :y "-36px"     
-    :width "100px"
+    :width "0px"
     :height "0px"
     :anchor "bottom center")
   :stacking "fg"
@@ -34,7 +34,7 @@
 (defwidget screenshot-popup-widget []
   (revealer
     :reveal screenshot-popup-open
-    :transition "slidedown" 
+    :transition "slideleft" 
     :duration "250ms"
     (box
       :orientation "h"

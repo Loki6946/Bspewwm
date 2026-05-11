@@ -52,17 +52,26 @@
       (button
         :class "music-btn"
         :onclick "playerctl previous"
-        ""
+        (label
+          :class "music-btn-icon"
+          :text ""
+        )
       )
       (button
-        :class "music-btn play"
+        :class "music-btn"
         :onclick "playerctl play-pause"
-        {music-data.status == "Playing" ? "" : ""}
+        (label
+          :class "music-btn-icon play"
+          :text {music-data.status == "Playing" ? "" : ""}
+        )
       )
       (button
         :class "music-btn"
         :onclick "playerctl next"
-        ""
+        (label
+          :class "music-btn-icon"
+          :text ""
+        )
       )
     )
   )
@@ -73,7 +82,7 @@
 ;   :geometry (geometry
 ;     :x "0px"     
 ;     :y "36px"     
-;     :width "320px"
+;     :width "200px"
 ;     :height "0px"
 ;     :anchor "top center")
 ;   :stacking "fg"
@@ -86,89 +95,42 @@
 ;     :transition "slidedown" 
 ;     :duration "200ms"
 ;     (box
+;       :class "music-popup-background"
 ;       :orientation "v"
-;       :space-evenly false
+;       :style "background-image: url('${music-data.artUrl}');"
+;       :spacing 100
 ;       (box
-;         :orientation "h"
-;         :space-evenly false
-;         :spacing 10
-;         (box
-;           :class "music-popup-art"  
-;           :style "background-image: url('${music-data.artUrl}');"
-;           :space-evenly false   
-;           :orientation "h"
-;         )
-;         (overlay
-;           :halign "fill"
-;           :hexpand true
-;           (box
-;             :orientation "v"
-;             :valign "end"
-;             (label
-;               :class "music-popup-title"
-;               :text {music-data.title}
-;               :limit-width 500
-;               :halign "start"
-;             )
-;             (label
-;               :class "music-popup-artist"
-;               :text {music-data.artist}
-;               :limit-width 500
-;               :halign "start"
-;             )
-;           )
-;           (box
-;             :halign "end"
-;             :valign "start"
-;             (label
-;               :class "music-popup-player"
-;               :xalign 0.00
-;               :text {music-data.name}
-;             )
-;           )  
-;         )
-;       )
-;       (scale
-;         :class "music-popup-progress"
-;         :orientation "h"
-;         :min 0
-;         :max {music-length}
-;         :value {music-position}
-;         :onchange "playerctl position {}"
-;       )
-;       (box
-;         :orientation "h"
+;         :class "music-popup-text-box"
+;         :orientation "v"
+;         :halign "start"
 ;         (label
-;           :class "music-popup-length"
+;           :class "music-popup-title"
 ;           :halign "start"
-;           :valign "start"
-;           :text {formatted-position}
-;         )
-;         (box
-;           :class "music-popup-btn-box"
-;           :orientation "h"
-;           :valign "center"
-;           (button
-;             :class "music-popup-btn"
-;             :onclick "playerctl previous"
-;             ""
-;           )
-;           (button
-;             :class "music-popup-btn"
-;             :onclick "playerctl play-pause"
-;             {music-data.status == "Playing" ? "" : ""}
-;           )
-;           (button
-;             :class "music-popup-btn"
-;             :onclick "playerctl next"
-;             ""
-;           )
+;           :text {music-data.title}
 ;         )
 ;         (label
-;           :class "music-popup-length"
-;           :halign "end"
-;           :valign "start"
-;           :text {music-data.lengthStr}   
+;           :class "music-popup-artist"
+;           :halign "start"
+;           :text {music-data.artist}
+;         )
+;       )
+;       (box
+;         :class "music-popup-btn-box"
+;         :orientation "h"
+;         (button
+;           :class "music-popup-btn"
+;           :onclick "playerctl previous"
+;           ""
+;         )
+;         (button
+;           :class "music-popup-btn"
+;           :onclick "playerctl play-pause"
+;           {music-data.status == "Playing" ? "" : ""}
+;         )
+;         (button
+;           :class "music-popup-btn"
+;           :onclick "playerctl next"
+;           ""
 ;         )
 ;       )
 ;     )

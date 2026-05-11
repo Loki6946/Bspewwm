@@ -23,5 +23,5 @@ eww update color-picker-popup-open=true
 eww open color-picker-popup
 
 # auto close with PID tracking
-(sleep 10 && eww update color-picker-popup-open=false && eww close color-picker-popup) &
+(sleep 8 && eww update color-picker-popup-open=false && eww close color-picker-popup) &
 echo $! > "$PIDFILE"

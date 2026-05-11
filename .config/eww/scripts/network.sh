@@ -1,35 +1,5 @@
 #!/bin/bash
 
-# get_network() {
-#   signal=$(nmcli -f in-use,signal dev wifi | rg "\*" | awk '{ print $2 }')
-#   essid=$(nmcli -t -f NAME connection show --active | head -n1 | sed 's/\"/\\"/g')
-#   radio=$(nmcli radio wifi)
-
-#   eww update network-radio-optimistic=$([ "$radio" = "enabled" ] && echo true || echo false)
-
-#   JSON_STRING=$(jq -n \
-#     --arg essid "${essid:-lo}" \
-#     --arg signal "$signal" \
-#     --arg radio "$radio" \
-#     '{essid: $essid, signal: $signal, radio: $radio}')
-#   echo $JSON_STRING
-# }
-
-# get_network
-
-# # run both monitors in parallel
-# (nmcli monitor | grep --line-buffered -E "connectivity|activated|deactivated|wifi|wireless" | while read -r _; do
-#   get_network
-# done) &
-
-# (ip monitor link | while read -r _; do
-#   get_network
-# done) &
-
-# wait
-
-#!/bin/bash
-
 PIDFILE="/tmp/network-notif-timer.pid"
 STATEFILE="/tmp/network-state.tmp"
 
@@ -48,7 +18,7 @@ show_notif() {
   eww update network-notif-open=true
   eww open network-notif
 
-  (sleep 10 && eww update network-notif-open=false && eww close network-notif) &
+  (sleep 8 && eww update network-notif-open=false && eww close network-notif) &
   echo $! > "$PIDFILE"
 }
 

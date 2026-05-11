@@ -123,7 +123,7 @@
   :geometry (geometry
     :x "0px"
     :y "-36px"
-    :width "100px"
+    :width "280px"
     :height "0px"
     :anchor "bottom center")
   :stacking "fg"
@@ -137,11 +137,10 @@
     (box
       :orientation "h"
       :space-evenly false
-      :halign "center"
+      :hexpand true
       :spacing 8
       (label
         :class "network-notif-icon"
-        :valign "center"
         :text {network-notif-icon}
       )
       (label

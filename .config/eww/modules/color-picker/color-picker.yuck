@@ -23,7 +23,7 @@
   :geometry (geometry
     :x "0px"
     :y "-36px"
-    :width "281px"
+    :width "280px"
     :height "0px"
     :anchor "bottom center")
   :stacking "fg"
@@ -37,6 +37,7 @@
     (box
       :orientation "h"
       :space-evenly false
+      :hexpand true
       :spacing 8
       (box
         :class "color-picker-preview"

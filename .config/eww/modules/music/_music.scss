@@ -5,7 +5,8 @@
 }
 
 .music-art {
-  min-width: 24px;
+  min-width: 22px;
+  min-height: 22px;
   border-radius: $radius-full;
   background-repeat: no-repeat;
   background-size: cover;
@@ -25,87 +26,51 @@
 }
 
 .music-btn {
+  border-radius: $radius-full;
+}
+
+.music-btn-icon {
   color: $on-surface;
   font-family: $font-icon;
   font-size: $bar-icon-size;
   font-weight: $bar-icon-weight;
-  border-radius: $radius-full;
-  transition: color 150ms linear;
-
-  &:active {
-    color: $on-surface-variant;
-  }
 }
 
-.music-btn.play {
+.music-btn-icon.play {
   color: $accent;
-
-  &:active {
-    color: $accent-dim;
-  }
 }
 
 // .music-popup {
-//   padding: 10px;
-//   border-radius: 18px;
-//   background-color: $background;
+//   background-color: transparent;
 // }
 
-// .music-popup-art {
-//   min-width: 72px;
-//   min-height: 72px;
-//   border-radius: 12px;
+// .music-popup-background {
+//   padding: $spacing-sm;
+//   border-radius: $radius-xl;
 //   background-repeat: no-repeat;
 //   background-size: cover;
 //   background-position: center;
 // }
 
+// .music-popup-text-box {
+//   padding: $spacing-xs;
+//   border-radius: $radius-sm;
+//   background-color: $background;
+// }
+
 // .music-popup-title {
 //   color: $on-surface;
-//   font-size: 14px;
+//   font-size: $font-size-sm;
+//   font-weight: $font-weight-bold;
 // }
 
 // .music-popup-artist {
 //   color: $on-surface-variant;
-//   font-size: 12px;
-//   font-weight: 500;
-//   padding-bottom: 5px;
-// }
-
-// .music-popup-player {
-//   color: $on-surface-variant;
-//   font-size: 12px;
-//   font-weight: 500;
-//   padding: 5px;
-//   border-radius: 50px;
-//   background-color: $surface;
-// }
-
-// .music-popup-progress slider {
-//   min-width: 0px;
-//   min-height: 0px;
-// }
-
-// .music-popup-progress trough {
-//   min-height: 3px;
-//   border-radius: 50px;
-//   margin: 10px 0 10px 0;
-//   background-color: $surface;
-// }
-
-// .music-popup-progress highlight {
-//   border-radius: 50px;
-//   background-color: $accent-dim;
+//   font-size: $font-size-xs;
+//   font-weight: $font-weight-medium;
 // }
 
 // .music-popup-btn {
-//   color: $on-surface;
-//   font-family: "Material Icons Round";
-//   font-size: 20px;
-// }
-
-// .music-popup-length {
-//   color: $on-surface-variant;
-//   font-size: 12px;
-//   font-weight: 500;
+//   font-family: $font-icon;
+//   font-size: $icon-size-xl;
 // }
