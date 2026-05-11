@@ -1,5 +1,4 @@
 (defvar power-popup-open false)
-(defvar power-confirm-open false)
 (defvar power-pending-action "")
 (defvar power-pending-name "")
 
@@ -22,175 +21,63 @@
   )
 )
 
+(defwidget power-popup-btn [action name icon]
+  (box
+    :orientation "v"
+    :space-evenly false
+    :spacing 10
+    (button
+      :onclick "scripts/power-select.sh '${action}' '${name}'"
+      (box
+        :class {power-pending-name == name ? "power-popup-btn power-popup-btn--pending" : "power-popup-btn"}
+        (label
+          :class "power-popup-btn-icon"
+          :text {power-pending-name == name ? "" : icon}
+        )
+      )
+    )
+    (label
+      :class "power-popup-btn-text"
+      :text name
+    )
+  )
+)
+
 ; powermenu popup window
 (defwindow power-popup
   :monitor 0
   :geometry (geometry
-    :x "5px"     
-    :y "36px"     
-    :width "250px"
+    :x "0px"     
+    :y "0px"     
+    :width "100px"
     :height "0px"
-    :anchor "top left")
+    :anchor "center")
   :stacking "fg"
   (power-popup-widget)
 )
 
 ; powermenu popup content
+
 (defwidget power-popup-widget []
   (revealer
     :reveal power-popup-open
-    :transition "slidedown" 
-    :duration "250ms"
-    (box
-      :orientation "h"
-      :space-evenly true
-      :halign "center"
-      :spacing 5
-
-      ; poweroff button
-      (button
-        :class "power-popup-button"
-        :onclick "scripts/power-select.sh 'systemctl poweroff' 'Power Off'"
-        (box
-          :orientation "v"
-          :space-evenly false
-          :valign "center"
-          :spacing 5
-          (label
-            :class "power-popup-icon"
-            :text ""
-          )
-          (label
-            :class "power-popup-text"
-            :text "Power"
-          )
-        )
-      )
-
-      ; reboot button
-      (button
-        :class "power-popup-button"
-        :onclick "scripts/power-select.sh 'systemctl reboot' 'Reboot'"
-        (box
-          :orientation "v"
-          :space-evenly false
-          :valign "center"
-          :spacing 5
-          (label
-            :class "power-popup-icon"
-            :text ""
-          )
-          (label
-            :class "power-popup-text"
-            :text "Reboot"
-          )
-        )
-      )
-
-      ; sleep button
-      (button
-        :class "power-popup-button"
-        :onclick "scripts/power-select.sh 'systemctl suspend' 'Sleep'"
-        (box
-          :orientation "v"
-          :space-evenly false
-          :valign "center"
-          :spacing 5
-          (label
-            :class "power-popup-icon"
-            :text ""
-          )
-          (label
-            :class "power-popup-text"
-            :text "Sleep"
-          )
-        )
-      )
-
-      ; exit bspwm button
-      (button
-        :class "power-popup-button"
-        :onclick "scripts/power-select.sh 'bspc quit' 'Exit'"
-        (box
-          :orientation "v"
-          :space-evenly false
-          :valign "center"
-          :spacing 5
-          (label
-            :class "power-popup-icon"
-            :text ""
-          )
-          (label
-            :class "power-popup-text"
-            :text "Exit"
-          )
-        )
-      )
-    )
-  )
-)
-
-; powermenu confirmation window
-(defwindow power-confirm
-  :monitor 0
-  :geometry (geometry
-    :x "5px"
-    :y "36px"
-    :width "250px"
-    :height "0px"
-    :anchor "top left")
-  :stacking "fg"
-  (power-confirm-widget)
-)
-
-; powermenu confirmation content
-(defwidget power-confirm-widget []
-  (revealer
-    :reveal power-confirm-open
     :transition "slidedown"
     :duration "250ms"
     (box
       :orientation "v"
-      :class "power-confirm-box"
-      :halign "fill"
       :space-evenly false
       :spacing 20
-
-      ; message box
-      (box
-        :orientation "v"
-        :halign "start"
-        :spacing 8
-        (label
-          :class "power-confirm-text-title"
-          :halign "start"
-          :text "Are you sure?"
-        )
-        (label
-          :class "power-confirm-text-description"
-          :halign "start"
-          :text {power-pending-name == "Sleep" ? "Any unsaved changes will be saved." : "Any unsaved changes will be lost."}
-        )
-      )
-
-      ; action buttons
       (box
         :orientation "h"
-        :halign "end"
-        :space-evenly false
-        :spacing 5
-        (button
-          :class "power-confirm-btn"
-          :halign "end"
-          :onclick "scripts/power-cancel.sh"
-          "Cancel"
-        )
-        (button
-          :class "power-confirm-btn"
-          :halign "end"
-          :onclick "scripts/power-execute.sh"
-          "${power-pending-name}"
-        )
+        :spacing 25
+        (power-popup-btn :action "systemctl poweroff" :name "Power" :icon "")
+        (power-popup-btn :action "systemctl reboot" :name "Reboot" :icon "")
+      )
+      (box
+        :orientation "h"
+        :spacing 25
+        (power-popup-btn :action "systemctl suspend" :name "Sleep" :icon "")
+        (power-popup-btn :action "bspc quit" :name "Exit" :icon "")
       )
     )
   )

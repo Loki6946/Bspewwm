@@ -1,5 +1,6 @@
 #!/bin/bash
 
+PIDFILE="/tmp/power-pending-timer.pid"
 state=$(eww get power-popup-open)
 
 open_power() {
@@ -10,8 +11,15 @@ open_power() {
 }
 
 close_power() {
-  eww close power-popup
+  # kill pending timer and reset
+  if [ -f "$PIDFILE" ]; then
+    kill $(cat "$PIDFILE") 2>/dev/null
+    rm "$PIDFILE"
+  fi
+  eww update power-pending-name=""
+  eww update power-pending-action=""
   eww update power-popup-open=false
+  eww close power-popup
 }
 
 case $1 in
@@ -21,8 +29,6 @@ case $1 in
 esac
 
 case $state in
-  true)
-    close_power;;
-  false)
-    open_power;
+  true) close_power;;
+  false) open_power;;
 esac

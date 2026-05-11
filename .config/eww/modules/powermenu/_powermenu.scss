@@ -16,62 +16,36 @@
 }
 
 .power-popup {
-  padding: $spacing-sm;
   @include floating-window();
+  padding: $spacing-xl $spacing-lg;
 }
 
-.power-popup-button {
-  min-width: 70px;
-  padding: $spacing-sm;
-  border-radius: $radius-xl;
+.power-popup-btn {
+  min-width: 100px;
+  min-height: 100px;
+  border-radius: $radius-full;
   background-color: $surface;
   transition: background-color 150ms linear;
 
-  &:hover {
-    background-color: $surface-variant;
+  &--pending {
+    background-color: $error;
   }
 }
 
-.power-popup-icon {
+.power-popup-btn-icon {
+  color: $on-surface;
   font-family: $font-icon;
   font-size: $icon-size-xl;
   font-weight: $font-weight-bold;
+  transition: color 150ms linear;
 }
 
-.power-popup-text {
-  color: $on-surface-variant;
-  font-weight: $font-weight-regular;
-  font-size: $font-size-xs;
+.power-popup-btn--pending .power-popup-btn-icon {
+  color: $on-error;
 }
 
-.power-confirm {
-  padding: $spacing-lg;
-  @include floating-window;
-}
-
-.power-confirm-text-title {
-  color: $on-surface;
-  font-size: $font-size-lg;
-  font-weight: $font-weight-bold;
-}
-
-.power-confirm-text-description {
+.power-popup-btn-text {
   color: $on-surface-variant;
   font-size: $font-size-sm;
   font-weight: $font-weight-medium;
-}
-
-.power-confirm-btn {
-  color: $accent-dim;
-  font-size: $font-size-sm;
-  font-weight: $font-weight-medium;
-  min-width: 75px;
-  padding: $spacing-sm 0;
-  border-radius: $radius-full;
-  background-color: transparent;
-  transition: background-color 150ms linear;
-
-  &:hover {
-    background-color: $surface;
-  }
 }
