@@ -8,7 +8,7 @@ get_color() {
 
 bspc monitor -d 1 2 3 4 5 
 
-bspc config border_width         2
+bspc config border_width         1
 bspc config window_gap          10
 
 bspc config split_ratio          0.52
@@ -78,5 +78,6 @@ xinput set-prop "8" "libinput Accel Profile Enabled" 0 1 0 &
 vicinae server &
 
 # Start eww
+$HOME/.config/eww/scripts/eww-cleanup.sh &
 eww daemon &
 eww open bar &
