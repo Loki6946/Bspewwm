@@ -54,7 +54,7 @@
       :onclick "scripts/color-picker-popup-close.sh"
       (label
         :class "color-picker-close-text"
-        :text "Exit"
+        :text "Close"
       )
     )
   )

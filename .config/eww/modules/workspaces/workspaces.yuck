@@ -19,7 +19,8 @@
     (box 
       :class "workspaces"
       :orientation "h"
-      :halign "start"
+      :halign "center"
+      :valign "center"
       :space-evenly false
       :spacing 4
       (workspace-item :id "1")

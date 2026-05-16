@@ -1,10 +1,7 @@
 .screenshot-trigger {
   min-width: 22px;
   background-color: $surface;
-  
-  &:active {
-    @include ripple-animation()
-  }
+  @include ripple-effect();
 }
 
 .screenshot-trigger-icon {
@@ -26,11 +23,7 @@
   padding: $spacing-md;
   border-radius: $radius-full;
   background-color: transparent;
-  transition: background-color 150ms linear;
-
-  &:hover {
-    background-color: $surface;
-  }
+  @include ripple-effect($hover: true, $hover-color: $surface);
 }
 
 .screenshot-popup-action-icon {
@@ -46,7 +39,7 @@
 
 .screenshot-popup-action-btn-alt {
   padding: $spacing-lg;
-  border-radius: $radius-md;
+  border-radius: $radius-lg;
   background-color: $error;
   transition: background-color 150ms linear;
 

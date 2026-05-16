@@ -2,10 +2,7 @@
   min-width: 22px;
   border-radius: 0 $radius-xs $radius-xs 0;
   background-color: $surface;
-  
-  &:active {
-    @include ripple-animation()
-  }
+  @include ripple-effect();
 }
 
 .color-picker-trigger-icon {
@@ -34,11 +31,7 @@
 .color-picker-close-btn {
   padding: $spacing-xs $spacing-sm;
   border-radius: $radius-full;
-  transition: background-color 150ms linear;
-
-  &:hover {
-    background-color: $surface;
-  }
+  @include ripple-effect($hover: true, $hover-color: $surface);
 }
 
 .color-picker-close-text {

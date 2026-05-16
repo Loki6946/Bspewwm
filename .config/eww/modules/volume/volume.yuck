@@ -27,7 +27,7 @@
   :monitor 0
   :geometry (geometry
     :x "-5px"      
-    :y "35px"     
+    :y "36px"     
     :width "200px"
     :height "0px"
     :anchor "top right")   
@@ -65,7 +65,7 @@
         :halign "start"
         :hexpand true
         (scale
-          :class "volume-popup-slider"
+          :class {volume-data == "muted" ? "volume-popup-slider muted" : volume-data < 28 ? "volume-popup-slider low" : "volume-popup-slider"}
           :orientation "h"
           :width 150
           :min 0

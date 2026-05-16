@@ -3,10 +3,7 @@
   min-height: 22px;
   border-radius: $radius-full;
   background-color: $surface;
-
-  &:active {
-    @include ripple-animation()
-  }
+  @include ripple-effect();
 }
 
 .sysinfo-trig {

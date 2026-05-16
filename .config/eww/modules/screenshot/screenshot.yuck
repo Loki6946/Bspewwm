@@ -1,6 +1,6 @@
 (defvar screenshot-popup-open false)
 
-(defvar screenshot-delay 0)
+(defvar screenshot-delay 1)
 
 (defwidget screenshot []
   (box
@@ -39,7 +39,7 @@
     (box
       :orientation "h"
       :space-evenly false
-      :spacing 5
+      :spacing 10
       (box
         :class "screenshot-popup-background"
         :orientation "h"
@@ -68,8 +68,8 @@
           :tooltip "Delay"
           :onclick "scripts/screenshot-cycle-delay.sh"
           (label
-            :class {screenshot-delay == 0 ? "screenshot-popup-action-icon" : "screenshot-popup-action-text"}
-            :text {screenshot-delay == 0 ? "" : "${screenshot-delay}s"}
+            :class {screenshot-delay == 1 ? "screenshot-popup-action-icon" : "screenshot-popup-action-text"}
+            :text {screenshot-delay == 1 ? "" : "${screenshot-delay}s"}
           )
         )
       )

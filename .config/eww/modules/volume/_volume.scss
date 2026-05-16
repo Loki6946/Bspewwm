@@ -2,10 +2,7 @@
   min-width: 22px;
   border-radius: $radius-xs;
   background-color: $surface;
-
-  &:active {
-    @include ripple-animation()
-  }
+  @include ripple-effect();
 }
 
 .volume-trigger-icon {
@@ -23,10 +20,7 @@
   min-width: 30px;
   border-radius: $radius-full;
   background-color: $surface;
-
-  &:active {
-    @include ripple-animation()
-  }
+  @include ripple-effect();
 }
 
 .volume-popup-icon {
@@ -35,20 +29,42 @@
 }
 
 .volume-popup-slider slider {
-  min-width: 0px;
-  min-height: 0px;
+  min-width: 3px;
+  min-height: 12px;
+  margin-right: 20px;
+  border-radius: $radius-full;
+  background-color: $accent-dim;
+  transition: background-color 150ms linear;
+
+  &:hover {
+    background-color: $accent-variant;
+  }
 }
 
 .volume-popup-slider trough {
-  border-radius: $radius-full;
   min-height: 30px;
+  border-radius: $radius-full;
   background-color: $surface;
 }
 
 .volume-popup-slider highlight {
-  border-radius: $radius-full;
   min-width: 32px;
+  border-radius: $radius-full;
   background-color: $accent;
+}
+
+.volume-popup-slider.muted highlight {
+  background-color: $surface-variant;
+}
+
+.volume-popup-slider.muted slider {
+  min-width: 0;
+  min-height: 0;
+}
+
+.volume-popup-slider.low slider {
+  min-width: 0;
+  min-height: 0;
 }
 
 .volume-popup-slider-icon {

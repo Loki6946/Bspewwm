@@ -2,10 +2,7 @@
   min-width: 22px;
   border-radius: $radius-xs $radius-md $radius-md $radius-xs;
   background-color: $surface;
-
-  &:active {
-    @include ripple-animation()
-  }
+  @include ripple-effect();
 }
 
 .network-trigger-icon {
@@ -29,6 +26,13 @@
   background-color: $on-surface-variant;
   transition: margin 300ms cubic-bezier(0.34, 0.88, 0.34, 1.0),
               min-width 300ms cubic-bezier(0.34, 0.88, 0.34, 1.0);
+}
+
+.switch-thumb-label {
+  color: $accent;
+  font-family: $font-icon;
+  font-size: 11px;
+  font-weight: $font-weight-medium;
 }
 
 .switch-on {
@@ -108,11 +112,7 @@
 .network-notif-close-btn {
   padding: $spacing-xs $spacing-sm;
   border-radius: $radius-full;
-  transition: background-color 150ms linear;
-
-  &:hover {
-    background-color: $surface;
-  }
+  @include ripple-effect($hover: true, $hover-color: $surface)
 }
 
 .network-notif-close-text {

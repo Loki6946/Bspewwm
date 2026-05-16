@@ -33,7 +33,14 @@
     (box
       :class {network-radio-optimistic ? "switch switch-on" : "switch switch-off"}
       :valign "center"
-      (box :class "switch-thumb")
+      (box 
+        :class "switch-thumb"
+        (label
+          :class "switch-thumb-label"
+          :visible {network-radio-optimistic}
+          :text ""
+        )
+      )
     )
   )
 )
@@ -154,7 +161,7 @@
       :onclick "scripts/network-notif-close.sh"
       (label
         :class "network-notif-close-text"
-        :text "Exit"
+        :text "Close"
       )
     )
   )

@@ -2,10 +2,7 @@
   min-width: 22px;
   border-radius: $radius-2xl 0 0 $radius-2xl;
   background-color: $surface;
-  
-  &:active {
-    @include ripple-animation()
-  }
+  @include ripple-effect();
 }
 
 .search-trigger-icon {

@@ -61,7 +61,7 @@
         :class "music-btn"
         :onclick "playerctl play-pause"
         (label
-          :class "music-btn-icon play"
+          :class {music-data.status == "Playing" ? "music-btn-icon play" : "music-btn-icon pause"}
           :text {music-data.status == "Playing" ? "" : ""}
         )
       )

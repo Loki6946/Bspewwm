@@ -3,10 +3,7 @@
   margin-left: $spacing-xs;
   border-radius: $radius-full;
   background-color: $surface;
-
-  &:active {
-    @include ripple-animation()
-  }
+  @include ripple-effect();
 }
 
 .time-trigger-text {
@@ -43,6 +40,7 @@
 
 calendar {
   color: $on-surface;
+  font-size: $font-size-xs;
   font-weight: $font-weight-medium;
 }
 
