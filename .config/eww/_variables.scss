@@ -45,3 +45,18 @@ $spacing-md: 12px;
 $spacing-lg: 16px;   
 $spacing-xl: 24px;
 $spacing-xxl: 32px;
+
+// Animation
+$duration-color-fast: 150ms;
+$duration-color-default: 200ms;
+$duration-color-slow: 300ms;
+$duration-geometry-fast: 350ms;
+$duration-geometry-default: 500ms;
+$duration-geometry-slow: 650ms;
+
+$ease-color-fast: cubic-bezier(0.31, 0.94, 0.34, 1.00);
+$ease-color-default: cubic-bezier(0.34, 0.80, 0.34, 1.00);
+$ease-color-slow: cubic-bezier(0.34, 0.88, 0.34, 1.00);
+$ease-geometry-fast: cubic-bezier(0.42, 1.67, 0.21, 0.90);
+$ease-geometry-default: cubic-bezier(0.38, 1.21, 0.22, 1.00);
+$ease-geometry-slow: cubic-bezier(0.39, 1.29, 0.35, 0.98);

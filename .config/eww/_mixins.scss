@@ -28,7 +28,7 @@ $ripple-ease: cubic-bezier(0.2, 0, 0, 1);
 @mixin ripple-effect(
   $color: rgba(255, 255, 255, 0.14),
   $hover-color: $surface-variant,
-  $hover-duration: 150ms,
+  $hover-duration: $duration-color-default,
   $hover: false
 ) {
   outline: none;
@@ -38,7 +38,7 @@ $ripple-ease: cubic-bezier(0.2, 0, 0, 1);
   background-size: 1000% 1000%;
   transition-property: background-size, background-image, background-color;
   transition-duration: $ripple-duration, $ripple-fade-duration, $hover-duration;
-  transition-timing-function: $ripple-ease, $ripple-ease, linear;
+  transition-timing-function: $ripple-ease, $ripple-ease, $ease-color-default;
 
   @if $hover {
     &:hover {
