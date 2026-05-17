@@ -32,58 +32,53 @@
 )
 
 (defwidget screenshot-popup-widget []
-  (revealer
-    :reveal screenshot-popup-open
-    :transition "slideleft" 
-    :duration "250ms"
+  (box
+    :orientation "h"
+    :space-evenly false
+    :spacing 10
     (box
+      :class "screenshot-popup-background"
       :orientation "h"
-      :space-evenly false
-      :spacing 10
-      (box
-        :class "screenshot-popup-background"
-        :orientation "h"
-        :space-evenly true
-        :spacing 5
-        (button
-          :class "screenshot-popup-action-btn"
-          :tooltip "Screen"
-          :onclick "gnome-screenshot -d ${screenshot-delay} & scripts/screenshot-popup-toggle.sh"
-          (label
-            :class "screenshot-popup-action-icon"
-            :text ""
-          )
-        )
-        (button
-          :class "screenshot-popup-action-btn"
-          :tooltip "Region"
-          :onclick "gnome-screenshot -d ${screenshot-delay} -a & scripts/screenshot-popup-toggle.sh"
-          (label
-            :class "screenshot-popup-action-icon"
-            :text ""
-          )
-        )
-        (button
-          :class "screenshot-popup-action-btn"
-          :tooltip "Delay"
-          :onclick "scripts/screenshot-cycle-delay.sh"
-          (label
-            :class {screenshot-delay == 1 ? "screenshot-popup-action-icon" : "screenshot-popup-action-text"}
-            :text {screenshot-delay == 1 ? "" : "${screenshot-delay}s"}
-          )
+      :space-evenly true
+      :spacing 5
+      (button
+        :class "screenshot-popup-action-btn"
+        :tooltip "Screen"
+        :onclick "gnome-screenshot -d ${screenshot-delay} & scripts/screenshot-popup-toggle.sh"
+        (label
+          :class "screenshot-popup-action-icon"
+          :text ""
         )
       )
-      (box
-        :class "screenshot-popup-background-alt"
-        :valign "center"
-        :space-evenly false
-        (button
-          :class "screenshot-popup-action-btn-alt"
-          :onclick "scripts/screenshot-popup-toggle.sh"
-          (label
-            :class "screenshot-popup-action-icon-alt"
-            :text ""
-          )
+      (button
+        :class "screenshot-popup-action-btn"
+        :tooltip "Region"
+        :onclick "gnome-screenshot -d ${screenshot-delay} -a & scripts/screenshot-popup-toggle.sh"
+        (label
+          :class "screenshot-popup-action-icon"
+          :text ""
+        )
+      )
+      (button
+        :class "screenshot-popup-action-btn"
+        :tooltip "Delay"
+        :onclick "scripts/screenshot-cycle-delay.sh"
+        (label
+          :class {screenshot-delay == 1 ? "screenshot-popup-action-icon" : "screenshot-popup-action-text"}
+          :text {screenshot-delay == 1 ? "" : "${screenshot-delay}s"}
+        )
+      )
+    )
+    (box
+      :class "screenshot-popup-background-alt"
+      :valign "center"
+      :space-evenly false
+      (button
+        :class "screenshot-popup-action-btn-alt"
+        :onclick "scripts/screenshot-popup-toggle.sh"
+        (label
+          :class "screenshot-popup-action-icon-alt"
+          :text ""
         )
       )
     )

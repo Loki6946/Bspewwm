@@ -6,9 +6,10 @@
   @include ripple-effect();
 }
 
-.sysinfo-trig {
+.sysinfo-trigger-icon {
+  color: $on-surface;
+  font-family: "Material Icons Outlined";
   font-size: $bar-icon-size;
-  font-weight: $bar-icon-weight;
 }
 
 .sysinfo-popup {

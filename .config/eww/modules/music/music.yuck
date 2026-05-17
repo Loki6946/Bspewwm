@@ -2,19 +2,19 @@
   :initial '{"name": "", "title": "", "artist": "", "artUrl": "", "status": "Stopped", "length": "", "lengthStr": ""}'
   "scripts/music.sh")
 
+(defpoll music-position
+  :interval "1s" 
+  "playerctl position || echo 0")
+
+(defvar music-popup-open false)
+
 ; (defpoll music-length   
 ;   :interval "2s"
 ;   "playerctl metadata mpris:length | awk '{print $1 / 1000000}' || echo 1")
 
-; (defpoll music-position
-;   :interval "1s" 
-;   "playerctl position || echo 0")
-
 ; (defpoll formatted-position 
 ;   :interval "1s" 
 ;   "playerctl position -f '{{duration(position)}}' || echo '0:00'")
-
-; (defvar music-popup-open false)
 
 (defwidget music []
   (box
@@ -77,62 +77,106 @@
   )
 )
 
-; (defwindow music-popup
-;   :monitor 0
-;   :geometry (geometry
-;     :x "0px"     
-;     :y "36px"     
-;     :width "200px"
-;     :height "0px"
-;     :anchor "top center")
-;   :stacking "fg"
-;   (music-popup-widget)
-; )
+(defwindow music-popup
+  :monitor 0
+  :geometry (geometry
+    :x "0px"     
+    :y "36px"     
+    :width "300px"
+    :height "0px"
+    :anchor "top center")
+  :stacking "fg"
+  (music-popup-widget)
+)
 
-; (defwidget music-popup-widget []
-;   (revealer
-;     :reveal music-popup-open
-;     :transition "slidedown" 
-;     :duration "200ms"
-;     (box
-;       :class "music-popup-background"
-;       :orientation "v"
-;       :style "background-image: url('${music-data.artUrl}');"
-;       :spacing 100
-;       (box
-;         :class "music-popup-text-box"
-;         :orientation "v"
-;         :halign "start"
-;         (label
-;           :class "music-popup-title"
-;           :halign "start"
-;           :text {music-data.title}
-;         )
-;         (label
-;           :class "music-popup-artist"
-;           :halign "start"
-;           :text {music-data.artist}
-;         )
-;       )
-;       (box
-;         :class "music-popup-btn-box"
-;         :orientation "h"
-;         (button
-;           :class "music-popup-btn"
-;           :onclick "playerctl previous"
-;           ""
-;         )
-;         (button
-;           :class "music-popup-btn"
-;           :onclick "playerctl play-pause"
-;           {music-data.status == "Playing" ? "" : ""}
-;         )
-;         (button
-;           :class "music-popup-btn"
-;           :onclick "playerctl next"
-;           ""
-;         )
-;       )
-;     )
-;   )
-; )
+(defwidget music-popup-widget []
+  (box
+    :class "music-popup-background"
+    :orientation "v"
+    :space-evenly false
+    :spacing 8
+    (box
+      :orientation "h"
+      :space-evenly false
+      :spacing 8
+      (box
+        :class "music-popup-art"
+        :orientation "h"
+        :style "background-image: url('${music-data.artUrl}');"
+        :halign "start"
+        :space-evenly false 
+      )
+      (box
+        :orientation "v"
+        :hexpand true
+        :halign "fill"
+        :space-evenly false
+        :spacing 16
+        (label
+          :class "music-popup-player"
+          :halign "end"
+          :text {music-data.name}
+        )
+        (box
+          :orientation "v"
+          :spacing 4
+          (label
+            :class "music-popup-title"
+            :halign "start"
+            :limit-width 300
+            :text {music-data.title}
+          )
+          (label
+            :class "music-popup-artist"
+            :halign "start"
+            :limit-width 300
+            :text {music-data.artist}
+          )
+        )
+      )
+    )
+    (box
+      :orientation "h"
+      :space-evenly false;
+      :spacing 5
+      (scale
+        :class "music-popup-progress"
+        :orientation "h"
+        :width 180
+        :min 0
+        :max {music-data.length == "" ? 100 : music-data.length}
+        :value {music-position}
+      )
+      (box
+        :orientation "h"
+        :hexpand true
+        :halign "end"
+        :space-evenly false
+        (button
+          :class "music-popup-btn"
+          :onclick "playerctl previous"
+          (label
+            :class "music-popup-btn-icon"
+            :text ""
+          )
+        )
+        (button
+          :class "music-popup-btn"
+          :onclick "playerctl play-pause"
+          (label
+            :class "music-popup-btn-icon"
+            :text {music-data.status == "Playing" ? "" : ""}
+          )
+        )
+        (button
+          :class "music-popup-btn"
+          :onclick "playerctl next"
+          (label
+            :class "music-popup-btn-icon"
+            :text ""
+          )
+        )
+      )
+    )
+  )
+)

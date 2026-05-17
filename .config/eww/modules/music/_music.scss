@@ -34,6 +34,7 @@
   font-family: $font-icon;
   font-size: $bar-icon-size;
   font-weight: $bar-icon-weight;
+  transition: color $duration-color-default $ease-color-default;
 }
 
 .music-btn-icon.play {
@@ -44,37 +45,72 @@
   color: $accent-dim;
 }
 
-// .music-popup {
-//   background-color: transparent;
-// }
+.music-popup {
+  padding: $spacing-md $spacing-md $spacing-sm $spacing-md;
+  @include floating-window();
+}
 
-// .music-popup-background {
-//   padding: $spacing-sm;
-//   border-radius: $radius-xl;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   background-position: center;
-// }
+.music-popup-art {
+  min-width: 75px;
+  min-height: 75px;
+  border-radius: $radius-md;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 
-// .music-popup-text-box {
-//   padding: $spacing-xs;
-//   border-radius: $radius-sm;
-//   background-color: $background;
-// }
+.music-popup-player {
+  color: $background;
+  font-family: $font-text;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-regular;
+  padding: $spacing-xs;
+  border-radius: $radius-full;
+  background-color: $accent-dim;
+}
 
-// .music-popup-title {
-//   color: $on-surface;
-//   font-size: $font-size-sm;
-//   font-weight: $font-weight-bold;
-// }
+.music-popup-title {
+  color: $on-surface;
+  font-family: $font-text;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+}
 
-// .music-popup-artist {
-//   color: $on-surface-variant;
-//   font-size: $font-size-xs;
-//   font-weight: $font-weight-medium;
-// }
+.music-popup-artist {
+  color: $on-surface;
+  font-family: $font-text;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-regular;
+}
 
-// .music-popup-btn {
-//   font-family: $font-icon;
-//   font-size: $icon-size-xl;
-// }
+.music-popup-progress slider {
+  min-height: 4px;
+  min-width: 10px;
+  margin-top: -5px;
+  margin-bottom: -5px;
+  border-radius: $radius-full;
+  background-color: $accent;
+}
+
+.music-popup-progress trough {
+  min-height: 4px;
+  border-radius: $radius-full;
+  background-color: $surface;
+}
+
+.music-popup-progress highlight {
+  border-radius: $radius-full;
+  background-color: $accent;
+}
+
+.music-popup-btn {
+  padding: $spacing-xs;
+  border-radius: $radius-full;
+  @include ripple-effect($hover: true);
+}
+
+.music-popup-btn-icon {
+  color: $on-surface;
+  font-family: $font-icon;
+  font-size: $icon-size-md;
+}

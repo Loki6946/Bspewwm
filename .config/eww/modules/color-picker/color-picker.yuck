@@ -40,20 +40,20 @@
       :hexpand true
       :spacing 8
       (box
-        :class "color-picker-preview"
+        :class "color-picker-popup-preview"
         :style "background-color: ${color-picker-value};"
       )
       (label
-        :class "color-picker-text"
+        :class "color-picker-popup-text"
         :text '"${color-picker-value}" Copied to clipboard'
       )
     )
     (button
-      :class "color-picker-close-btn"
+      :class "color-picker-popup-close-btn"
       :halign "end"
       :onclick "scripts/color-picker-popup-close.sh"
       (label
-        :class "color-picker-close-text"
+        :class "color-picker-popup-close-text"
         :text "Close"
       )
     )

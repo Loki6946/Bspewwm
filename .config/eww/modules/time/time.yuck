@@ -34,40 +34,35 @@
 )
 
 (defwidget calendar-popup-widget []
-  (revealer
-    :reveal calendar-popup-open
-    :transition "slidedown"  
-    :duration "250ms"
+  (box
+    :orientation "v"
+    :halign "center"
+    :space-evenly false
     (box
-      :orientation "v"
-      :halign "center"
-      :space-evenly false
-      (box
-        :class "calendar-popup-date-box"
-        :orientation "h"
-        :halign "fill"
-        (label
-          :class "calendar-popup-date"
-          :halign "start"
-          :text {datetime.date}
-        )
-        (label
-          :class "calendar-popup-icon"
-          :halign "end"
-          :text ""
-        )
+      :class "calendar-popup-date-box"
+      :orientation "h"
+      :halign "fill"
+      (label
+        :class "calendar-popup-date"
+        :halign "start"
+        :text {datetime.date}
       )
-      (box
-        :class "calendar-box"
-        :orientation "v"
-        (calendar
-          :class "calendar"
-          :show-details false
-          :show-heading true
-          :show-day-names true
-          :show-week-numbers false
-          :onclick "echo selected: {0}/{1}/{2}"
-        )
+      (label
+        :class "calendar-popup-icon"
+        :halign "end"
+        :text ""
+      )
+    )
+    (box
+      :class "calendar-box"
+      :orientation "v"
+      (calendar
+        :class "calendar"
+        :show-details false
+        :show-heading true
+        :show-day-names true
+        :show-week-numbers false
+        :onclick "echo selected: {0}/{1}/{2}"
       )
     )
   )

@@ -41,7 +41,7 @@
   padding: $spacing-lg;
   border-radius: $radius-lg;
   background-color: $error;
-  transition: background-color 150ms linear;
+  transition: background-color $duration-color-default $ease-color-default;
 
   &:hover {
     background-color: $error-dim;

@@ -57,35 +57,33 @@
   (network-popup-widget))
 
 (defwidget network-popup-widget []
-  (revealer
-    :reveal network-popup-open
-    :transition "slidedown"  
-    :duration "250ms"
+  (box
+    :class "network-popup-box"
+    :orientation "v"
+    :space-evenly false
+    :spacing 15
+    ; header
     (box
-      :class "network-popup-box"
-      :orientation "v"
+      :orientation "h"
+      :halign "fill"
+      :valign "center"
       :space-evenly false
-      :spacing 15
-
-      ; header
-      (box
-        :orientation "h"
-        :halign "fill"
-        :valign "center"
-        :space-evenly false
-        (label
-          :class "network-popup-title"
-          :halign "start"
-          :hexpand true
-          :text "Wi-Fi"
-        )
-        (switch
-          :state {network-data.radio == "enabled"}
-          :onclick "scripts/network-radio-toggle.sh"
-        )
+      (label
+        :class "network-popup-title"
+        :halign "start"
+        :hexpand true
+        :text "Wi-Fi"
       )
-
-      ; connection info
+      (switch
+        :state {network-data.radio == "enabled"}
+        :onclick "scripts/network-radio-toggle.sh"
+      )
+    )
+    ; connection info
+    (stack
+      :selected {network-data.radio == "enabled" ? 0 : 1}
+      :transition "crossfade"
+      :same-size false
       (box
         :class "network-popup-info"
         :orientation "h"
@@ -113,7 +111,6 @@
           )
         )
       )
-
       ; wifi off message
       (label
         :class "network-popup-status-off"
@@ -121,8 +118,8 @@
         :halign "center"
         :visible {network-data.radio == "disabled"}
       )
-    ) 
-  )
+    )
+  ) 
 )
 
 (defwindow network-notif

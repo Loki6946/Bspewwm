@@ -9,7 +9,8 @@
   min-width: 12px;
   border-radius: $radius-full;
   background-color: $on-surface-dim;
-  transition: min-width 350ms cubic-bezier(0.42, 1.67, 0.21, 0.90), background-color 150ms cubic-bezier(0.31, 0.94, 0.34, 1.00);
+  transition: min-width $duration-geometry-fast $ease-geometry-fast, 
+              background-color $duration-color-fast $ease-color-fast;
 
   &.active {
     min-width: 35px;

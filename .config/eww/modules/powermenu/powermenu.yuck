@@ -59,26 +59,21 @@
 ; powermenu popup content
 
 (defwidget power-popup-widget []
-  (revealer
-    :reveal power-popup-open
-    :transition "slidedown"
-    :duration "250ms"
+  (box
+    :orientation "v"
+    :space-evenly false
+    :spacing 20
     (box
-      :orientation "v"
-      :space-evenly false
-      :spacing 20
-      (box
-        :orientation "h"
-        :spacing 25
-        (power-popup-btn :action "systemctl poweroff" :name "Power" :icon "")
-        (power-popup-btn :action "systemctl reboot" :name "Reboot" :icon "")
-      )
-      (box
-        :orientation "h"
-        :spacing 25
-        (power-popup-btn :action "systemctl suspend" :name "Sleep" :icon "")
-        (power-popup-btn :action "bspc quit" :name "Exit" :icon "")
-      )
+      :orientation "h"
+      :spacing 25
+      (power-popup-btn :action "systemctl poweroff" :name "Power" :icon "")
+      (power-popup-btn :action "systemctl reboot" :name "Reboot" :icon "")
+    )
+    (box
+      :orientation "h"
+      :spacing 25
+      (power-popup-btn :action "systemctl suspend" :name "Sleep" :icon "")
+      (power-popup-btn :action "bspc quit" :name "Exit" :icon "")
     )
   )
 )

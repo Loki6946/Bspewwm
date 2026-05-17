@@ -37,48 +37,41 @@
 
 ; volume popup content
 (defwidget volume-popup-widget []
-  (revealer
-    :reveal volume-popup-open
-    :transition "slidedown"  
-    :duration "250ms"
-
-    ; volume level/mute button
-    (box
-      :orientation "h"
-      :space-evenly false
+  ; volume level/mute button
+  (box
+    :orientation "h"
+    :space-evenly false
+    :halign "center"
+    :spacing 10
+    (button
+      :class "volume-popup-button"
       :halign "center"
-      :spacing 10
-      (button
-        :class "volume-popup-button"
-        :halign "center"
-        :onclick "pamixer -t" 
-        (label
-          :class "volume-popup-icon"
-          :xalign {volume-data == "muted" ? 0.5 : 0.5}
-          :yalign {volume-data == "muted" ? 0.5 : 0.5}
-          :text {volume-data == "muted" ? "" : volume-data}
-        )
+      :onclick "pamixer -t" 
+      (label
+        :class "volume-popup-icon"
+        :xalign {volume-data == "muted" ? 0.5 : 0.5}
+        :yalign {volume-data == "muted" ? 0.5 : 0.5}
+        :text {volume-data == "muted" ? "" : volume-data}
       )
-
-      ; volume slider
-      (overlay 
-        :halign "start"
-        :hexpand true
-        (scale
-          :class {volume-data == "muted" ? "volume-popup-slider muted" : volume-data < 28 ? "volume-popup-slider low" : "volume-popup-slider"}
-          :orientation "h"
-          :width 150
-          :min 0
-          :max 101
-          :active {volume-data != "muted"}
-          :value {volume-data == "muted" ? 0 : volume-data}
-          :onchange "pamixer --set-volume {}"
-        )
-        (label
-          :class "volume-popup-slider-icon"
-          :xalign 0.06
-          :text ""
-        )
+    )
+    ; volume slider
+    (overlay 
+      :halign "start"
+      :hexpand true
+      (scale
+        :class {volume-data == "muted" ? "volume-popup-slider muted" : volume-data < 28 ? "volume-popup-slider low" : "volume-popup-slider"}
+        :orientation "h"
+        :width 150
+        :min 0
+        :max 101
+        :active {volume-data != "muted"}
+        :value {volume-data == "muted" ? 0 : volume-data}
+        :onchange "pamixer --set-volume {}"
+      )
+      (label
+        :class "volume-popup-slider-icon"
+        :xalign 0.06
+        :text ""
       )
     )
   )
