@@ -49,8 +49,8 @@
   :geometry (geometry
     :x "0px"     
     :y "0px"     
-    :width "100px"
-    :height "0px"
+    :width "200px"
+    :height "0"
     :anchor "center")
   :stacking "fg"
   (power-popup-widget)

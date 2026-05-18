@@ -23,7 +23,7 @@
   padding: $spacing-md;
   border-radius: $radius-full;
   background-color: transparent;
-  @include ripple-effect($hover: true, $hover-color: $surface);
+  @include ripple-effect($hover: true);
 }
 
 .screenshot-popup-action-icon {

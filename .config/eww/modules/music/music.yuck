@@ -39,7 +39,7 @@
         :class "music-title"
         :limit-width 200
         :halign "start"
-        :text `${music-data.title} - ${music-data.artist}`
+        :text "${music-data.title} - ${music-data.artist}"
       )
     )
 
