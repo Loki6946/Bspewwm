@@ -13,29 +13,59 @@
 }
 
 .sysinfo-popup {
-  padding: $spacing-sm;
   @include floating-window();
 }
 
-.sysinfo-popup-header {
-  color: $on-surface;
+.sysinfo-popup-tab-btn {
   padding: $spacing-sm;
-  border-radius: $radius-full;
-  background-color: $surface;
+  @include ripple-effect($hover: true, $hover-color: $hover-overlay);
 }
 
-.sysinfo-popup-header-text {
+.sysinfo-popup-tab-btn.btn-left {
+  border-radius: $radius-xl 0 0 0;
+}
+
+.sysinfo-popup-tab-btn.btn-right {
+  border-radius: 0 $radius-xl 0 0;
+}
+
+.sysinfo-popup-tab {
+  font-family: $font-text;
   font-size: $font-size-sm;
-  font-weight: $font-weight-bold;
+  font-weight: $font-weight-medium;
+  color: $on-surface-variant;
+  padding: $spacing-xs $spacing-sm;
+  transition: color $duration-color-default $ease-color-default;
+}
+
+.sysinfo-popup-tab--active {
+  color: $accent;
+}
+
+.sysinfo-popup-tab-indicator-track {
+  min-height: 2px;
+  background-color: $surface;
+  border-radius: $radius-full;
+}
+
+.sysinfo-popup-tab-indicator {
+  min-height: 2px;
+  min-width: 125px;
+  background-color: $accent;
+  border-radius: $radius-full;
+}
+
+.sysinfo-popup-items-box {
+  padding: $spacing-sm;
 }
 
 .sysinfo-popup-usage {
-  padding: $spacing-xs 0;
+  padding: 0 0 $spacing-sm 0;
   border-bottom: 2px solid $surface;
 }
 
 .sysinfo-popup-system {
-  padding: $spacing-xs 0 0 0;
+  padding: $spacing-sm 0 0 0;
 }
 
 .sysinfo-popup-info {
@@ -61,5 +91,33 @@
 .sysinfo-popup-value {
   color: $on-surface-variant;
   font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+}
+
+.sysinfo-popup-profile {
+  min-height: 70px;
+  min-width: 70px;
+  border-radius: $radius-full;
+  background-color: $accent;
+}
+
+.sysinfo-popup-profile-pic {
+  color: $background;
+  font-family: $font-text;
+  font-size: 40px;
+  font-weight: $font-weight-medium;
+}
+
+.sysinfo-popup-username {
+  color: $on-surface;
+  font-family: $font-text;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+}
+
+.sysinfo-popup-hostname {
+  color: $on-surface-variant;
+  font-family: $font-text;
+  font-size: $font-size-md;
   font-weight: $font-weight-medium;
 }
