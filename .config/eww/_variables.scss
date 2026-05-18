@@ -1,62 +1,155 @@
+// // Bar typography
+// $bar-text-size: 12px;
+// $bar-text-weight: 500;
+// $bar-icon-size: 14px;
+// $bar-icon-weight: 500;
+
+// // Font families
+// $font-text: "Roboto";
+// $font-icon: "Material Icons Round";
+
+// // Font sizes — for popups, panels, widgets
+// $font-size-xs: 10px;   // secondary labels, captions
+// $font-size-sm: 12px;   // small text, descriptions
+// $font-size-md: 14px;   // body text, default
+// $font-size-lg: 16px;   // emphasized body
+// $font-size-xl: 20px;   // titles
+// $font-size-2xl: 24px;  // large titles
+
+// // Icon sizes — for popups, panels, widgets
+// $icon-size-sm: 14px;
+// $icon-size-md: 18px;
+// $icon-size-lg: 22px;
+// $icon-size-xl: 28px;
+
+// // Font weights
+// $font-weight-regular: 400;
+// $font-weight-medium: 500;
+// $font-weight-bold: 700;
+
+// // Corner radius
+// $radius-xs: 4px;
+// $radius-sm: 8px;
+// $radius-md: 12px;
+// $radius-lg: 16px;
+// $radius-xl: 20px;
+// $radius-2xl: 28px;
+// $radius-3xl: 32px;
+// $radius-4xl: 48px;  
+// $radius-full: 999px;
+
+// // Spacing
+// $spacing-xs: 4px;
+// $spacing-sm: 8px;    
+// $spacing-md: 12px;   
+// $spacing-lg: 16px;   
+// $spacing-xl: 24px;
+// $spacing-xxl: 32px;
+
+// // Animation
+// $ripple-duration: 450ms;
+// $ripple-fade-duration: 700ms;
+// $ripple-ease: cubic-bezier(0.2, 0, 0, 1);
+
+// $duration-color-fast: 150ms;
+// $duration-color-default: 200ms;
+// $duration-color-slow: 300ms;
+// $duration-geometry-fast: 350ms;
+// $duration-geometry-default: 500ms;
+// $duration-geometry-slow: 650ms;
+
+// $ease-color-fast: cubic-bezier(0.31, 0.94, 0.34, 1.00);
+// $ease-color-default: cubic-bezier(0.34, 0.80, 0.34, 1.00);
+// $ease-color-slow: cubic-bezier(0.34, 0.88, 0.34, 1.00);
+// $ease-geometry-fast: cubic-bezier(0.42, 1.67, 0.21, 0.90);
+// $ease-geometry-default: cubic-bezier(0.38, 1.21, 0.22, 1.00);
+// $ease-geometry-slow: cubic-bezier(0.39, 1.29, 0.35, 0.98);
+
+// =====================
+// TYPOGRAPHY
+// =====================
+
+// Font families
+$font-text: "Roboto";
+$font-icon: "Material Icons Round";
+
 // Bar typography
 $bar-text-size: 12px;
 $bar-text-weight: 500;
 $bar-icon-size: 14px;
 $bar-icon-weight: 500;
 
-// Font families
-$font-text: "Roboto";
-$font-icon: "Material Icons Round";
-
-// Font sizes — for popups, panels, widgets
-$font-size-xs: 10px;   // secondary labels, captions
+// Font sizes — popups, panels, widgets
+$font-size-xs: 10px;   // captions, secondary labels
 $font-size-sm: 12px;   // small text, descriptions
 $font-size-md: 14px;   // body text, default
 $font-size-lg: 16px;   // emphasized body
 $font-size-xl: 20px;   // titles
 $font-size-2xl: 24px;  // large titles
 
-// Icon sizes — for popups, panels, widgets
-$icon-size-sm: 14px;
-$icon-size-md: 18px;
-$icon-size-lg: 22px;
-$icon-size-xl: 28px;
+// Icon sizes — popups, panels, widgets
+$icon-size-sm: 14px;   // small inline icons
+$icon-size-md: 18px;   // default popup icons
+$icon-size-lg: 22px;   // large popup icons
+$icon-size-xl: 28px;   // feature icons
 
 // Font weights
 $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-bold: 700;
 
-// Corner radius
-$radius-xs: 4px;
-$radius-sm: 8px;
-$radius-md: 12px;
-$radius-lg: 16px;
-$radius-xl: 20px;
-$radius-2xl: 28px;
-$radius-3xl: 32px;
-$radius-4xl: 48px;  
-$radius-full: 999px;
+// =====================
+// BORDER RADIUS
+// =====================
 
-// Spacing
-$spacing-xs: 4px;
-$spacing-sm: 8px;    
-$spacing-md: 12px;   
-$spacing-lg: 16px;   
-$spacing-xl: 24px;
-$spacing-xxl: 32px;
+// Based on Material Design 3 shape scale (1dp = 1px at standard density)
+$radius-xs: 4px;    // Extra small
+$radius-sm: 8px;    // Small
+$radius-md: 12px;   // Medium
+$radius-lg: 16px;   // Large
+$radius-xl: 20px;   // Extra large
+$radius-2xl: 28px;  // Extra extra large
+$radius-3xl: 32px;  // Extra extra extra large
+$radius-4xl: 48px;  // Full-ish
+$radius-full: 999px; // Full — pills, circles
 
-// Animation
-$duration-color-fast: 150ms;
-$duration-color-default: 200ms;
-$duration-color-slow: 300ms;
-$duration-geometry-fast: 350ms;
-$duration-geometry-default: 500ms;
-$duration-geometry-slow: 650ms;
+// =====================
+// SPACING
+// =====================
 
+// Based on Material Design 3 4dp grid
+$spacing-xs: 4px;   // Extra small
+$spacing-sm: 8px;   // Small
+$spacing-md: 12px;  // Medium
+$spacing-lg: 16px;  // Large
+$spacing-xl: 24px;  // Extra large
+$spacing-xxl: 32px; // Extra extra large
+
+// =====================
+// ANIMATION
+// =====================
+
+// Ripple
+$ripple-duration: 450ms;      // expand duration
+$ripple-fade-duration: 700ms; // fade out duration after release
+$ripple-ease: cubic-bezier(0.2, 0, 0, 1); // Material standard easing
+
+// Color transition durations
+$duration-color-fast: 150ms;    // hover, quick state changes
+$duration-color-default: 200ms; // default color transitions
+$duration-color-slow: 300ms;    // deliberate color changes
+
+// Geometry transition durations
+$duration-geometry-fast: 350ms;    // small movements, quick morphs
+$duration-geometry-default: 500ms; // default geometry transitions
+$duration-geometry-slow: 650ms;    // large or complex movements
+
+// Color easing curves — subtle, smooth
 $ease-color-fast: cubic-bezier(0.31, 0.94, 0.34, 1.00);
 $ease-color-default: cubic-bezier(0.34, 0.80, 0.34, 1.00);
 $ease-color-slow: cubic-bezier(0.34, 0.88, 0.34, 1.00);
+
+// Geometry easing curves — springy, expressive
 $ease-geometry-fast: cubic-bezier(0.42, 1.67, 0.21, 0.90);
 $ease-geometry-default: cubic-bezier(0.38, 1.21, 0.22, 1.00);
 $ease-geometry-slow: cubic-bezier(0.39, 1.29, 0.35, 0.98);
