@@ -7,14 +7,15 @@
 }
 
 .power-trigger-icon {
+  color: $on-surface;
   font-family: $font-icon;
   font-size: $bar-icon-size;
   font-weight: $bar-icon-weight;
 }
 
 .power-popup {
-  @include floating-window($radius: $radius-2xl);
   padding: $spacing-xl $spacing-lg;
+  @include floating-window($radius: $radius-2xl);
 }
 
 .power-popup-btn {
@@ -24,8 +25,16 @@
   background-color: $surface;
   transition: background-color $duration-color-default $ease-color-default;
 
+  &:hover {
+    background-color: $surface-variant;
+  }
+
   &--pending {
     background-color: $error;
+
+    &:hover {
+      background-color: $error-dim;
+    }
   }
 }
 

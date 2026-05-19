@@ -6,6 +6,7 @@
 }
 
 .volume-trigger-icon {
+  color: $on-surface;
   font-family: $font-icon;
   font-size: $bar-icon-size;
   font-weight: $bar-icon-weight;
@@ -24,6 +25,7 @@
 }
 
 .volume-popup-icon {
+  color: $on-surface;
   font-size: $icon-size-sm;
   font-weight: $font-weight-medium;
 }
@@ -37,7 +39,7 @@
   transition: background-color 150ms linear;
 
   &:hover {
-    background-color: $accent-variant;
+    background-color: $on-accent;
   }
 }
 
@@ -68,7 +70,8 @@
 }
 
 .volume-popup-slider-icon {
-  color: $background;
+  color: $on-accent;
   font-family: $font-icon;
   font-size: $icon-size-md;
+  font-weight: $font-weight-medium;
 }

@@ -25,15 +25,13 @@
   (box
     :orientation "v"
     :space-evenly false
-    :spacing 10
+    :spacing 8
     (button
+      :class {power-pending-name == name ? "power-popup-btn power-popup-btn--pending" : "power-popup-btn"}
       :onclick "scripts/power-select.sh '${action}' '${name}'"
-      (box
-        :class {power-pending-name == name ? "power-popup-btn power-popup-btn--pending" : "power-popup-btn"}
-        (label
-          :class "power-popup-btn-icon"
-          :text {power-pending-name == name ? "" : icon}
-        )
+      (label
+        :class "power-popup-btn-icon"
+        :text {power-pending-name == name ? "" : icon}
       )
     )
     (label
@@ -62,16 +60,16 @@
   (box
     :orientation "v"
     :space-evenly false
-    :spacing 20
+    :spacing 16
     (box
       :orientation "h"
-      :spacing 25
+      :spacing 24
       (power-popup-btn :action "systemctl poweroff" :name "Power" :icon "")
       (power-popup-btn :action "systemctl reboot" :name "Reboot" :icon "")
     )
     (box
       :orientation "h"
-      :spacing 25
+      :spacing 24
       (power-popup-btn :action "systemctl suspend" :name "Sleep" :icon "")
       (power-popup-btn :action "bspc quit" :name "Exit" :icon "")
     )

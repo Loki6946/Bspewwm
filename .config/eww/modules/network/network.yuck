@@ -61,7 +61,7 @@
     :class "network-popup-box"
     :orientation "v"
     :space-evenly false
-    :spacing 15
+    :spacing 16
     ; header
     (box
       :orientation "h"
@@ -88,7 +88,7 @@
         :class "network-popup-info"
         :orientation "h"
         :space-evenly false
-        :spacing 10
+        :spacing 8
         :visible {network-data.radio == "enabled"}
         (label
           :class "network-popup-signal"
@@ -137,7 +137,7 @@
   (box
     :orientation "h"
     :space-evenly false
-    :spacing 20
+    :spacing 24
     (box
       :orientation "h"
       :space-evenly false

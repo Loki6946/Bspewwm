@@ -35,12 +35,12 @@
   (box
     :orientation "h"
     :space-evenly false
-    :spacing 10
+    :spacing 8
     (box
       :class "screenshot-popup-background"
       :orientation "h"
       :space-evenly true
-      :spacing 5
+      :spacing 4
       (button
         :class "screenshot-popup-action-btn"
         :tooltip "Screen"

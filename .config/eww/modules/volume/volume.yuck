@@ -42,7 +42,7 @@
     :orientation "h"
     :space-evenly false
     :halign "center"
-    :spacing 10
+    :spacing 8
     (button
       :class "volume-popup-button"
       :halign "center"

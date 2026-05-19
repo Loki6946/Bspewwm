@@ -15,7 +15,7 @@
 
 (defwidget workspaces []
   (eventbox
-    :onscroll "[ '{}' = 'up' ] && bspwm-slidefx -w prev || bspwm-slidefx -w next"
+    :onscroll "[ '{}' = 'down' ] && bspwm-slidefx -w prev || bspwm-slidefx -w next"
     (box 
       :class "workspaces"
       :orientation "h"

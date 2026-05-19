@@ -6,6 +6,7 @@
 }
 
 .network-trigger-icon {
+  color: $on-surface;
   font-family: $font-icon;
   font-size: $bar-icon-size;
   font-weight: $bar-icon-weight;
@@ -14,8 +15,8 @@
 .switch {
   min-width: 28px;
   min-height: 15px;
-  border-radius: $radius-full;
   padding: 2px;
+  border-radius: $radius-full;
   transition: background-color $duration-color-slow $ease-color-slow;
 }
 
@@ -50,8 +51,10 @@
 }
 
 .switch-off .switch-thumb {
-  margin-left: 0px;
-  margin-right: 13px;
+  margin-left: 2px;
+  margin-right: 16px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 .network-popup {
@@ -104,8 +107,8 @@
 }
 
 .network-notif-text {
-  font-size: $font-size-sm;
   color: $on-surface;
+  font-size: $font-size-sm;
   font-weight: $font-weight-medium;
 }
 
@@ -116,7 +119,7 @@
 }
 
 .network-notif-close-text {
+  color: $accent;
   font-size: $font-size-sm;
   font-weight: $font-weight-medium;
-  color: $accent;
 }

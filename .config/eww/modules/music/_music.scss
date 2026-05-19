@@ -1,5 +1,4 @@
 .music-widget {
-  padding: 0 0px 0 0px;
   border-radius: $radius-full;
   background-color: $surface;
 }
@@ -14,9 +13,10 @@
 }
 
 .music-title {
+  color: $on-surface;
+  font-family: $font-text;
   font-size: $bar-text-size;
   font-weight: $bar-text-weight;
-  color: $on-surface;
 }
 
 .music-btn-box {
@@ -60,7 +60,7 @@
 }
 
 .music-popup-player {
-  color: $background;
+  color: $on-accent;
   font-family: $font-text;
   font-size: $font-size-sm;
   font-weight: $font-weight-medium;
@@ -113,4 +113,5 @@
   color: $on-surface;
   font-family: $font-icon;
   font-size: $icon-size-md;
+  font-weight: $font-weight-medium;
 }
