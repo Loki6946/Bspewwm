@@ -1,5 +1,5 @@
 import = [
-  "~/.config/alacritty/sage.toml"
+  "~/.config/alacritty/material-theme.toml"
 ]
 
 shell = "/usr/bin/zsh"

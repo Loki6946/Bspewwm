@@ -3,7 +3,8 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 get_color() {
-  awk -F'[ :;#]+' -v name="$1" '$0 ~ "^\\$" name ":"{print $2}' ~/.config/eww/_color.scss
+  theme=$(grep "@import" ~/.config/eww/_color.scss | grep -o '"themes/[^"]*"' | tr -d '"' | sed 's|themes/||')
+  awk -F'[ :;#]+' -v name="$1" '$0 ~ "^\\$" name ":"{print $2}' ~/.config/eww/themes/_${theme}.scss
 }
 
 bspc monitor -d 1 2 3 4 5 
@@ -24,7 +25,8 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 bspc rule -a vicinae border=off
-bspc rule -a Gnome-screenshot state=floating
+bspc rule -a Gnome-screenshot state=floating border=off center=on
+bspc rule -a Nitrogen state=floating border=off
 
 bspc config swallow_first_click true
 bspc config pointer_follows_focus false
