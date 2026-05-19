@@ -19,9 +19,9 @@ echo -n "$color" | xclip -selection clipboard
 
 # update eww
 eww update color-picker-value="$color"
-eww update color-picker-popup-open=true
-eww open color-picker-popup
+eww update color-picker-notif-open=true
+eww open color-picker-notif
 
 # auto close with PID tracking
-(sleep 8 && eww update color-picker-popup-open=false && eww close color-picker-popup) &
+(sleep 8 && eww update color-picker-notif-open=false && eww close color-picker-notif) &
 echo $! > "$PIDFILE"
