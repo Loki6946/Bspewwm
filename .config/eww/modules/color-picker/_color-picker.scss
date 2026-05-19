@@ -6,36 +6,37 @@
 }
 
 .color-picker-trigger-icon {
+  color: $on-surface;
   font-family: $font-icon;
   font-size: $bar-icon-size;
   font-weight: $bar-icon-weight;
 }
 
-.color-picker-popup {
-  @include floating-window($radius-xs);
+.color-picker-notif {
   padding: $spacing-md;
+  @include floating-window($radius-xs);
 }
 
-.color-picker-popup-preview {
+.color-picker-notif-preview {
   min-width: 23px;
   min-height: 22px;
   border-radius: $radius-full;
 }
 
-.color-picker-popup-text {
-  font-size: $font-size-sm;
+.color-picker-notif-text {
   color: $on-surface;
+  font-size: $font-size-sm;
   font-weight: $font-weight-medium;
 }
 
-.color-picker-popup-close-btn {
+.color-picker-notif-close-btn {
   padding: $spacing-xs $spacing-sm;
   border-radius: $radius-full;
   @include ripple-effect($hover: true, $hover-color: $surface);
 }
 
-.color-picker-popup-close-text {
+.color-picker-notif-close-text {
+  color: $accent;
   font-size: $font-size-sm;
   font-weight: $font-weight-medium;
-  color: $accent;
 }

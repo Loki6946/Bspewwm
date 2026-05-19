@@ -1,4 +1,4 @@
-(defvar color-picker-popup-open false)
+(defvar color-picker-notif-open false)
 (defvar color-picker-value "#000000")
 
 (defwidget color-picker []
@@ -18,7 +18,7 @@
   )
 )
 
-(defwindow color-picker-popup
+(defwindow color-picker-notif
   :monitor 0
   :geometry (geometry
     :x "0px"
@@ -27,33 +27,33 @@
     :height "0px"
     :anchor "bottom center")
   :stacking "fg"
-  (color-picker-popup-widget))
+  (color-picker-notif-widget))
 
-(defwidget color-picker-popup-widget []
+(defwidget color-picker-notif-widget []
   (box
     :orientation "h"
     :space-evenly false
-    :spacing 20
+    :spacing 24
     (box
       :orientation "h"
       :space-evenly false
       :hexpand true
       :spacing 8
       (box
-        :class "color-picker-popup-preview"
+        :class "color-picker-notif-preview"
         :style "background-color: ${color-picker-value};"
       )
       (label
-        :class "color-picker-popup-text"
+        :class "color-picker-notif-text"
         :text '"${color-picker-value}" Copied to clipboard'
       )
     )
     (button
-      :class "color-picker-popup-close-btn"
+      :class "color-picker-notif-close-btn"
       :halign "end"
-      :onclick "scripts/color-picker-popup-close.sh"
+      :onclick "scripts/color-picker-notif-close.sh"
       (label
-        :class "color-picker-popup-close-text"
+        :class "color-picker-notif-close-text"
         :text "Close"
       )
     )
