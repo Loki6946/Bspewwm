@@ -23,7 +23,7 @@ show_notif() {
 }
 
 get_network() {
-  sleep 0.5  # wait for state to settle
+  sleep 1  # wait for state to settle
   
   signal=$(nmcli -f in-use,signal dev wifi | rg "\*" | awk '{ print $2 }')
   essid=$(nmcli -t -f NAME connection show --active | head -n1 | sed 's/\"/\\"/g')
