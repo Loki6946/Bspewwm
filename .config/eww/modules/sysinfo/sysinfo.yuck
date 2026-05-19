@@ -3,9 +3,14 @@
   :initial '{"cpu_name": "", "gpu_name": "", "os": "", "kernel": "", "total_ram": "", "uptime": "", "username": "", "hostname": "", "shell": "", "wm": "", "terminal": ""}'
   "scripts/sysinfo.sh")
 
+(defpoll wallpaper-current
+  :interval "60s"
+  :initial ""
+  "scripts/wallpaper-current.sh")
+
 (defvar sysinfo-popup-open false)
-(defvar sysinfo-toggle false)
 (defvar sysinfo-tab 0)
+(defvar active-theme "sage")
 
 (defwidget sysinfo []
   (box
@@ -52,14 +57,22 @@
         :onclick "eww update sysinfo-tab=0"
         (label
           :class {sysinfo-tab == 0 ? "sysinfo-popup-tab sysinfo-popup-tab--active" : "sysinfo-popup-tab"}
+          :text "Settings"
+        )
+      )
+      (button
+        :class "sysinfo-popup-tab-btn btn-mid"
+        :onclick "eww update sysinfo-tab=1"
+        (label
+          :class {sysinfo-tab == 1 ? "sysinfo-popup-tab sysinfo-popup-tab--active" : "sysinfo-popup-tab"}
           :text "System"
         )
       )
       (button
         :class "sysinfo-popup-tab-btn btn-right"
-        :onclick "eww update sysinfo-tab=1"
+        :onclick "eww update sysinfo-tab=2"
         (label
-          :class {sysinfo-tab == 1 ? "sysinfo-popup-tab sysinfo-popup-tab--active" : "sysinfo-popup-tab"}
+          :class {sysinfo-tab == 2 ? "sysinfo-popup-tab sysinfo-popup-tab--active" : "sysinfo-popup-tab"}
           :text "Info"
         )
       )
@@ -69,17 +82,146 @@
     (box
       :class "sysinfo-popup-tab-indicator-track"
       (box
-        :class "sysinfo-popup-tab-indicator"
-        :halign {sysinfo-tab == 0 ? "start" : "end"}
+        :class {sysinfo-tab == 0 ? "sysinfo-popup-tab-indicator indicator-start" : sysinfo-tab == 1 ? "sysinfo-popup-tab-indicator indicator-center" : "sysinfo-popup-tab-indicator indicator-end"}
+        :halign "start"
       )
     )
 
     (stack
       :selected sysinfo-tab
-      :transition {sysinfo-tab == 0 ? "slideleft" : "slideright"}
+      :transition "none"
       :same-size true
 
-      ; tab 0 — system info
+      ; tab 0 — settings
+      (scroll
+        :hscroll false
+        :vscroll true
+        (box
+          :class "sysinfo-popup-items-box"
+          :orientation "v"
+          :space-evenly false
+          :spacing 12
+
+          ; theme section
+          (label
+            :class "sysinfo-popup-settings-label"
+            :halign "start"
+            :text "Wallpaper"
+          )
+          (box
+            :orientation "v"
+            :space-evenly false
+            :spacing 8
+            (box
+              :class "sysinfo-popup-settings-wallpaper-preview"
+              :style "background-image: url('${wallpaper-current}');"
+            )
+            (button
+              :class "sysinfo-popup-settings-btn"
+              :halign "end"
+              :onclick "nitrogen & scripts/sysinfo-popup-toggle.sh"
+              (label
+                :class "sysinfo-popup-settings-btn-label"
+                :text "Change wallpaper"
+              )
+            )
+          )
+
+          (label
+            :class "sysinfo-popup-settings-label"
+            :halign "start"
+            :text "Theme"
+          )
+          (box
+            :orientation "v"
+            :spacing 4
+            (box
+              :orientation "h"
+              :spacing 4
+              :space-evenly true
+              (button
+                :class {active-theme == "default" ? "theme-btn theme-btn--active" : "theme-btn"}
+                :onclick "scripts/theme-switch.sh default"
+                (box
+                  :orientation "h"
+                  :space-evenly false
+                  :halign "center"
+                  :spacing 4
+                  (box
+                    :class "theme-btn-preview"
+                    :style "background-color: #BEC2FF;"
+                  )
+                  (label
+                    :class "theme-btn-label"
+                    :text "Default"
+                  )
+                )
+              )
+              (button
+                :class {active-theme == "purple" ? "theme-btn theme-btn--active" : "theme-btn"}
+                :onclick "scripts/theme-switch.sh purple"
+                (box
+                  :orientation "h"
+                  :space-evenly false
+                  :halign "center"
+                  :spacing 4
+                  (box
+                    :class "theme-btn-preview"
+                    :style "background-color: #D0BCFF;"
+                  )
+                  (label
+                    :class "theme-btn-label"
+                    :text "Purple"
+                  )
+                )
+              )
+            )
+            (box
+              :orientation "h"
+              :spacing 4
+              :space-evenly true
+              (button
+                :class {active-theme == "green" ? "theme-btn theme-btn--active" : "theme-btn"}
+                :onclick "scripts/theme-switch.sh green"
+                (box
+                  :orientation "h"
+                  :space-evenly false
+                  :halign "center"
+                  :spacing 4
+                  (box
+                    :class "theme-btn-preview"
+                    :style "background-color: #CEE595;"
+                  )
+                  (label
+                    :class "theme-btn-label"
+                    :text "Green"
+                  )
+                )
+              )
+              (button
+                :class {active-theme == "sage" ? "theme-btn theme-btn--active" : "theme-btn"}
+                :onclick "scripts/theme-switch.sh sage"
+                (box
+                  :orientation "h"
+                  :space-evenly false
+                  :halign "center"
+                  :spacing 4
+                  (box
+                    :class "theme-btn-preview"
+                    :style "background-color: #B6DCB0;"
+                  )
+                  (label
+                    :class "theme-btn-label"
+                    :text "Sage"
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+
+      ; tab 1 — system info
       (box
         :class "sysinfo-popup-items-box"
         :orientation "v"
@@ -208,7 +350,7 @@
         )
       )
 
-      ; tab 1 — user info
+      ; tab 2 — user info
       (box
         :class "sysinfo-popup-items-box"
         :orientation "v"

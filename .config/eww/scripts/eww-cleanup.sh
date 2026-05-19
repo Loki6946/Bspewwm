@@ -14,3 +14,5 @@ eww update color-picker-popup-open=false
 eww update network-notif-open=false
 eww update power-pending-name=""
 eww update power-pending-action=""
+current_theme=$(grep -oP '(?<=@import "themes/)[^"]+' ~/.config/eww/_color.scss)
+eww update active-theme="$current_theme"
