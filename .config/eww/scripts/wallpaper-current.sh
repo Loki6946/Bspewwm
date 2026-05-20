@@ -1,6 +1,6 @@
 #!/bin/bash
 
-wallpaper=$(awk '/\[:0.0\]/{found=1} found && /^file=/{print substr($0,6); exit}' ~/.config/nitrogen/bg-saved.cfg)
+wallpaper=$(awk '/\[xin_-1\]/{found=1} found && /^file=/{print substr($0,6); exit}' ~/.config/nitrogen/bg-saved.cfg)
 
 cache_dir="$HOME/.cache/eww"
 cache="$cache_dir/wallpaper-preview.jpg"
