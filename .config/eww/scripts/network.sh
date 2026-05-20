@@ -18,7 +18,7 @@ show_notif() {
   eww update network-notif-open=true
   eww open network-notif
 
-  (sleep 8 && eww update network-notif-open=false && eww close network-notif) &
+  (sleep 5 && eww update network-notif-open=false && eww close network-notif) &
   echo $! > "$PIDFILE"
 }
 
