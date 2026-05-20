@@ -1,12 +1,10 @@
-#! /bin/sh
+#! /bin/bash
 
-pgrep -x sxhkd > /dev/null || sxhkd &
+# variables
+BSPD="$HOME/.config/bspwm/bspwm.d"
+get_color="$BSPD/get-color.sh"
 
-get_color() {
-  theme=$(grep "@import" ~/.config/eww/_color.scss | grep -o '"themes/[^"]*"' | tr -d '"' | sed 's|themes/||')
-  awk -F'[ :;#]+' -v name="$1" '$0 ~ "^\\$" name ":"{print $2}' ~/.config/eww/themes/_${theme}.scss
-}
-
+# bspwm config
 bspc monitor -d 1 2 3 4 5 
 
 bspc config border_width         1
@@ -16,70 +14,14 @@ bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-bspc config normal_border_color \#$(get_color on-surface-dim)
-bspc config focused_border_color \#$(get_color accent)
-
-bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Chromium desktop='^2'
-bspc rule -a mplayer2 state=floating
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
-bspc rule -a vicinae border=off
-bspc rule -a Gnome-screenshot state=floating border=off center=on
-bspc rule -a Nitrogen state=floating border=off
+bspc config normal_border_color \#$($get_color on-surface-dim)
+bspc config focused_border_color \#$($get_color accent)
 
 bspc config swallow_first_click true
 bspc config pointer_follows_focus false
 
-# Disable rounded corner on monocle layout
-bspc subscribe desktop_layout | while read -r Event
-do
-  Desktop=$(echo "$Event" | awk '{print $3}')
-  State=$(echo "$Event" | awk '{print $4}')
-  if [ "$State" = "monocle" ]; then 
-    bspc query -N -d $Desktop | while read -r Node
-    do
-      xprop -id $Node -f _PICOM_ROUNDED 32c -set _PICOM_ROUNDED 1
-    done
-  elif [ $(bspc config window_gap) -gt 0 ]; then
-    bspc query -N -d $Desktop | while read -r Node
-    do
-      xprop -id $Node -remove _PICOM_ROUNDED
-    done
-  fi
-done &
+# apply bspwm rules
+source "$BSPD/rules.sh" 
 
-## Autostart
-# Kill if already running
-killall -9 vicinae-server eww-daemon picom xcorners
-
-# Set custom resolution
-bash $HOME/.set-resolution.sh &
-
-# Wait for resolution to set
-until xrandr | grep "1360x768"; do
-    sleep 0.2
-done
-
-# Set wallpaper
-nitrogen --restore &
-
-# Start picom compositor
-picom &
-
-# Set rounded wallpaper
-xcorners -y 32 -r 16 -c $(get_color background)FF -1 &
-
-# Fix cursor
-xsetroot -cursor_name left_ptr &
-
-# Disable mouse acceleration
-xinput set-prop "8" "libinput Accel Profile Enabled" 0 1 0 &
-
-# Start vicinae app launcher server
-vicinae server &
-
-# Start eww
-$HOME/.config/eww/scripts/eww-cleanup.sh &
-eww daemon &
-eww open bar &
+# run autostart
+source "$BSPD/autostart.sh"
