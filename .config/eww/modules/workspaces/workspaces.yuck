@@ -9,7 +9,7 @@
   (button 
     :orientation "h"
     :class {workspace-focused == id ? "workspace-item active" : workspace-occupied =~ "\\b${id}\\b" ? "workspace-item occupied" : "workspace-item"}
-	  :onclick "bspwm-slidefx -w ${id}" 
+	  :onclick "bspwm-slidefx -w ${id}"
   )
 )
 

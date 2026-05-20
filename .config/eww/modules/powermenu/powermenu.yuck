@@ -6,12 +6,8 @@
 (defwidget powermenu []
   (box 
     :orientation "h"
-    :halign "center"
     (button 
       :class "power-trigger"
-      :orientation "h"
-      :valign "center"
-      :halign "center"
       :onclick "scripts/power-popup-toggle.sh"
       (label
         :class "power-trigger-icon"

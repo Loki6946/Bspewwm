@@ -9,10 +9,8 @@
 (defwidget volume []
   (box 
     :orientation "h"
-    :halign "center"
     (button 
       :class "volume-trigger"
-      :orientation "h"
       :onclick "scripts/volume-popup-toggle.sh"
       (label
         :class "volume-trigger-icon"
@@ -27,7 +25,7 @@
   :monitor 0
   :geometry (geometry
     :x "-5px"      
-    :y "36px"     
+    :y "35px"     
     :width "200px"
     :height "0px"
     :anchor "top right")   

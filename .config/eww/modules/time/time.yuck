@@ -8,11 +8,9 @@
 (defwidget time []
   (box 
     :orientation "h"
-    :halign "center"
     :hexpand true
     (button 
       :class "time-trigger"
-      :orientation "h"
       :onclick "scripts/calendar-toggle.sh"
       (label
         :class "time-trigger-text"
@@ -26,7 +24,7 @@
   :monitor 0
   :geometry (geometry
     :x "-5px"
-    :y "36px"
+    :y "35px"
     :width "220px"
     :anchor "top right")
   :stacking "fg"

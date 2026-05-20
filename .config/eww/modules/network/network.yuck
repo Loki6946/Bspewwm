@@ -13,10 +13,8 @@
 (defwidget network []
   (box
     :orientation "h"
-    :halign "center"
     (button 
       :class "network-trigger"
-      :halign "center"
       :onclick "scripts/network-popup-toggle.sh"
       (label
         :class "network-trigger-icon"
@@ -49,7 +47,7 @@
   :monitor 0
   :geometry (geometry
     :x "-5px"
-    :y "36px"
+    :y "35px"
     :width "220px"
     :height "0px"
     :anchor "top right")

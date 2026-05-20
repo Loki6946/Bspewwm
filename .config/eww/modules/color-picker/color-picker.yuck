@@ -4,11 +4,8 @@
 (defwidget color-picker []
   (box
     :orientation "h"
-    :halign "center"
     (button 
       :class "color-picker-trigger"
-      :orientation "h"
-      :halign "center"
       :onclick "scripts/color-picker.sh" 
       (label
         :class "color-picker-trigger-icon"

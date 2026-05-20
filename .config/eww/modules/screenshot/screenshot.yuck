@@ -5,11 +5,8 @@
 (defwidget screenshot []
   (box
     :orientation "h"
-    :halign "center"
     (button 
       :class "screenshot-trigger"
-      :orientation "h"
-      :halign "center"
       :onclick "scripts/screenshot-popup-toggle.sh" 
       (label
         :class "screenshot-trigger-icon"

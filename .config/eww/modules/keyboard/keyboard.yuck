@@ -6,10 +6,8 @@
 (defwidget keyboard []
   (box
     :orientation "h"
-    :halign "center"
     (button 
       :class "keyboard-trigger"
-      :orientation "h"
       (box
         :orientation "h"
         :spacing 2
