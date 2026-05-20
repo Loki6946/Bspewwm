@@ -15,12 +15,8 @@
 (defwidget sysinfo []
   (box
     :orientation "h"
-    :halign "center"
     (button 
       :class "sysinfo-trigger"
-      :orientation "h"
-      :valign "center"
-      :halign "center"
       :onclick "scripts/sysinfo-popup-toggle.sh" 
       (label
         :class "sysinfo-trigger-icon"
@@ -34,7 +30,7 @@
   :monitor 0
   :geometry (geometry
     :x "5px"     
-    :y "36px"     
+    :y "35px"     
     :width "250px"
     :height "0px"
     :anchor "top left")
@@ -140,8 +136,8 @@
               :spacing 4
               :space-evenly true
               (button
-                :class {active-theme == "default" ? "theme-btn theme-btn--active" : "theme-btn"}
-                :onclick "scripts/theme-switch.sh default"
+                :class {active-theme == "blue" ? "theme-btn theme-btn--active" : "theme-btn"}
+                :onclick "scripts/theme-switch.sh blue"
                 (box
                   :orientation "h"
                   :space-evenly false
@@ -153,7 +149,7 @@
                   )
                   (label
                     :class "theme-btn-label"
-                    :text "Default"
+                    :text "Blue"
                   )
                 )
               )
