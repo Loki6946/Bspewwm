@@ -9,7 +9,7 @@
   min-width: 12px;
   border-radius: $radius-full;
   background-color: $on-surface-dim;
-  transition: min-width $duration-geometry-fast $ease-geometry-fast, 
+  transition: min-width $duration-geometry-default $ease-geometry-default, 
               background-color $duration-color-fast $ease-color-fast;
 
   &.active {

@@ -83,7 +83,7 @@
 .sysinfo-popup-settings-wallpaper-preview {
   min-height: 150px;
   border: 1px solid $surface;
-  border-radius: $radius-lg;
+  border-radius: $radius-xl;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -112,6 +112,7 @@
 }
 
 .theme-btn--active {
+  border-color: $accent;
   border-radius: $radius-full;
 }
 

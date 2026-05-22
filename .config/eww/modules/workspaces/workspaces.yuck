@@ -9,6 +9,7 @@
   (button 
     :orientation "h"
     :class {workspace-focused == id ? "workspace-item active" : workspace-occupied =~ "\\b${id}\\b" ? "workspace-item occupied" : "workspace-item"}
+    :valign "center"
 	  :onclick "bspwm-slidefx -w ${id}"
   )
 )
@@ -19,8 +20,6 @@
     (box 
       :class "workspaces"
       :orientation "h"
-      :halign "center"
-      :valign "center"
       :space-evenly false
       :spacing 4
       (workspace-item :id "1")
