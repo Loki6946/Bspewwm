@@ -47,10 +47,9 @@
     (box
       :class "music-btn-box"
       :orientation "h"
-      :valign "center"
-      :spacing 8
       (button
         :class "music-btn"
+        :valign "center"
         :onclick "playerctl previous"
         (label
           :class "music-btn-icon"
@@ -58,15 +57,17 @@
         )
       )
       (button
-        :class "music-btn"
+        :class "music-btn play"
+        :valign "center"
         :onclick "playerctl play-pause"
         (label
-          :class {music-data.status == "Playing" ? "music-btn-icon play" : "music-btn-icon pause"}
-          :text {music-data.status == "Playing" ? "" : ""}
+          :class "music-btn-icon play"
+          :text {music-data.status == "Playing" ? "" : ""}
         )
       )
       (button
         :class "music-btn"
+        :valign "center"
         :onclick "playerctl next"
         (label
           :class "music-btn-icon"
@@ -146,6 +147,7 @@
         :min 0
         :max {music-data.length == "" ? 100 : music-data.length}
         :value {music-position}
+        :onchange "playerctl position {}"
       )
       (box
         :orientation "h"

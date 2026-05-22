@@ -20,7 +20,7 @@
 }
 
 .music-btn-box {
-  padding: $spacing-xs;
+  padding: 0;
   border-radius: $radius-full;
   background-color: $surface-variant;
 }
@@ -29,20 +29,23 @@
   border-radius: $radius-full;
 }
 
+.music-btn.play {
+  padding: $spacing-xs;
+  border-radius: $radius-full;
+  background-color: $accent;
+  @include ripple-effect($color: $accent-dim);
+}
+
 .music-btn-icon {
   color: $on-surface;
   font-family: $font-icon;
   font-size: $bar-icon-size;
   font-weight: $bar-icon-weight;
-  transition: color $duration-color-default $ease-color-default;
 }
 
 .music-btn-icon.play {
-  color: $accent;
-}
-
-.music-btn-icon.pause {
-  color: $accent-dim;
+  color: $on-accent;
+  font-family: "Material Icons Outlined";
 }
 
 .music-popup {
