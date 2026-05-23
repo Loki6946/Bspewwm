@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# kill previous instance
-pkill -f "playerctl metadata -F" 2>/dev/null
-sleep 0.1
-
 base_dir="$HOME/.config/eww/"
 playerctl metadata -F -f '{{playerName}} {{title}} {{artist}} {{mpris:artUrl}} {{status}} {{mpris:length}}' | while read -r line; do
     name=$(playerctl metadata -f "{{playerName}}")
