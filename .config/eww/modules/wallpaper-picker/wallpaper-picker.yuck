@@ -40,6 +40,14 @@
         :text "Wallpaper"
       )
       (button
+        :class "wallpaper-picker-refresh-btn"
+        :onclick "eww poll wallpaper-list & scripts/wallpaper-thumbs-generate.sh & scripts/wallpaper-picker-toggle.sh & scripts/wallpaper-picker-toggle.sh &"
+        (label
+          :class "wallpaper-picker-refresh-icon"
+          :text "refresh"
+        )
+      )
+      (button
         :class "wallpaper-picker-close-btn"
         :onclick "scripts/wallpaper-picker-toggle.sh"
         (label

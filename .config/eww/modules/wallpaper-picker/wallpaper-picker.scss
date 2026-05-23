@@ -10,6 +10,18 @@
   color: $on-surface;
 }
 
+.wallpaper-picker-refresh-btn {
+  border-radius: $radius-full;
+  padding: $spacing-xs;
+  @include ripple-effect($hover: true);
+}
+
+.wallpaper-picker-refresh-icon {
+  font-family: $font-icon;
+  font-size: $icon-size-sm;
+  color: $on-surface-variant;
+}
+
 .wallpaper-picker-close-btn {
   border-radius: $radius-full;
   padding: $spacing-xs;
