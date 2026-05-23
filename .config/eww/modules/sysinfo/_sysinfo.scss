@@ -72,62 +72,6 @@
   margin-left: 165.5px;
 }
 
-.sysinfo-popup-settings-label {
-  font-family: $font-text;
-  font-size: $font-size-sm;
-  font-weight: $font-weight-medium;
-  color: $on-surface-variant;
-  padding: 0 $spacing-xs;
-}
-
-.sysinfo-popup-settings-wallpaper-preview {
-  min-height: 150px;
-  border: 1px solid $surface;
-  border-radius: $radius-xl;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-color: $surface;
-}
-
-.sysinfo-popup-settings-btn {
-  padding: $spacing-sm;
-  border-radius: $radius-full;
-  background-color: $accent;
-  @include ripple-effect($color: $accent, $hover: true, $hover-color: $accent-dim);
-}
-
-.sysinfo-popup-settings-btn-label {
-  color: $on-accent;
-  font-family: $font-text;
-  font-size: $font-size-sm;
-  font-weight: $font-weight-medium;
-}
-
-.theme-btn {
-  padding: $spacing-sm;
-  border: 2px solid $surface-variant;
-  border-radius: $radius-sm;
-  @include ripple-effect($hover: true, $hover-color: $surface-variant);
-}
-
-.theme-btn--active {
-  border-color: $accent;
-  border-radius: $radius-full;
-}
-
-.theme-btn-preview {
-  min-width: 15px;
-  border-radius: $radius-full;
-}
-
-.theme-btn-label {
-  color: $on-surface;
-  font-family: $font-text;
-  font-size: $font-size-sm;
-  font-weight: $font-weight-medium;
-}
-
 .sysinfo-popup-items-box {
   padding: $spacing-sm;
 }

@@ -3,14 +3,8 @@
   :initial '{"cpu_name": "", "gpu_name": "", "os": "", "kernel": "", "total_ram": "", "uptime": "", "username": "", "hostname": "", "shell": "", "wm": "", "terminal": ""}'
   "scripts/sysinfo.sh")
 
-(defpoll wallpaper-current
-  :interval "60s"
-  :initial ""
-  "scripts/wallpaper-current.sh")
-
 (defvar sysinfo-popup-open false)
 (defvar sysinfo-tab 0)
-(defvar active-theme "sage")
 
 (defwidget sysinfo []
   (box
@@ -89,133 +83,7 @@
       :same-size true
 
       ; tab 0 — settings
-      (scroll
-        :hscroll false
-        :vscroll true
-        (box
-          :class "sysinfo-popup-items-box"
-          :orientation "v"
-          :space-evenly false
-          :spacing 12
-
-          ; theme section
-          (label
-            :class "sysinfo-popup-settings-label"
-            :halign "start"
-            :text "Wallpaper"
-          )
-          (box
-            :orientation "v"
-            :space-evenly false
-            :spacing 8
-            (box
-              :class "sysinfo-popup-settings-wallpaper-preview"
-              :style "background-image: url('${wallpaper-current}');"
-            )
-            (button
-              :class "sysinfo-popup-settings-btn"
-              :halign "end"
-              :onclick "nitrogen & scripts/sysinfo-popup-toggle.sh"
-              (label
-                :class "sysinfo-popup-settings-btn-label"
-                :text "Change wallpaper"
-              )
-            )
-          )
-
-          (label
-            :class "sysinfo-popup-settings-label"
-            :halign "start"
-            :text "Theme"
-          )
-          (box
-            :orientation "v"
-            :spacing 4
-            (box
-              :orientation "h"
-              :spacing 4
-              :space-evenly true
-              (button
-                :class {active-theme == "blue" ? "theme-btn theme-btn--active" : "theme-btn"}
-                :onclick "scripts/theme-switch.sh blue"
-                (box
-                  :orientation "h"
-                  :space-evenly false
-                  :halign "center"
-                  :spacing 4
-                  (box
-                    :class "theme-btn-preview"
-                    :style "background-color: #BEC2FF;"
-                  )
-                  (label
-                    :class "theme-btn-label"
-                    :text "Blue"
-                  )
-                )
-              )
-              (button
-                :class {active-theme == "purple" ? "theme-btn theme-btn--active" : "theme-btn"}
-                :onclick "scripts/theme-switch.sh purple"
-                (box
-                  :orientation "h"
-                  :space-evenly false
-                  :halign "center"
-                  :spacing 4
-                  (box
-                    :class "theme-btn-preview"
-                    :style "background-color: #D0BCFF;"
-                  )
-                  (label
-                    :class "theme-btn-label"
-                    :text "Purple"
-                  )
-                )
-              )
-            )
-            (box
-              :orientation "h"
-              :spacing 4
-              :space-evenly true
-              (button
-                :class {active-theme == "green" ? "theme-btn theme-btn--active" : "theme-btn"}
-                :onclick "scripts/theme-switch.sh green"
-                (box
-                  :orientation "h"
-                  :space-evenly false
-                  :halign "center"
-                  :spacing 4
-                  (box
-                    :class "theme-btn-preview"
-                    :style "background-color: #CEE595;"
-                  )
-                  (label
-                    :class "theme-btn-label"
-                    :text "Green"
-                  )
-                )
-              )
-              (button
-                :class {active-theme == "sage" ? "theme-btn theme-btn--active" : "theme-btn"}
-                :onclick "scripts/theme-switch.sh sage"
-                (box
-                  :orientation "h"
-                  :space-evenly false
-                  :halign "center"
-                  :spacing 4
-                  (box
-                    :class "theme-btn-preview"
-                    :style "background-color: #B6DCB0;"
-                  )
-                  (label
-                    :class "theme-btn-label"
-                    :text "Sage"
-                  )
-                )
-              )
-            )
-          )
-        )
-      )
+      (settings)
 
       ; tab 1 — system info
       (box

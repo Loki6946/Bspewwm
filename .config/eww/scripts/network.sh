@@ -22,6 +22,11 @@ show_notif() {
   echo $! > "$PIDFILE"
 }
 
+# kill previous monitors
+pkill -f "ip monitor link" 2>/dev/null
+pkill -f "nmcli monitor" 2>/dev/null
+sleep 0.1
+
 get_network() {
   sleep 1  # wait for state to settle
   

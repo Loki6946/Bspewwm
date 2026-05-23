@@ -14,6 +14,7 @@ while IFS= read -r window; do
       eww update network-popup-open=false
       ;;
     power-popup)
+      eww close power-bg
       eww close power-popup
       eww update power-popup-open=false
       eww update power-pending-name=""
