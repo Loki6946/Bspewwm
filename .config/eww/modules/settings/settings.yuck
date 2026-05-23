@@ -1,0 +1,379 @@
+(defpoll theme-mode
+  :interval "9999s"
+  :initial "static"
+  "cat ~/.cache/eww/theme-mode 2>/dev/null || echo static")
+
+(defpoll dynamic-type
+  :interval "9999s"
+  :initial "tonal-spot"
+  "cat ~/.cache/eww/dynamic-type 2>/dev/null || echo tonal-spot")
+
+(defpoll active-theme
+  :interval "9999s"
+  :initial "sage"
+  "cat ~/.cache/eww/active-theme 2>/dev/null || echo sage")
+
+(defpoll wallpaper-thumb
+  :interval "30s"
+  "scripts/wallpaper-current.sh")
+
+(defwidget settings []
+  (scroll
+    :hscroll false
+    :vscroll true
+    (box
+      :class "sysinfo-popup-items-box"
+      :orientation "v"
+      :space-evenly false
+      :spacing 12
+      
+      ; wallpaper section
+      (label
+        :class "sysinfo-popup-settings-label"
+        :halign "start"
+        :text "Wallpaper"
+      )
+
+      (box
+        :orientation "v"
+        :space-evenly false
+        :spacing 8
+        (box
+          :class "wallpaper-preview"
+          :style "background-image: url('${wallpaper-thumb}');"
+        )
+        (button
+          :class "wallpaper-btn"
+          :halign "end"
+          :onclick "scripts/wallpaper-picker-toggle.sh & scripts/sysinfo-popup-toggle.sh"
+          (box
+            :orientation "h"
+            :space-evenly false
+            :spacing 4
+            (label
+              :class "wallpaper-btn-icon"
+              :text ""
+            )
+            (label
+              :class "wallpaper-btn-label"
+              :text "Change wallpaper"
+            )
+          )
+        )
+      )
+
+      ; theme section
+      (label
+        :class "sysinfo-popup-settings-label"
+        :halign "start"
+        :text "Color Scheme"
+      )
+
+      (box
+        :orientation "h"
+        :spacing 4
+        :space-evenly false
+        (button
+          :class {theme-mode == "dynamic" ? "theme-btn theme-btn--active" : "theme-btn theme-btn--inactive start"}
+          :onclick "eww update theme-mode=dynamic & scripts/theme-dynamic.sh"
+          (box
+            :orientation "h"
+            :space-evenly false
+            :spacing 4
+            (label
+              :class "theme-btn-icon"
+              :visible {theme-mode == "dynamic" ? true : false}
+              :text ""
+            )
+            (label
+              :class "theme-btn-label"
+              :text "Dynamic"
+            )
+          )
+        )
+        (button
+          :class {theme-mode == "static" ? "theme-btn theme-btn--active" : "theme-btn theme-btn--inactive end"}
+          :onclick "eww update theme-mode=static & scripts/theme-switch.sh blue"
+          (box
+            :orientation "h"
+            :space-evenly false
+            :spacing 4
+            (label
+              :class "theme-btn-icon"
+              :visible {theme-mode == "static" ? true : false}
+              :text ""
+            )
+            (label
+              :class "theme-btn-label"
+              :text "Static"
+            )
+          )
+        )
+      )
+
+      (label
+        :class "sysinfo-popup-settings-label"
+        :halign "start"
+        :text "Color Pallete"
+      )
+      
+      (box
+        :orientation "v"
+        :visible {theme-mode == "dynamic"}
+        :spacing 4
+        (box
+          :orientation "h"
+          :space-evenly false
+          :spacing 4
+          (button
+            :class {dynamic-type == "content" ? "theme-btn theme-btn--active" : "theme-btn theme-btn--inactive start"}
+            :onclick "scripts/theme-dynamic.sh content"
+            (box
+              :orientation "h"
+              :space-evenly false
+              :spacing 4
+              (label 
+                :class "theme-btn-icon"
+                :visible {dynamic-type == "content"}
+                :text ""
+              )
+              (label 
+                :class "theme-btn-label"
+                :text "Content"
+              )
+            )
+          )
+          (button
+            :class {dynamic-type == "expressive" ? "theme-btn theme-btn--active" : "theme-btn theme-btn--inactive"}
+            :onclick "scripts/theme-dynamic.sh expressive"
+            (box
+              :orientation "h"
+              :space-evenly false
+              :spacing 4
+              (label 
+                :class "theme-btn-icon" 
+                :visible {dynamic-type == "expressive"}
+                :text ""
+              )
+              (label 
+                :class "theme-btn-label"
+                :text "Expressive"
+              )
+            )
+          )
+        )
+        (box
+          :orientation "h"
+          :space-evenly false
+          :spacing 4
+          (button
+            :class {dynamic-type == "fidelity" ? "theme-btn theme-btn--active" : "theme-btn theme-btn--inactive"}
+            :onclick "scripts/theme-dynamic.sh fidelity"
+            (box
+              :orientation "h"
+              :space-evenly false
+              :spacing 4
+              (label 
+                :class "theme-btn-icon"
+                :visible {dynamic-type == "fidelity"}
+                :text ""
+              )
+              (label 
+                :class "theme-btn-label" 
+                :text "Fidelity"
+              )
+            )
+          )
+          (button
+            :class {dynamic-type == "fruit-salad" ? "theme-btn theme-btn--active" : "theme-btn theme-btn--inactive"}
+            :onclick "scripts/theme-dynamic.sh fruit-salad"
+            (box
+              :orientation "h"
+              :space-evenly false
+              :spacing 4
+              (label 
+                :class "theme-btn-icon"
+                :visible {dynamic-type == "fruit-salad"}
+                :text ""
+              )
+              (label 
+                :class "theme-btn-label"
+                :text "Fruit Salad"
+              )
+            )
+          )
+        )
+        (box
+          :orientation "h"
+          :space-evenly false
+          :spacing 4
+          (button
+            :class {dynamic-type == "monochrome" ? "theme-btn theme-btn--active" : "theme-btn theme-btn--inactive"}
+            :onclick "scripts/theme-dynamic.sh monochrome"
+            (box
+              :orientation "h"
+              :space-evenly false
+              :spacing 4
+              (label 
+                :class "theme-btn-icon"
+                :visible {dynamic-type == "monochrome"}
+                :text ""
+              )
+              (label 
+                :class "theme-btn-label"
+                :text "Monochrome"
+              )
+            )
+          )
+          (button
+            :class {dynamic-type == "neutral" ? "theme-btn theme-btn--active" : "theme-btn theme-btn--inactive"}
+            :onclick "scripts/theme-dynamic.sh neutral"
+            (box
+              :orientation "h"
+              :space-evenly false
+              :spacing 4
+              (label 
+                :class "theme-btn-icon"
+                :visible {dynamic-type == "neutral"}
+                :text ""
+              )
+              (label 
+                :class "theme-btn-label" 
+                :text "Neutral"
+              )
+            )
+          )
+        )
+        (box
+          :orientation "h"
+          :space-evenly false
+          :spacing 4
+          (button
+            :class {dynamic-type == "rainbow" ? "theme-btn theme-btn--active" : "theme-btn theme-btn--inactive"}
+            :onclick "scripts/theme-dynamic.sh rainbow"
+            (box
+              :orientation "h"
+              :space-evenly false
+              :spacing 4
+              (label 
+                :class "theme-btn-icon" 
+                :visible {dynamic-type == "rainbow"}
+                :text ""
+              )
+              (label 
+                :class "theme-btn-label" 
+                :text "Rainbow"
+              )
+            )
+          )
+          (button
+            :class {dynamic-type == "tonal-spot" ? "theme-btn theme-btn--active" : "theme-btn theme-btn--inactive end"}
+            :onclick "scripts/theme-dynamic.sh tonal-spot"
+            (box
+              :orientation "h"
+              :space-evenly false
+              :spacing 4
+              (label 
+                :class "theme-btn-icon"
+                :visible {dynamic-type == "tonal-spot"}
+                :text ""
+              )
+              (label 
+                :class "theme-btn-label" 
+                :text "Tonal Spot"
+              )
+            )
+          )
+        )
+      )
+
+      (box
+        :orientation "v"
+        :visible {theme-mode == "static"}
+        :spacing 4
+        (box
+          :orientation "h"
+          :space-evenly false
+          :spacing 4
+          (button
+            :class {active-theme == "blue" ? "theme-btn theme-btn--active" : "theme-btn theme-btn--inactive start"}
+            :onclick "scripts/theme-switch.sh blue"
+            (box
+              :orientation "h"
+              :space-evenly false
+              :halign "center"
+              :spacing 4
+              (box
+                :class "theme-btn-preview"
+                :style "background-color: #BEC2FF;"
+              )
+              (label
+                :class "theme-btn-label"
+                :text "Blue"
+              )
+            )
+          )
+          (button
+            :class {active-theme == "purple" ? "theme-btn theme-btn--active" : "theme-btn theme-btn--inactive"}
+            :onclick "scripts/theme-switch.sh purple"
+            (box
+              :orientation "h"
+              :space-evenly false
+              :halign "center"
+              :spacing 4
+              (box
+                :class "theme-btn-preview"
+                :style "background-color: #D0BCFF;"
+              )
+              (label
+                :class "theme-btn-label"
+                :text "Purple"
+              )
+            )
+          )
+          (button
+            :class {active-theme == "green" ? "theme-btn theme-btn--active" : "theme-btn theme-btn--inactive"}
+            :onclick "scripts/theme-switch.sh green"
+            (box
+              :orientation "h"
+              :space-evenly false
+              :halign "center"
+              :spacing 4
+              (box
+                :class "theme-btn-preview"
+                :style "background-color: #CEE595;"
+              )
+              (label
+                :class "theme-btn-label"
+                :text "Green"
+              )
+            )
+          )
+        )
+        (box
+          :orientation "h"
+          :spacing 4
+          :space-evenly false
+          (button
+            :class {active-theme == "sage" ? "theme-btn theme-btn--active" : "theme-btn theme-btn--inactive end"}
+            :onclick "scripts/theme-switch.sh sage"
+            (box
+              :orientation "h"
+              :space-evenly false
+              :halign "center"
+              :spacing 4
+              (box
+                :class "theme-btn-preview"
+                :style "background-color: #B6DCB0;"
+              )
+              (label
+                :class "theme-btn-label"
+                :text "Sage"
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+)

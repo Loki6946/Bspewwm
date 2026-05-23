@@ -1,0 +1,38 @@
+.wallpaper-picker {
+  @include floating-window($radius-lg);
+  padding: $spacing-md;
+}
+
+.wallpaper-picker-title {
+  font-family: $font-text;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $on-surface;
+}
+
+.wallpaper-picker-close-btn {
+  border-radius: $radius-full;
+  padding: $spacing-xs;
+  @include ripple-effect($hover: true);
+}
+
+.wallpaper-picker-close-icon {
+  font-family: $font-icon;
+  font-size: $icon-size-sm;
+  color: $on-surface-variant;
+}
+
+.wallpaper-item {
+  min-width: 240px;
+  min-height: 135px;
+  border-radius: $radius-md;
+  border: 2px solid transparent;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: border-color $duration-color-default $ease-color-default;
+}
+
+.wallpaper-item--active {
+  border-color: $accent;
+}

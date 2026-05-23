@@ -6,9 +6,11 @@
 (include "modules/music/music.yuck")
 (include "modules/keyboard/keyboard.yuck")
 (include "modules/color-picker/color-picker.yuck")
-(include "modules/sysinfo/sysinfo.yuck")
 (include "modules/search/search.yuck")
 (include "modules/screenshot/screenshot.yuck")
+(include "modules/sysinfo/sysinfo.yuck")
+(include "modules/settings/settings.yuck")
+(include "modules/wallpaper-picker/wallpaper-picker.yuck")
 
 
 (defwidget bar []

@@ -1,0 +1,81 @@
+(defvar wallpaper-picker-open false)
+
+(defpoll wallpaper-list
+  :interval "60s"
+  :initial "[]"
+  "scripts/wallpaper-list.sh")
+
+(defpoll wallpaper-current
+  :interval "60s"
+  :initial ""
+  "cat ~/.cache/eww/current-wallpaper 2>/dev/null")
+
+(defwindow wallpaper-picker
+  :monitor 0
+  :geometry (geometry
+    :x "0px"
+    :y "0px"
+    :width "560px"
+    :height "400px"
+    :anchor "center")
+  :stacking "fg"
+  (wallpaper-picker-widget))
+
+(defwidget wallpaper-picker-widget []
+  (box
+    :class "wallpaper-picker"
+    :orientation "v"
+    :space-evenly false
+    :spacing 12
+
+    ; header
+    (box
+      :orientation "h"
+      :halign "fill"
+      :space-evenly false
+      (label
+        :class "wallpaper-picker-title"
+        :halign "start"
+        :hexpand true
+        :text "Wallpaper"
+      )
+      (button
+        :class "wallpaper-picker-close-btn"
+        :onclick "scripts/wallpaper-picker-toggle.sh"
+        (label
+          :class "wallpaper-picker-close-icon"
+          :text "close"
+        )
+      )
+    )
+
+    ; grid
+    (scroll
+      :vscroll true
+      :hscroll false
+      :height 400
+      (box
+        :orientation "v"
+        :space-evenly false
+        :spacing 12
+        (for row in wallpaper-list
+          (box
+            :orientation "h"
+            :space-evenly false
+            :spacing 12
+            (for wallpaper in row
+              (eventbox
+                :cursor "pointer"
+                :onclick "scripts/wallpaper-set.sh '${wallpaper.path}'"
+                (box
+                  :class {wallpaper.path == wallpaper-current ? "wallpaper-item wallpaper-item--active" : "wallpaper-item"}
+                  :style "background-image: url('${wallpaper.thumb}');"
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+)

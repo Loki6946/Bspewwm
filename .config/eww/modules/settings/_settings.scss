@@ -1,0 +1,85 @@
+.sysinfo-popup-settings-label {
+  font-family: $font-text;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $on-surface-variant;
+  padding: 0 $spacing-xs;
+}
+
+.wallpaper-preview {
+  min-height: 150px;
+  border: 1px solid $surface;
+  border-radius: $radius-xl;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: $surface;
+}
+
+.wallpaper-btn {
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-full;
+  background-color: $accent;
+  @include ripple-effect($color: $accent, $hover: true, $hover-color: $accent-dim);
+}
+
+.wallpaper-btn-icon {
+  color: $on-accent;
+  font-family: $font-icon;
+  font-size: $icon-size-sm;
+  font-weight: $font-weight-medium;
+}
+
+.wallpaper-btn-label {
+  color: $on-accent;
+  font-family: $font-text;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+}
+
+.theme-btn {
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-sm;
+}
+
+.theme-btn--inactive {
+  background-color: $surface;
+  @include ripple-effect($hover: true, $hover-color: $hover-overlay);
+}
+
+.theme-btn.start {
+  border-radius: $radius-xl $radius-sm $radius-sm $radius-xl;
+}
+
+.theme-btn.end {
+  border-radius: $radius-sm $radius-xl $radius-xl $radius-sm;
+}
+
+.theme-btn--active {
+  border-radius: $radius-full;
+  background-color: $accent;
+}
+
+.theme-btn-label {
+  color: $on-surface;
+  font-family: $font-text;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+}
+
+.theme-btn--active .theme-btn-label {
+  color: $on-accent;
+}
+
+.theme-btn-icon {
+  color: $on-accent;
+  font-family: $font-icon;
+  font-size: $icon-size-sm;
+  font-weight: $font-weight-bold;
+}
+
+.theme-btn-preview {
+  min-width: 13px;
+  border: 1px solid $surface;
+  border-radius: $radius-full;
+}

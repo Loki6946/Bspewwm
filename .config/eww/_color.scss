@@ -1,4 +1,4 @@
-@import "themes/blue";
+@import "themes/dynamic";
 
 // Universal color
 $error: #F28B82;
@@ -8,5 +8,5 @@ $on-error: #1A0A0A;
 $on-error-variant: #F28B82;
 
 $hover-overlay: rgba(255, 255, 255, 0.08);
-$hover-overlay-strong: rgba(255, 255, 255, 0.12);
+$hover-overlay-strong: rgba(255, 255, 255, 0.15);
 $pressed-overlay: rgba(255, 255, 255, 0.14);
