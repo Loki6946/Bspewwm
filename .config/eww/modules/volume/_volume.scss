@@ -21,7 +21,7 @@
   min-width: 30px;
   border-radius: $radius-full;
   background-color: $surface;
-  @include ripple-effect();
+  @include ripple-effect($hover: true, $hover-color: $hover-overlay-strong);
 }
 
 .volume-popup-icon {
@@ -74,4 +74,8 @@
   font-family: $font-icon;
   font-size: $icon-size-md;
   font-weight: $font-weight-medium;
+}
+
+.volume-popup-slider-icon.muted {
+  color: $surface;
 }

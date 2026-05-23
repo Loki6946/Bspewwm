@@ -67,7 +67,7 @@
         :onchange "pamixer --set-volume {}"
       )
       (label
-        :class "volume-popup-slider-icon"
+        :class {volume-data == "muted" ? "volume-popup-slider-icon muted" : "volume-popup-slider-icon"}
         :xalign 0.06
         :text ""
       )
