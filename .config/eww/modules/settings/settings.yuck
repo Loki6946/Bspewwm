@@ -114,7 +114,7 @@
       (label
         :class "sysinfo-popup-settings-label"
         :halign "start"
-        :text "Color Pallete"
+        :text "Color Palettes"
       )
       
       (box
