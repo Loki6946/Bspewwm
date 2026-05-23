@@ -37,6 +37,22 @@
   )
 )
 
+(defwindow power-bg
+  :monitor 0
+  :geometry (geometry
+    :x "0px"
+    :y "30px"
+    :width "100%"
+    :height "100%"
+    :anchor "center")
+  :stacking "fg"
+  :focusable true
+  (eventbox
+    :onclick "scripts/power-popup-toggle.sh close"
+    (box :class "power-bg")
+  )
+)
+
 ; powermenu popup window
 (defwindow power-popup
   :monitor 0

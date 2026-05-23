@@ -12,6 +12,11 @@
   font-weight: $bar-icon-weight;
 }
 
+.power-bg {
+  border-radius: 15px 15px 0 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
 .power-popup {
   padding: $spacing-xl $spacing-lg;
   @include floating-window($radius: $radius-2xl);
