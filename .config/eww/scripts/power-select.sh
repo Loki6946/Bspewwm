@@ -16,6 +16,7 @@ if [ "$current_pending" = "$name" ]; then
   eww update power-pending-action=""
   eww update power-pending-name=""
   eww update power-popup-open=false
+  eww close power-bg
   eww close power-popup
 
   sleep 0.2 # wait for animation
