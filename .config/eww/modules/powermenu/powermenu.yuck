@@ -76,14 +76,14 @@
     (box
       :orientation "h"
       :spacing 24
-      (power-popup-btn :action "systemctl poweroff" :name "Power" :icon "")
-      (power-popup-btn :action "systemctl reboot" :name "Reboot" :icon "")
+      (power-popup-btn :action "systemctl suspend" :name "Sleep" :icon "")
+      (power-popup-btn :action "bspc quit" :name "Exit" :icon "")
     )
     (box
       :orientation "h"
       :spacing 24
-      (power-popup-btn :action "systemctl suspend" :name "Sleep" :icon "")
-      (power-popup-btn :action "bspc quit" :name "Exit" :icon "")
+      (power-popup-btn :action "systemctl poweroff" :name "Power Off" :icon "")
+      (power-popup-btn :action "systemctl reboot" :name "Restart" :icon "")
     )
   )
 )
