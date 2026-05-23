@@ -4,6 +4,7 @@
 get_color="$HOME/.config/bspwm/bspwm.d/get-color.sh"
 set_resolution="$HOME/.set-resolution.sh"
 eww_cleanup="$HOME/.config/eww/scripts/eww-cleanup.sh"
+wallpaper_thumbs="$HOME/.config/eww/scripts/wallpaper-thumbs-generate.sh"
 
 # autostart
 
@@ -22,7 +23,7 @@ until xrandr | grep "1360x768"; do
 done
 
 # set wallpaper
-nitrogen --restore &
+feh --bg-scale "$(cat ~/.cache/eww/current-wallpaper 2>/dev/null)" 2>/dev/null || feh --bg-fill ~/Pictures/Wallpapers/ridge.jpg &
 
 # start picom compositor
 picom &
@@ -40,6 +41,7 @@ xinput set-prop "8" "libinput Accel Profile Enabled" 0 1 0 &
 vicinae server &
 
 # start eww
+source $wallpaper_thumbs &
 source $eww_cleanup &
 eww daemon &
 eww open bar &
