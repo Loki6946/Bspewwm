@@ -15,7 +15,7 @@
   :geometry (geometry
     :x "0px"
     :y "0px"
-    :width "560px"
+    :width "780px"
     :height "400px"
     :anchor "center")
   :stacking "fg"
@@ -33,6 +33,7 @@
       :orientation "h"
       :halign "fill"
       :space-evenly false
+      :spacing 12
       (label
         :class "wallpaper-picker-title"
         :halign "start"
@@ -41,14 +42,15 @@
       )
       (button
         :class "wallpaper-picker-refresh-btn"
-        :onclick "eww poll wallpaper-list & scripts/wallpaper-thumbs-generate.sh & scripts/wallpaper-picker-toggle.sh & scripts/wallpaper-picker-toggle.sh &"
+        :onclick "eww poll wallpaper-list & scripts/wallpaper-thumbs-generate.sh & scripts/wallpaper-picker-toggle.sh & sleep 0.5 scripts/wallpaper-picker-toggle.sh &"
         (label
-          :class "wallpaper-picker-refresh-icon"
-          :text "refresh"
+          :class "wallpaper-picker-refresh-text"
+          :text "Refresh"
         )
       )
       (button
         :class "wallpaper-picker-close-btn"
+        :valign "center"
         :onclick "scripts/wallpaper-picker-toggle.sh"
         (label
           :class "wallpaper-picker-close-icon"

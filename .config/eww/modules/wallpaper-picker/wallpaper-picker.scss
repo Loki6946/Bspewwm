@@ -11,34 +11,37 @@
 }
 
 .wallpaper-picker-refresh-btn {
+  padding: $spacing-xs $spacing-md;
   border-radius: $radius-full;
-  padding: $spacing-xs;
+  background-color: $surface;
   @include ripple-effect($hover: true);
 }
 
-.wallpaper-picker-refresh-icon {
-  font-family: $font-icon;
-  font-size: $icon-size-sm;
+.wallpaper-picker-refresh-text {
   color: $on-surface-variant;
+  font-family: $font-text;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
 }
 
 .wallpaper-picker-close-btn {
   border-radius: $radius-full;
-  padding: $spacing-xs;
+  padding: $spacing-sm;
   @include ripple-effect($hover: true);
 }
 
 .wallpaper-picker-close-icon {
+  color: $on-surface-variant;
   font-family: $font-icon;
   font-size: $icon-size-sm;
-  color: $on-surface-variant;
+  font-weight: $font-weight-medium;
 }
 
 .wallpaper-item {
   min-width: 240px;
   min-height: 135px;
   border-radius: $radius-md;
-  border: 2px solid transparent;
+  border: 2px solid $background;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
