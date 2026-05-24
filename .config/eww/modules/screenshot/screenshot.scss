@@ -21,7 +21,7 @@
 }
 
 .screenshot-popup-action-btn {
-  padding: $spacing-md;
+  padding: $spacing-md 14px;
   border-radius: $radius-full;
   background-color: transparent;
   @include ripple-effect($hover: true);
@@ -29,7 +29,7 @@
 
 .screenshot-popup-action-icon {
   color: $on-surface;
-  font-family: $font-icon;
+  font-family: $font-icon-variant;
   font-size: $icon-size-md;
   font-weight: $font-weight-medium;
 }

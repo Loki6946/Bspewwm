@@ -53,7 +53,7 @@
         :onclick "gnome-screenshot -d ${screenshot-delay} -a & scripts/screenshot-popup-toggle.sh"
         (label
           :class "screenshot-popup-action-icon"
-          :text ""
+          :text ""
         )
       )
       (button
