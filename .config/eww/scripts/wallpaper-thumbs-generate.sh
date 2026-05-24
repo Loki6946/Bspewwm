@@ -1,62 +1,54 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# THUMB_DIR="$HOME/.cache/eww/thumbs"
-# WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
+set -euo pipefail
 
-# mkdir -p "$THUMB_DIR"
+WALL_DIR="$HOME/Pictures/Wallpapers"
+THUMB_DIR="$HOME/.cache/eww/thumbs"
 
-# # clean orphaned thumbs first
-# for thumb in "$THUMB_DIR"/*.jpg; do
-#   [ -f "$thumb" ] || continue  # skip if no thumbs exist yet
-#   basename=$(basename "$thumb" .jpg)
-#   if [ ! -f "$WALLPAPER_DIR/$basename" ]; then
-#     rm "$thumb"
-#   fi
-# done
-
-# # generate missing thumbs
-# for img in "$WALLPAPER_DIR"/*; do
-#   ext="${img##*.}"
-#   if [[ "$ext" =~ ^(jpg|jpeg|png|JPG|JPEG|PNG)$ ]]; then
-#     thumb="$THUMB_DIR/$(basename "$img").jpg"
-#     # regenerate if thumb exists at old size
-#     convert "$img" -resize 240x135^ -gravity center -extent 240x135 -quality 85 "$thumb" 2>/dev/null
-#   fi
-# done
-
-#!/bin/bash
-
-LOCK="/tmp/wallpaper-thumbs.lock"
-
-# prevent multiple instances
-if [ -f "$LOCK" ]; then
+# Check for ffmpeg
+if ! command -v ffmpeg >/dev/null 2>&1; then
+  echo "ffmpeg is missing!" >&2
   exit 0
 fi
-touch "$LOCK"
 
-THUMB_DIR="$HOME/.cache/eww/thumbs"
-WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
+mkdir -p "$THUMB_DIR" || exit 1
 
-mkdir -p "$THUMB_DIR"
+# Lock to prevent concurrent runs
+exec 200>"$THUMB_DIR/.thumb_lock"
+flock -n 200 || exit 0
 
-# clean orphaned thumbs
-for thumb in "$THUMB_DIR"/*.jpg; do
-  [ -f "$thumb" ] || continue
-  basename=$(basename "$thumb" .jpg)
-  if [ ! -f "$WALLPAPER_DIR/$basename" ]; then
-    rm "$thumb"
+# Clean up stale tmp files from crashed encodes
+find "$THUMB_DIR" -maxdepth 1 -name "*.tmp.jpg" -delete
+
+# Build set of valid thumb names and clean orphaned thumbs
+declare -A valid_thumbs
+while IFS= read -r -d '' wallfile; do
+  filename="${wallfile##*/}"
+  valid_thumbs["${filename}.jpg"]=1
+done < <(find "$WALL_DIR" -maxdepth 1 -type f \
+  \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.webp" \) -print0)
+
+while IFS= read -r -d '' thumb; do
+  thumbname="${thumb##*/}"
+  if [[ -z "${valid_thumbs[$thumbname]+_}" ]]; then
+    rm -f "$thumb"
   fi
-done
+done < <(find "$THUMB_DIR" -maxdepth 1 -name "*.jpg" -print0)
 
-# generate missing thumbs
-for img in "$WALLPAPER_DIR"/*; do
-  ext="${img##*.}"
-  if [[ "$ext" =~ ^(jpg|jpeg|png|JPG|JPEG|PNG)$ ]]; then
-    thumb="$THUMB_DIR/$(basename "$img").jpg"
+# Generate thumbnails in parallel
+export THUMB_DIR
+find "$WALL_DIR" -maxdepth 1 -type f \
+  \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.webp" \) -print0 | \
+  xargs -0 -n 1 -P 4 bash -c '
+    set -euo pipefail
+    img="$1"
+    filename="${img##*/}"
+    thumb="$THUMB_DIR/${filename}.jpg"
+    tmp_thumb="$THUMB_DIR/${filename}.tmp.jpg"
     if [ ! -f "$thumb" ]; then
-      convert "$img" -resize 240x135^ -gravity center -extent 240x135 -quality 85 "$thumb" 2>/dev/null
+      nice -n 19 ionice -c 3 ffmpeg -y -v quiet -threads 1 -i "$img" \
+        -vf "scale=440:-1:flags=lanczos" -q:v 3 "$tmp_thumb" \
+      && mv "$tmp_thumb" "$thumb" \
+      || rm -f "$tmp_thumb"
     fi
-  fi
-done
-
-rm "$LOCK"
+  ' _

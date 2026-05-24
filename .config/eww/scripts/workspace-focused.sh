@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Output only the currently focused workspace name
-
 focused_workspace() {
     bspc query -D -d focused --names
 }

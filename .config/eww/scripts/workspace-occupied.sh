@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Outputs occupied desktop names only
-
 occupied_workspaces() {
     bspc query -D -d .occupied --names | tr '\n' ' '
     echo
