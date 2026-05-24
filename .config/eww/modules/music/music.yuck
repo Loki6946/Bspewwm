@@ -6,6 +6,7 @@
   :interval "1s" 
   "playerctl position || echo 0")
 
+(defvar music-playing-optimistic false)
 (defvar music-popup-open false)
 
 ; (defpoll music-length   
@@ -59,10 +60,10 @@
       (button
         :class "music-btn play"
         :valign "center"
-        :onclick "playerctl play-pause"
+        :onclick "playerctl play-pause & eww update music-playing-optimistic=${!music-playing-optimistic}"
         (label
           :class "music-btn-icon play"
-          :text {music-data.status == "Playing" ? "" : ""}
+          :text {music-playing-optimistic ? "" : ""}
         )
       )
       (button
@@ -164,10 +165,10 @@
         )
         (button
           :class "music-popup-btn"
-          :onclick "playerctl play-pause"
+          :onclick "playerctl play-pause & eww update music-playing-optimistic=${!music-playing-optimistic}"
           (label
             :class "music-popup-btn-icon"
-            :text {music-data.status == "Playing" ? "" : ""}
+            :text {music-playing-optimistic ? "" : ""}
           )
         )
         (button
