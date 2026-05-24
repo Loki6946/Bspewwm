@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Output only the currently focused workspace name
 

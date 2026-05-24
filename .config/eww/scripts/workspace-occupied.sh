@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Outputs occupied desktop names only
 
