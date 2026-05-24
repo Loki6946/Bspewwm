@@ -18,7 +18,7 @@
 }
 
 .volume-popup-button {
-  min-width: 30px;
+  padding: 0 $spacing-sm;
   border-radius: $radius-full;
   background-color: $surface;
   @include ripple-effect($hover: true, $hover-color: $hover-overlay-strong);
@@ -26,7 +26,15 @@
 
 .volume-popup-icon {
   color: $on-surface;
+  font-family: $font-icon;
   font-size: $icon-size-sm;
+  font-weight: $font-weight-medium;
+}
+
+.volume-popup-text {
+  color: $on-surface;
+  font-family: $font-text;
+  font-size: $font-size-sm;
   font-weight: $font-weight-medium;
 }
 

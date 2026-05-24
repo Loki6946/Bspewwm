@@ -16,6 +16,18 @@
   background-color: $surface;
 }
 
+.wallpaper-name {
+  color: $on-surface;
+  font-family: $font-text;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  margin: $spacing-sm;
+  padding: $spacing-xs $spacing-sm;;
+  border: 1px solid $surface-variant;
+  border-radius: $radius-full;
+  background-color: $surface;
+}
+
 .wallpaper-btn {
   padding: $spacing-sm $spacing-md;
   border-radius: $radius-full;

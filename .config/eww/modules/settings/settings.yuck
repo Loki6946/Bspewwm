@@ -13,8 +13,9 @@
   :initial "sage"
   "cat ~/.cache/eww/active-theme 2>/dev/null || echo sage")
 
-(defpoll wallpaper-thumb
-  :interval "30s"
+(defpoll wallpaper-data
+  :interval "60s"
+  :initial '{"thumb": "", "name": ""}'
   "scripts/wallpaper-current.sh")
 
 (defwidget settings []
@@ -38,9 +39,18 @@
         :orientation "v"
         :space-evenly false
         :spacing 8
-        (box
-          :class "wallpaper-preview"
-          :style "background-image: url('${wallpaper-thumb}');"
+        (overlay
+          (box
+            :class "wallpaper-preview"
+            :style "background-image: url('${wallpaper-data.thumb}');"
+          )
+          (label
+            :class "wallpaper-name"
+            :halign "start"
+            :valign "end"
+            :limit-width 100
+            :text {wallpaper-data.name}
+          )
         )
         (button
           :class "wallpaper-btn"

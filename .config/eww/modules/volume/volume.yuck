@@ -46,9 +46,9 @@
       :halign "center"
       :onclick "pamixer -t" 
       (label
-        :class "volume-popup-icon"
-        :xalign {volume-data == "muted" ? 0.5 : 0.5}
-        :yalign {volume-data == "muted" ? 0.5 : 0.5}
+        :class {volume-data == "muted" ? "volume-popup-icon" : "volume-popup-text"}
+        :valign "center"
+        :halign "center"
         :text {volume-data == "muted" ? "" : volume-data}
       )
     )
