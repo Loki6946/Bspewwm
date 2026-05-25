@@ -1,0 +1,11 @@
+$background: {{colors.background.dark.hex}};
+$surface: {{colors.surface_container.dark.hex}};
+$surface-variant: {{colors.surface_container_high.dark.hex}};
+$on-surface: {{colors.on_surface.dark.hex}};
+$on-surface-variant: {{colors.on_surface_variant.dark.hex}};
+$on-surface-dim: {{colors.surface_container_highest.dark.hex}};
+$accent: {{colors.primary.dark.hex}};
+$accent-variant: {{colors.primary_container.dark.hex}};
+//$accent-dim: {{colors.primary_fixed.dark.hex}};
+$accent-dim: mix(black, $accent, 15%);
+$on-accent: {{colors.on_primary.dark.hex}};

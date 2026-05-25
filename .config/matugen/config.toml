@@ -1,0 +1,11 @@
+[config]
+reload_apps = false
+scheme = "dark"
+
+[templates.eww]
+input_path = "~/.config/matugen/templates/eww.scss"
+output_path = "~/.config/eww/themes/_dynamic.scss"
+
+[templates.alacritty]
+input_path = "~/.config/matugen/templates/alacritty.toml"
+output_path = "~/.config/alacritty/themes/dynamic.toml"
