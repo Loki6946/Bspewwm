@@ -13,6 +13,9 @@ echo "static" > ~/.cache/eww/theme-mode
 # swap active theme
 sed -i "s|@import \"themes/.*\"|@import \"themes/${theme}\"|" "$COLOR_FILE"
 
+# swap alacritty to static theme
+sed -i "s|themes/.*\.toml|themes/${theme}.toml|" ~/.config/alacritty/alacritty.toml
+
 # wait before continue
 sleep 1
 

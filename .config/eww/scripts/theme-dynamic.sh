@@ -21,6 +21,9 @@ matugen image "$wallpaper" --source-color-index 0 --type "scheme-$type"
 # swap to dynamic theme
 sed -i "s|@import \"themes/.*\"|@import \"themes/dynamic\"|" "$COLOR_FILE"
 
+# swap alacritty to dynamic theme
+sed -i "s|themes/.*\.toml|themes/dynamic.toml|" ~/.config/alacritty/alacritty.toml
+
 sleep 1
 
 # resync sysinfo if open
