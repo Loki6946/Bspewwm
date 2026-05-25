@@ -11,6 +11,7 @@
 (include "modules/sysinfo/sysinfo.yuck")
 (include "modules/settings/settings.yuck")
 (include "modules/wallpaper-picker/wallpaper-picker.yuck")
+(include "modules/notifications/notifications.yuck")
 
 
 (defwidget bar []

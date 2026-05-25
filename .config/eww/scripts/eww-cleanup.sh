@@ -27,6 +27,7 @@ eww update color-picker-popup-open=false
 eww update network-notif-open=false
 eww update power-pending-name=""
 eww update power-pending-action=""
+eww update notifications="[]"
 
 # restore theme mode
 if [ -f ~/.cache/eww/theme-mode ]; then

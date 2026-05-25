@@ -1,0 +1,98 @@
+(defvar notifications "[]")
+
+(defwindow notification-center
+  :monitor 0
+  :geometry (geometry
+    :x "-5px"
+    :y "36px"
+    :width "260px"
+    :height "0px"
+    :anchor "top right")
+  :stacking "fg"
+  (notification-center-widget))
+
+(defwidget notification-center-widget []
+  (box
+    :orientation "v"
+    :space-evenly false
+    :spacing 8
+    (for notif in notifications
+      (notification-item
+        :id {notif.id}
+        :app {notif.app}
+        :summary {notif.summary}
+        :body {notif.body}
+        :time {notif.time}
+      )
+    )
+  )
+)
+
+(defwidget notification-item [id app summary body time]
+  (box
+    :class "notif-item"
+    :orientation "h"
+    :space-evenly false
+    :spacing 8
+    (label
+      :class "notif-icon"
+      :halign "center"
+      :valign "start"
+      :text ""
+    )
+    (box
+      :orientation "v"
+      :hexpand true
+      :space-evenly false
+      :spacing 8
+      ; header
+      (box
+        :orientation "h"
+        :space-evenly false
+        :spacing 8
+        (label
+          :class "notif-app"
+          :halign "start"
+          :text app
+        )
+        (label
+          :class "notif-dot"
+          :halign "start"
+          :text ""
+        )
+        (label
+          :class "notif-time"
+          :halign "start"
+          :hexpand true
+          :text time
+        )
+        (button
+          :class "notif-dismiss-btn"
+          :onclick "scripts/notification-dismiss.sh ${id}"
+          (label
+            :class "notif-dismiss-icon"
+            :text "close"
+          )
+        )
+      )
+      ; content
+      (box
+        :orientation "v"
+        :spacing 4     
+        (label
+          :class "notif-summary"
+          :halign "start"
+          :wrap true
+          :text summary
+        )
+        (label
+          :class "notif-body"
+          :halign "start"
+          :wrap true
+          :visible {body != ""}
+          :text body
+        )
+      )
+    )
+  )
+)

@@ -1,0 +1,61 @@
+.notif-item {
+  min-width: 260px;
+  padding: $spacing-md;
+  @include floating-window($radius: $radius-xl);
+}
+
+.notif-icon {
+  color: $on-accent;
+  font-family: $font-icon;
+  font-size: $icon-size-sm;
+  font-weight: $font-weight-medium;
+  padding: $spacing-xs;
+  border-radius: $radius-full;
+  background-color: $accent;
+}
+
+.notif-app {
+  font-family: $font-text;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $on-surface-variant;
+}
+
+.notif-dot {
+  color: $on-surface-variant;
+  font-family: $font-icon;
+  font-size: 5px;
+  font-weight: $font-weight-medium;
+}
+
+.notif-time {
+  font-family: $font-text;
+  font-size: $font-size-xs;
+  color: $on-surface-variant;
+}
+
+.notif-dismiss-btn {
+  padding: $spacing-xs;
+  border-radius: $radius-full;
+  background-color: $surface;
+  @include ripple-effect($hover: true);
+}
+
+.notif-dismiss-icon {
+  color: $on-surface-variant;
+  font-family: $font-icon;
+  font-size: $icon-size-sm;
+}
+
+.notif-summary {
+  color: $on-surface;
+  font-family: $font-text;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+}
+
+.notif-body {
+  color: $on-surface-variant;
+  font-family: $font-text;
+  font-size: $font-size-sm;
+}

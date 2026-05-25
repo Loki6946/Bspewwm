@@ -9,7 +9,7 @@ wallpaper_thumbs="$HOME/.config/eww/scripts/wallpaper-thumbs-generate.sh"
 # autostart
 
 # kill if already running
-killall -9 sxhkd vicinae eww picom xcorners
+killall -9 sxhkd picom dunst xcorners vicinae eww
 
 # start shortcut manager
 sxhkd &
@@ -24,6 +24,9 @@ done
 
 # set wallpaper
 feh --bg-scale "$(cat ~/.cache/eww/current-wallpaper 2>/dev/null)" 2>/dev/null || feh --bg-fill ~/Pictures/Wallpapers/ridge.jpg &
+
+# start notifications daemon
+dunst &
 
 # start picom compositor
 picom &
