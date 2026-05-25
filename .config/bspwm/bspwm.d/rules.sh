@@ -7,7 +7,7 @@ bspc wm --adopt-orphans
 bspc rule -r *:*
 
 # general app rules
-bspc rule -a vicinae state=floating follow=on focus=on border=false
+bspc rule -a vicinae state=floating follow=on focus=on border=false center=on
 bspc rule -a Gnome-screenshot state=floating border=off center=on
 bspc rule -a Nitrogen state=floating border=off center=on
 
