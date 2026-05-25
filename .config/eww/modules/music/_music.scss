@@ -10,6 +10,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-color: $surface-variant;
 }
 
 .music-title {
@@ -59,9 +60,11 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-color: $surface;
 }
 
 .music-popup-player {
+  min-width: 50px;
   color: $on-accent;
   font-family: $font-text;
   font-size: $font-size-sm;
@@ -78,11 +81,23 @@
   font-weight: $font-weight-bold;
 }
 
+.music-popup-title-placeholder {
+  min-width: 120px;
+  border-radius: $radius-sm;
+  background-color: $surface;
+}
+
 .music-popup-artist {
   color: $on-surface;
   font-family: $font-text;
   font-size: $font-size-sm;
   font-weight: $font-weight-regular;
+}
+
+.music-popup-artist-placeholder {
+  min-width: 80px;
+  border-radius: $radius-sm;
+  background-color: $surface;
 }
 
 .music-popup-progress slider {

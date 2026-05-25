@@ -123,13 +123,13 @@
           :orientation "v"
           :spacing 4
           (label
-            :class "music-popup-title"
+            :class {music-data.title == "" ? "music-popup-title-placeholder" : "music-popup-title"}
             :halign "start"
             :limit-width 300
             :text {music-data.title}
           )
           (label
-            :class "music-popup-artist"
+            :class {music-data.title == "" ? "music-popup-artist-placeholder" : "music-popup-artist"}
             :halign "start"
             :limit-width 300
             :text {music-data.artist}
