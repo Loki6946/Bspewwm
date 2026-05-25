@@ -34,27 +34,46 @@
       :halign "fill"
       :space-evenly false
       :spacing 12
-      (label
-        :class "wallpaper-picker-title"
+      (box
+        :orientation "h"
         :halign "start"
         :hexpand true
-        :text "Wallpaper"
-      )
-      (button
-        :class "wallpaper-picker-refresh-btn"
-        :onclick "eww poll wallpaper-list & scripts/wallpaper-thumbs-generate.sh & scripts/wallpaper-picker-toggle.sh & sleep 0.5 scripts/wallpaper-picker-toggle.sh &"
+        :space-evenly false
+        :spacing 8
         (label
-          :class "wallpaper-picker-refresh-text"
-          :text "Refresh"
+          :class "wallpaper-picker-icon"
+          :halign "start"
+          :hexpand true
+          :text ""
+        )
+        (label
+          :class "wallpaper-picker-title"
+          :halign "start"
+          :hexpand true
+          :text "Wallpaper"
         )
       )
-      (button
-        :class "wallpaper-picker-close-btn"
-        :valign "center"
-        :onclick "scripts/wallpaper-picker-toggle.sh"
-        (label
-          :class "wallpaper-picker-close-icon"
-          :text "close"
+      (box
+        :orientation "h"
+        :halign "end"
+        :space-evenly false
+        :spacing 8
+        (button
+          :class "wallpaper-picker-refresh-btn"
+          :onclick "eww poll wallpaper-list & scripts/wallpaper-thumbs-generate.sh & scripts/wallpaper-picker-toggle.sh & sleep 0.5 scripts/wallpaper-picker-toggle.sh &"
+          (label
+            :class "wallpaper-picker-refresh-text"
+            :text "Refresh"
+          )
+        )
+        (button
+          :class "wallpaper-picker-close-btn"
+          :valign "center"
+          :onclick "scripts/wallpaper-picker-toggle.sh"
+          (label
+            :class "wallpaper-picker-close-icon"
+            :text "close"
+          )
         )
       )
     )
@@ -76,7 +95,7 @@
             (for wallpaper in row
               (eventbox
                 :cursor "pointer"
-                :onclick "scripts/wallpaper-set.sh '${wallpaper.path}'"
+                :onclick "scripts/wallpaper-set.sh '${wallpaper.path}' & scripts/wallpaper-picker-toggle.sh"
                 (box
                   :class {wallpaper.path == wallpaper-current ? "wallpaper-item wallpaper-item--active" : "wallpaper-item"}
                   :style "background-image: url('${wallpaper.thumb}');"
