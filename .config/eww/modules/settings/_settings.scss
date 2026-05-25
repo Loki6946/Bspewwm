@@ -56,7 +56,7 @@
 
 .theme-btn--inactive {
   background-color: $surface;
-  @include ripple-effect($hover: true, $hover-color: $hover-overlay);
+  @include ripple-effect($hover: true, $hover-color: $hover-overlay-strong);
 }
 
 .theme-btn.start {
