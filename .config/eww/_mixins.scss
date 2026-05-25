@@ -37,8 +37,8 @@
   }
 }
 
-@mixin floating-window($radius: $radius-xl) {
-  background-color: $background;
+@mixin floating-window($radius: $radius-xl, $bg-color: $background) {
+  background-color: $bg-color;
   border: 1px solid $surface;
   border-radius: $radius;
 }
