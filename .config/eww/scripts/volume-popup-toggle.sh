@@ -3,6 +3,8 @@
 state=$(eww get volume-popup-open)
 
 open_volume() {
+  bash ~/.config/eww/scripts/close-bar-popups.sh
+
   if ! eww active-windows | grep -q "volume-popup"; then
     eww open volume-popup
   fi

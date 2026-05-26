@@ -5,6 +5,8 @@ case $state in
     eww close calendar-popup
     eww update calendar-popup-open=false;;
   false)
+    bash ~/.config/eww/scripts/close-bar-popups.sh
+
     eww open calendar-popup
     eww update calendar-popup-open=true;;
 esac
