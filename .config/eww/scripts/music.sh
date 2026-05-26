@@ -10,8 +10,6 @@ playerctl metadata -F -f '{{playerName}} {{title}} {{artist}} {{mpris:artUrl}} {
     status=$(playerctl metadata -f "{{status}}")
     length=$(playerctl metadata -f "{{mpris:length}}")
 
-    eww update music-playing-optimistic=$([ "$status" = "Playing" ] && echo true || echo false)
-
     # builtin arithmetic instead of bc
     if [[ -n "$length" ]]; then
         length=$(( (length + 500000) / 1000000 ))
@@ -28,6 +26,8 @@ playerctl metadata -F -f '{{playerName}} {{title}} {{artist}} {{mpris:artUrl}} {
     fi
     
     lengthStr=$(playerctl metadata -f "{{duration(mpris:length)}}")
+
+    eww update music-playing-optimistic=$([ "$status" = "Playing" ] && echo true || echo false)
 
     JSON_STRING=$(jq -cn \
                 --arg name "$name" \
