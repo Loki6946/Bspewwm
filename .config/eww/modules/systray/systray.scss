@@ -1,0 +1,22 @@
+.systray-bg {
+  border-radius: $radius-md 0 0 $radius-md;
+  background-color: $surface;
+}
+
+.systray-btn {
+  min-width: 22px;
+  border-radius: $radius-full;
+  background-color: $surface;
+  @include ripple-effect();
+}
+
+.systray-btn.open {
+  border-radius: 0 $radius-md $radius-md 0;
+}
+
+.systray-btn-icon {
+  color: $on-surface;
+  font-family: $font-icon;
+  font-size: $bar-icon-size;
+  font-weight: $bar-icon-weight;
+}

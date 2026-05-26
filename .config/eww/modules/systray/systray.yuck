@@ -1,0 +1,27 @@
+(defvar systray-open false)
+
+(defwidget system-tray []
+  (box
+    :orientation "h"
+    (box
+      :class "systray-bg"
+      :orientation "h"
+      :visible {systray-open}
+      (systray
+        :orientation "h"
+        :space-evenly false
+        :spacing 4
+        :icon-size 16
+        :prepend-new true
+      )
+    )
+    (button
+      :class {systray-open ? "systray-btn open" : "systray-btn"}
+      :onclick "eww update systray-open=${!systray-open}"
+      (label
+        :class "systray-btn-icon"
+        :text {systray-open ? "" : ""}
+      )
+    )
+  )
+)
