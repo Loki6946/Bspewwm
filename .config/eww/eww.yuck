@@ -12,6 +12,7 @@
 (include "modules/settings/settings.yuck")
 (include "modules/wallpaper-picker/wallpaper-picker.yuck")
 (include "modules/notifications/notifications.yuck")
+(include "modules/systray/systray.yuck")
 
 
 (defwidget bar []
@@ -37,16 +38,28 @@
       :orientation "h" 
       :space-evenly false 
       :halign "end"
-      :spacing 3
+      :spacing 8
+      (system-tray)
       (keyboard)
       (box
         :orientation "h"
-        (search)
-        (screenshot)
-        (color-picker)
+        :space-evenly false
+        :spacing 4
+        (box
+          :orientation "h"
+          :space-evenly false
+          (search)
+          (screenshot)
+          (color-picker)
+        )
+        (box
+          :orientation "h"
+          :space-evenly false
+          :spacing 4
+          (volume)
+          (network)
+        )
       )
-      (volume)
-      (network)
       (time)
     )
   )

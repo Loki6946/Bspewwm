@@ -1,6 +1,5 @@
 .time-trigger {
   padding: 0px $spacing-sm 0px $spacing-sm;
-  margin-left: $spacing-xs;
   border-radius: $radius-full;
   background-color: $surface;
   @include ripple-effect();

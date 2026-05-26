@@ -78,6 +78,8 @@
       ; content
       (box
         :orientation "v"
+        :hexpand true
+        :space-evenly false
         :spacing 4     
         (label
           :class "notif-summary"
