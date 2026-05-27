@@ -60,7 +60,7 @@
         :spacing 8
         (button
           :class "wallpaper-picker-refresh-btn"
-          :onclick "eww poll wallpaper-list & scripts/wallpaper-thumbs-generate.sh & scripts/wallpaper-picker-toggle.sh & sleep 0.5 scripts/wallpaper-picker-toggle.sh &"
+          :onclick "scripts/wallpaper-picker-refresh.sh"
           (label
             :class "wallpaper-picker-refresh-text"
             :text "Refresh"
