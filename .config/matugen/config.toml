@@ -9,3 +9,8 @@ output_path = "~/.config/eww/themes/_dynamic.scss"
 [templates.alacritty]
 input_path = "~/.config/matugen/templates/alacritty.toml"
 output_path = "~/.config/alacritty/themes/dynamic.toml"
+
+[templates.vicinae]
+input_path = './templates/vicinae.toml'
+output_path = '~/.local/share/vicinae/themes/matugen.toml'
+post_hook = 'vicinae theme set matugen'
