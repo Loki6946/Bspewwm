@@ -12,6 +12,10 @@
   transition: min-width $duration-geometry-default $ease-geometry-default, 
               background-color $duration-color-fast $ease-color-fast;
 
+  &:hover {
+    min-width: 20px;
+  }
+
   &.active {
     min-width: 35px;
     border-radius: $radius-full;
@@ -19,6 +23,6 @@
   }
   
   &.occupied {
-    background-color: $on-surface-variant;		
+    background-color: $on-surface-variant;
   }
 }
