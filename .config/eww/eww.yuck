@@ -38,7 +38,7 @@
       :orientation "h" 
       :space-evenly false 
       :halign "end"
-      :spacing 8
+      :spacing 4
       (system-tray)
       (keyboard)
       (box
