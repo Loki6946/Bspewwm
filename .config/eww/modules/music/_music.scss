@@ -69,7 +69,7 @@
   font-family: $font-text;
   font-size: $font-size-sm;
   font-weight: $font-weight-medium;
-  padding: $spacing-xs;
+  padding: $spacing-xs $spacing-sm;
   border-radius: $radius-full;
   background-color: $accent;
 }
