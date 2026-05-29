@@ -12,7 +12,6 @@
 (include "modules/settings/settings.yuck")
 (include "modules/wallpaper-picker/wallpaper-picker.yuck")
 (include "modules/notifications/notifications.yuck")
-(include "modules/systray/systray.yuck")
 
 
 (defwidget bar []
@@ -39,7 +38,6 @@
       :space-evenly false 
       :halign "end"
       :spacing 4
-      (system-tray)
       (keyboard)
       (box
         :orientation "h"
