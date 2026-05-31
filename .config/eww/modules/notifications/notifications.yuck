@@ -5,7 +5,7 @@
   :geometry (geometry
     :x "-5px"
     :y "36px"
-    :width "260px"
+    :width "240px"
     :height "0px"
     :anchor "top right")
   :stacking "fg"

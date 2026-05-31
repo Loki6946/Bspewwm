@@ -1,5 +1,5 @@
 .notif-item {
-  min-width: 260px;
+  min-width: 240px;
   padding: $spacing-md;
   @include floating-window($radius: $radius-xl);
 }
