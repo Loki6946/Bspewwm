@@ -1,6 +1,6 @@
 (defvar screenshot-popup-open false)
-
 (defvar screenshot-delay 1)
+(defvar screen-recording false)
 
 (defwidget screenshot []
   (box
@@ -36,33 +36,51 @@
     (box
       :class "screenshot-popup-background"
       :orientation "h"
-      :space-evenly true
+      :space-evenly false
       :spacing 4
-      (button
-        :class "screenshot-popup-action-btn"
-        :tooltip "Screen"
-        :onclick "gnome-screenshot -d ${screenshot-delay} & scripts/screenshot-popup-toggle.sh"
-        (label
-          :class "screenshot-popup-action-icon"
-          :text ""
+      (box
+        :orientation "h"
+        :space-evenly true
+        :spacing 4
+        (button
+          :class "screenshot-popup-action-btn"
+          :tooltip "Screen"
+          :onclick "scripts/screenshot.sh full & scripts/screenshot-popup-toggle.sh"
+          (label
+            :class "screenshot-popup-action-icon"
+            :text ""
+          )
+        )
+        (button
+          :class "screenshot-popup-action-btn"
+          :tooltip "Region"
+          :onclick "scripts/screenshot.sh selection & scripts/screenshot-popup-toggle.sh"
+          (label
+            :class "screenshot-popup-action-icon"
+            :text ""
+          )
+        )
+        (button
+          :class "screenshot-popup-action-btn"
+          :tooltip "Delay"
+          :onclick "scripts/screenshot-cycle-delay.sh"
+          (label
+            :class {screenshot-delay == 1 ? "screenshot-popup-action-icon" : "screenshot-popup-action-text"}
+            :text {screenshot-delay == 1 ? "" : "${screenshot-delay}s"}
+          )
         )
       )
-      (button
-        :class "screenshot-popup-action-btn"
-        :tooltip "Region"
-        :onclick "gnome-screenshot -d ${screenshot-delay} -a & scripts/screenshot-popup-toggle.sh"
-        (label
-          :class "screenshot-popup-action-icon"
-          :text ""
-        )
+      (box
+        :class "screenshot-popup-btn-separator"
+        :valign "center"
       )
       (button
-        :class "screenshot-popup-action-btn"
-        :tooltip "Delay"
-        :onclick "scripts/screenshot-cycle-delay.sh"
+        :class {screen-recording ? "screenshot-popup-action-btn recording" : "screenshot-popup-action-btn"}
+        :tooltip {screen-recording ? "Stop Recording" : "Record"}
+        :onclick "scripts/screenrecord.sh"
         (label
-          :class {screenshot-delay == 1 ? "screenshot-popup-action-icon" : "screenshot-popup-action-text"}
-          :text {screenshot-delay == 1 ? "" : "${screenshot-delay}s"}
+          :class "screenshot-popup-action-icon"
+          :text {screen-recording ? "" : ""}
         )
       )
     )

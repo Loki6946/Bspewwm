@@ -43,11 +43,7 @@
   padding: $spacing-lg;
   border-radius: $radius-lg;
   background-color: $error;
-  transition: background-color $duration-color-default $ease-color-default;
-
-  &:hover {
-    background-color: $error-dim;
-  }
+  @include ripple-effect($color: $error, $hover: true, $hover-color: $error-dim);
 }
 
 .screenshot-popup-action-icon-alt {
@@ -55,4 +51,24 @@
   font-family: $font-icon;
   font-size: $icon-size-md;
   font-weight: $font-weight-bold;
+}
+
+.screenshot-popup-action-btn.recording {
+  background-color: $error;
+
+  .screenshot-popup-action-icon {
+    color: $on-error;
+  }
+
+  &:hover {
+    background-color: $error-dim;
+  }
+}
+
+.screenshot-popup-btn-separator {
+  min-height: 30px;
+  min-width: 2px;
+  margin: 0 $spacing-xs;
+  background-color: $surface;
+  border-radius: $radius-full;
 }

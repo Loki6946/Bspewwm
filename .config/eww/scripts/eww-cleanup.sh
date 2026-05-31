@@ -49,3 +49,10 @@ if [ -f ~/.cache/eww/active-theme ]; then
 else
   eww update active-theme="blue"
 fi
+
+if [ -f /tmp/screenrecord.pid ]; then
+  kill -INT $(cat /tmp/screenrecord.pid) 2>/dev/null
+  rm -f /tmp/screenrecord.pid
+  rm -f /tmp/screenrecord-filename
+fi
+eww update screen-recording=false
