@@ -189,7 +189,7 @@
             (label
               :class "sysinfo-popup-name"
               :halign "start"
-              :text "OS"
+              :text "Distro"
             )
             (label
               :class "sysinfo-popup-value"
