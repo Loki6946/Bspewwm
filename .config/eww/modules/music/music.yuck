@@ -18,62 +18,75 @@
 ;   "playerctl position -f '{{duration(position)}}' || echo '0:00'")
 
 (defwidget music []
-  (box
-    :class "music-widget"
-    :orientation "h"
-    :space-evenly false
-    :spacing 8
-    :visible {music-data.status != "Stopped" && music-data.title != ""}
-
-    ; album art
+  (stack
+    :selected {music-data.status != "Stopped" && music-data.title != "" ? 0 : 1}
+    :transition "none"
+    :same-size false
     (box
-      :class "music-art"
+      :class "music-widget"
       :orientation "h"
-      :style "background-image: url('${music-data.artUrl}');"
-      :space-evenly false   
-    )
-
-    ; title + artist
-    (button
-      :onclick "scripts/music-popup-toggle.sh"
-      (label
-        :class "music-title"
-        :limit-width 200
-        :halign "start"
-        :text "${music-data.title} - ${music-data.artist}"
+      :space-evenly false
+      :spacing 8
+    
+      ; album art
+      (box
+        :class "music-art"
+        :orientation "h"
+        :style "background-image: url('${music-data.artUrl}');"
+        :space-evenly false   
+      )
+    
+      ; title + artist
+      (button
+        :onclick "scripts/music-popup-toggle.sh"
+        (label
+          :class "music-title"
+          :limit-width 200
+          :halign "start"
+          :text "${music-data.title} - ${music-data.artist}"
+        )
+      )
+    
+      ; controls
+      (box
+        :class "music-btn-box"
+        :orientation "h"
+        (button
+          :class "music-btn"
+          :valign "center"
+          :onclick "playerctl previous"
+          (label
+            :class "music-btn-icon"
+            :text ""
+          )
+        )
+        (button
+          :class "music-btn play"
+          :valign "center"
+          :onclick "playerctl play-pause & eww update music-playing-optimistic=${!music-playing-optimistic}"
+          (label
+            :class "music-btn-icon play"
+            :text {music-playing-optimistic ? "" : ""}
+          )
+        )
+        (button
+          :class "music-btn"
+          :valign "center"
+          :onclick "playerctl next"
+          (label
+            :class "music-btn-icon"
+            :text ""
+          )
+        )
       )
     )
-
-    ; controls
     (box
-      :class "music-btn-box"
+      :class "music-bar"
       :orientation "h"
-      (button
-        :class "music-btn"
-        :valign "center"
-        :onclick "playerctl previous"
-        (label
-          :class "music-btn-icon"
-          :text ""
-        )
-      )
-      (button
-        :class "music-btn play"
-        :valign "center"
-        :onclick "playerctl play-pause & eww update music-playing-optimistic=${!music-playing-optimistic}"
-        (label
-          :class "music-btn-icon play"
-          :text {music-playing-optimistic ? "" : ""}
-        )
-      )
-      (button
-        :class "music-btn"
-        :valign "center"
-        :onclick "playerctl next"
-        (label
-          :class "music-btn-icon"
-          :text ""
-        )
+      :valign "center"
+      :halign "center"
+      (eventbox
+        :onclick "scripts/music-popup-toggle.sh"
       )
     )
   )

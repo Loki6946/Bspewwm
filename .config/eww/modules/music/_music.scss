@@ -48,6 +48,13 @@
   color: $on-accent;
 }
 
+.music-bar {
+  min-width: 80px;
+  min-height: 5px;
+  border-radius: $radius-full;
+  background-color: $on-surface-dim;
+}
+
 .music-popup {
   padding: $spacing-md $spacing-md $spacing-sm $spacing-md;
   @include floating-window();
