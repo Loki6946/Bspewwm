@@ -9,17 +9,18 @@
   min-width: 8px;
   border-radius: $radius-full;
   background-color: $on-surface-dim;
-  transition: min-width $duration-geometry-default $ease-geometry-default, 
+  transition: min-width $duration-geometry-default $ease-geometry-default,
+              min-height $duration-geometry-default $ease-geometry-default, 
               background-color $duration-color-fast $ease-color-fast;
 
   &:hover {
-    min-width: 12px;
-    min-height: 12px;
+    min-width: 14px;
+    min-height: 14px;
   }
 
   &.active {
     min-width: 25px;
-    min-height: 12px;
+    min-height: 14px;
     border-radius: $radius-full;
     background-color: $accent;    
   }
