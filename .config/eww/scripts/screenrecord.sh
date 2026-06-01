@@ -1,6 +1,7 @@
 #!/bin/bash
 
 PIDFILE="/tmp/screenrecord.pid"
+STATEFILE="$HOME/.cache/eww/screen-recording"
 SAVE_DIR="$HOME/Videos"
 mkdir -p "$SAVE_DIR"
 
@@ -11,9 +12,9 @@ if [[ -f "$PIDFILE" ]]; then
   wait "$pid" 2>/dev/null
   rm -f "$PIDFILE"
 
+  echo "false" > "$STATEFILE"
   eww update screen-recording=false
 
-  # get the filename from a temp file
   filename=$(cat /tmp/screenrecord-filename 2>/dev/null)
   rm -f /tmp/screenrecord-filename
 
@@ -36,6 +37,7 @@ else
     "$filename" &
 
   echo $! > "$PIDFILE"
+  echo "true" > "$STATEFILE"
   eww update screen-recording=true
 
   notify-send -u low "Screen Recording" "Recording started"

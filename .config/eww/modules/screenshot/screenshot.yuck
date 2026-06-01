@@ -1,6 +1,10 @@
 (defvar screenshot-popup-open false)
 (defvar screenshot-delay 1)
-(defvar screen-recording false)
+
+(defpoll screen-recording
+  :interval "9999s"
+  :initial false
+  "cat ~/.cache/eww/screen-recording 2>/dev/null || echo false")
 
 (defwidget screenshot []
   (box
@@ -9,8 +13,8 @@
       :class "screenshot-trigger"
       :onclick "scripts/screenshot-popup-toggle.sh" 
       (label
-        :class "screenshot-trigger-icon"
-        :text ""
+        :class {screen-recording ? "screenshot-trigger-icon recording" : "screenshot-trigger-icon"}
+        :text {screen-recording ? "" : ""}
       )
     )
   )

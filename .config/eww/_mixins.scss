@@ -42,3 +42,24 @@
   border: 1px solid $surface;
   border-radius: $radius;
 }
+
+@keyframes in-out {
+  0% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.3;
+  }
+}
+
+@mixin in-out-effect() {
+  animation-name: in-out;
+  animation-duration: 2000ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}

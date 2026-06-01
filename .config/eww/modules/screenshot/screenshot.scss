@@ -9,6 +9,11 @@
   font-family: $font-icon;
   font-size: $bar-icon-size;
   font-weight: $bar-icon-weight;
+
+  &.recording {
+    color: $error;
+    @include in-out-effect();
+  }
 }
 
 .screenshot-popup {

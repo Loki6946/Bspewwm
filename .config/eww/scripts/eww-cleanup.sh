@@ -55,4 +55,10 @@ if [ -f /tmp/screenrecord.pid ]; then
   rm -f /tmp/screenrecord.pid
   rm -f /tmp/screenrecord-filename
 fi
-eww update screen-recording=false
+
+# restore screen recording state
+if [ -f ~/.cache/eww/screen-recording ]; then
+  eww update screen-recording=$(cat ~/.cache/eww/screen-recording)
+else
+  eww update screen-recording=false
+fi
