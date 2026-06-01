@@ -1,23 +1,25 @@
 .workspaces {
-  padding: $spacing-xs;
+  padding: $spacing-xs $spacing-sm;
   border-radius: $radius-full;
   background-color: $surface;
 }
 
 .workspace-item {
-  min-height: 12px;
-  min-width: 12px;
+  min-height: 8px;
+  min-width: 8px;
   border-radius: $radius-full;
   background-color: $on-surface-dim;
   transition: min-width $duration-geometry-default $ease-geometry-default, 
               background-color $duration-color-fast $ease-color-fast;
 
   &:hover {
-    min-width: 20px;
+    min-width: 12px;
+    min-height: 12px;
   }
 
   &.active {
-    min-width: 35px;
+    min-width: 25px;
+    min-height: 12px;
     border-radius: $radius-full;
     background-color: $accent;    
   }
