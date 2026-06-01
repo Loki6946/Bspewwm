@@ -1,25 +1,6 @@
 #!/bin/bash
 
-PIDFILE="/tmp/network-notif-timer.pid"
 STATEFILE="/tmp/network-state.tmp"
-
-show_notif() {
-  local message="$1"
-  local icon="$2"
-
-  # kill previous timer using [[ ]]
-  if [[ -f "$PIDFILE" ]]; then
-    kill $(cat "$PIDFILE") 2>/dev/null
-    rm "$PIDFILE"
-  fi
-
-  # batch eww updates into one call
-  eww update network-notif-message="$message" network-notif-icon="$icon" network-notif-open=true
-  eww open network-notif
-
-  (sleep 5 && eww update network-notif-open=false && eww close network-notif) &
-  echo $! > "$PIDFILE"
-}
 
 get_network() {
   sleep 0.5  # reduced from 1s
@@ -45,13 +26,13 @@ get_network() {
 
   # use [[ ]] instead of [ ]
   if [[ "$radio" == "enabled" && "$prev_radio" == "disabled" ]]; then
-    show_notif "Wi-Fi turned on" ""
+    notify-send "Network" "Wi-Fi turned on"
   elif [[ "$radio" == "disabled" && "$prev_radio" == "enabled" ]]; then
-    show_notif "Wi-Fi turned off" ""
+    notify-send "Network" "Wi-Fi turned off"
   elif [[ "${essid:-lo}" != "lo" && "$prev_essid" == "lo" && "$radio" == "enabled" ]]; then
-    show_notif "Connected to ${essid}" ""
+    notify-send "Network" "Connected to ${essid}"
   elif [[ "${essid:-lo}" == "lo" && "$prev_essid" != "lo" && "$radio" == "enabled" ]]; then
-    show_notif "Disconnected" ""
+    notify-send -u critical "Network" "Disconnected"
   fi
 
   # save state and output JSON in one jq call

@@ -91,32 +91,3 @@
   color: $on-surface-variant;
   margin-bottom: $spacing-xxl;
 }
-
-.network-notif {
-  @include floating-window($radius-xs);
-  padding: $spacing-md;
-}
-
-.network-notif-icon {
-  color: $on-surface;
-  font-family: $font-icon;
-  font-size: $icon-size-md;
-}
-
-.network-notif-text {
-  color: $on-surface;
-  font-size: $font-size-sm;
-  font-weight: $font-weight-medium;
-}
-
-.network-notif-close-btn {
-  padding: $spacing-xs $spacing-sm;
-  border-radius: $radius-full;
-  @include ripple-effect($hover: true, $hover-color: $surface)
-}
-
-.network-notif-close-text {
-  color: $accent;
-  font-size: $font-size-sm;
-  font-weight: $font-weight-medium;
-}

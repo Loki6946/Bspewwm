@@ -32,10 +32,6 @@ while IFS= read -r window; do
       eww close screenshot-popup
       eww update screenshot-popup-open=false
       ;;
-    color-picker-popup)
-      eww close color-picker-popup
-      eww update color-picker-popup-open=false
-      ;;
     calendar-popup)
       eww close calendar-popup
       eww update calendar-popup-open=false

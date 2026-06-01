@@ -13,9 +13,7 @@ pkill -f "wallpaper-thumbs-generate.sh" 2>/dev/null
 # wait for processes to die
 sleep 0.3
 
-for pidfile in /tmp/color-picker-timer.pid \
-               /tmp/network-notif-timer.pid \
-               /tmp/power-pending-timer.pid; do
+for pidfile in /tmp/power-pending-timer.pid; do
   if [ -f "$pidfile" ]; then
     kill $(cat "$pidfile") 2>/dev/null
     rm "$pidfile"
@@ -23,8 +21,6 @@ for pidfile in /tmp/color-picker-timer.pid \
 done
 
 # reset states
-eww update color-picker-popup-open=false
-eww update network-notif-open=false
 eww update power-pending-name=""
 eww update power-pending-action=""
 eww update notifications="[]"

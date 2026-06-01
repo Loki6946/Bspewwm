@@ -11,32 +11,3 @@
   font-size: $bar-icon-size;
   font-weight: $bar-icon-weight;
 }
-
-.color-picker-notif {
-  padding: $spacing-md;
-  @include floating-window($radius-xs);
-}
-
-.color-picker-notif-preview {
-  min-width: 23px;
-  min-height: 22px;
-  border-radius: $radius-full;
-}
-
-.color-picker-notif-text {
-  color: $on-surface;
-  font-size: $font-size-sm;
-  font-weight: $font-weight-medium;
-}
-
-.color-picker-notif-close-btn {
-  padding: $spacing-xs $spacing-sm;
-  border-radius: $radius-full;
-  @include ripple-effect($hover: true, $hover-color: $surface);
-}
-
-.color-picker-notif-close-text {
-  color: $accent;
-  font-size: $font-size-sm;
-  font-weight: $font-weight-medium;
-}
