@@ -1,5 +1,10 @@
 #!/bin/bash
 
+LOCKFILE="/tmp/eww-toggle.lock"
+if [ -f "$LOCKFILE" ]; then exit 0; fi
+touch "$LOCKFILE"
+trap "rm -f $LOCKFILE" EXIT
+
 state=$(eww get music-popup-open)
 
 open_music() {
@@ -15,14 +20,10 @@ close_music() {
 }
 
 case $1 in
-  close)
-    close_music
-    exit 0;;
+  close) close_music; exit 0;;
 esac
 
 case $state in
-  true)
-    close_music;;
-  false)
-    open_music;;
+  true) close_music;;
+  false) open_music;;
 esac

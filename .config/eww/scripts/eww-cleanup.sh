@@ -20,6 +20,8 @@ for pidfile in /tmp/power-pending-timer.pid; do
   fi
 done
 
+rm -f /tmp/eww-toggle.lock
+
 # reset states
 eww update power-pending-name=""
 eww update power-pending-action=""

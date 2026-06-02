@@ -1,5 +1,10 @@
 #!/bin/bash
 
+LOCKFILE="/tmp/eww-toggle.lock"
+if [ -f "$LOCKFILE" ]; then exit 0; fi
+touch "$LOCKFILE"
+trap "rm -f $LOCKFILE" EXIT
+
 state=$(eww get screenshot-popup-open)
 
 open_screenshot() {
@@ -15,14 +20,10 @@ close_screenshot() {
 }
 
 case $1 in
-  close)
-    close_screenshot
-    exit 0;;
+  close) close_screenshot; exit 0;;
 esac
 
 case $state in
-  true)
-    close_screenshot;;
-  false)
-    open_screenshot;;
+  true) close_screenshot;;
+  false) open_screenshot;;
 esac

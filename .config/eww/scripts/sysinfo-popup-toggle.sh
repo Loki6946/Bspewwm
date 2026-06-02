@@ -1,5 +1,14 @@
 #!/bin/bash
 
+LOCKFILE="/tmp/eww-toggle.lock"
+
+if [ -f "$LOCKFILE" ]; then
+  exit 0
+fi
+
+touch "$LOCKFILE"
+trap "rm -f $LOCKFILE" EXIT
+
 state=$(eww get sysinfo-popup-open)
 
 open_sysinfo() {

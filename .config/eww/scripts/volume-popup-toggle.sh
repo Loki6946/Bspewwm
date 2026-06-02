@@ -1,10 +1,14 @@
 #!/bin/bash
 
+LOCKFILE="/tmp/eww-toggle.lock"
+if [ -f "$LOCKFILE" ]; then exit 0; fi
+touch "$LOCKFILE"
+trap "rm -f $LOCKFILE" EXIT
+
 state=$(eww get volume-popup-open)
 
 open_volume() {
   bash ~/.config/eww/scripts/close-bar-popups.sh
-
   if ! eww active-windows | grep -q "volume-popup"; then
     eww open volume-popup
   fi
@@ -17,14 +21,10 @@ close_volume() {
 }
 
 case $1 in
-  close)
-    close_volume
-    exit 0;;
+  close) close_volume; exit 0;;
 esac
 
 case $state in
-  true)
-    close_volume;;
-  false)
-    open_volume;;
+  true) close_volume;;
+  false) open_volume;;
 esac
