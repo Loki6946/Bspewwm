@@ -1,13 +1,32 @@
-@keyframes ripple {
-  from {
-    background-size: 0% 0%;
-  }
+// =====================
+// ANIMATIONS
+// =====================
 
-  to {
-    background-size: 1000% 1000%;
-  }
+// Ripple expand
+@keyframes ripple {
+  from { background-size: 0% 0%; }
+  to   { background-size: 1000% 1000%; }
 }
 
+// Opacity pulse — for loading/skeleton states
+@keyframes in-out {
+  0%   { opacity: 0.3; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+// Background color pulse — for loading/skeleton states
+@keyframes background-pulse {
+  0%   { background-color: $surface; }
+  50%  { background-color: $surface-variant; }
+  100% { background-color: $surface; }
+}
+
+// =====================
+// INTERACTION MIXINS
+// =====================
+
+// Ripple effect on click with optional hover
 @mixin ripple-effect(
   $color: $pressed-overlay,
   $hover-color: $hover-overlay,
@@ -37,29 +56,33 @@
   }
 }
 
+// =====================
+// LAYOUT MIXINS
+// =====================
+
+// Floating window/popup container
 @mixin floating-window($radius: $radius-xl, $bg-color: $background) {
   background-color: $bg-color;
   border: 1px solid $surface;
   border-radius: $radius;
 }
 
-@keyframes in-out {
-  0% {
-    opacity: 0.3;
-  }
+// =====================
+// LOADING STATE MIXINS
+// =====================
 
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.3;
-  }
-}
-
+// Opacity fade in/out — subtle loading indicator
 @mixin in-out-effect() {
   animation-name: in-out;
   animation-duration: 2000ms;
   animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+// Background color pulse — skeleton loading state
+@mixin background-pulse-effect() {
+  animation-name: background-pulse;
+  animation-duration: 1800ms;
+  animation-timing-function: $ease-color-slow;
   animation-iteration-count: infinite;
 }
