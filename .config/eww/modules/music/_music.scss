@@ -67,7 +67,13 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-color: $surface;
+}
+
+.music-popup-art-placeholder {
+  min-width: 75px;
+  min-height: 75px;
+  border-radius: $radius-md;
+  @include background-pulse-effect();
 }
 
 .music-popup-player {
@@ -91,7 +97,7 @@
 .music-popup-title-placeholder {
   min-width: 120px;
   border-radius: $radius-sm;
-  background-color: $surface;
+  @include background-pulse-effect();
 }
 
 .music-popup-artist {
@@ -104,7 +110,7 @@
 .music-popup-artist-placeholder {
   min-width: 80px;
   border-radius: $radius-sm;
-  background-color: $surface;
+  @include background-pulse-effect();
 }
 
 .music-popup-progress slider {

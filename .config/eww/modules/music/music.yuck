@@ -102,7 +102,7 @@
       :space-evenly false
       :spacing 8
       (box
-        :class "music-popup-art"
+        :class {music-data.title == "" ? "music-popup-art-placeholder" : "music-popup-art"}
         :orientation "h"
         :style "background-image: url('${music-data.artUrl}');"
         :halign "start"
@@ -129,7 +129,7 @@
             :text {music-data.title}
           )
           (label
-            :class {music-data.title == "" ? "music-popup-artist-placeholder" : "music-popup-artist"}
+            :class {music-data.artist == "" ? "music-popup-artist-placeholder" : "music-popup-artist"}
             :halign "start"
             :limit-width 300
             :text {music-data.artist}
