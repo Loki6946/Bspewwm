@@ -1,4 +1,5 @@
 (defvar wallpaper-picker-open false)
+(defvar wallpaper-refreshing false)
 
 (defpoll wallpaper-list
   :interval "60s"
@@ -94,11 +95,11 @@
             :spacing 12
             (for wallpaper in row
               (eventbox
-                :cursor "pointer"
-                :onclick "scripts/wallpaper-set.sh '${wallpaper.path}' & scripts/wallpaper-picker-toggle.sh"
+                :cursor {wallpaper-refreshing ? "default" : "pointer"}
+                :onclick {wallpaper-refreshing ? "" : "scripts/wallpaper-set.sh '${wallpaper.path}' & scripts/wallpaper-picker-toggle.sh"}
                 (box
-                  :class {wallpaper.path == wallpaper-current ? "wallpaper-item wallpaper-item--active" : "wallpaper-item"}
-                  :style "background-image: url('${wallpaper.thumb}');"
+                  :class {wallpaper-refreshing ? "wallpaper-item wallpaper-item--refreshing" : wallpaper.path == wallpaper-current ? "wallpaper-item wallpaper-item--active" : "wallpaper-item"}
+                  :style {wallpaper-refreshing ? "" : "background-image: url('${wallpaper.thumb}');"}
                 )
               )
             )

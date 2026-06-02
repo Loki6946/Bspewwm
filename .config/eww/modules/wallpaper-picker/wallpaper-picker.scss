@@ -54,8 +54,12 @@
   background-position: center;
   background-repeat: no-repeat;
   transition: border-color $duration-color-default $ease-color-default;
-}
 
-.wallpaper-item--active {
-  border-color: $accent;
+  &--refreshing {
+    @include background-pulse-effect();
+  }
+
+  &--active {
+    border-color: $accent;
+  }
 }
