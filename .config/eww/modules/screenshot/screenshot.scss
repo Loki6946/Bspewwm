@@ -30,6 +30,18 @@
   border-radius: $radius-full;
   background-color: transparent;
   @include ripple-effect($hover: true);
+
+  &.recording {
+    background-color: $error;
+
+    .screenshot-popup-action-icon {
+      color: $on-error;
+    }
+
+    &:hover {
+      background-color: $error-dim;
+    }
+  }
 }
 
 .screenshot-popup-action-icon {
@@ -56,18 +68,6 @@
   font-family: $font-icon;
   font-size: $icon-size-md;
   font-weight: $font-weight-bold;
-}
-
-.screenshot-popup-action-btn.recording {
-  background-color: $error;
-
-  .screenshot-popup-action-icon {
-    color: $on-error;
-  }
-
-  &:hover {
-    background-color: $error-dim;
-  }
 }
 
 .screenshot-popup-btn-separator {

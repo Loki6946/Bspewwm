@@ -28,13 +28,13 @@
 
 .music-btn {
   border-radius: $radius-full;
-}
 
-.music-btn.play {
-  padding: $spacing-xs;
-  border-radius: $radius-full;
-  background-color: $accent;
-  @include ripple-effect($color: $accent-dim);
+  &.play {
+    padding: $spacing-xs;
+    border-radius: $radius-full;
+    background-color: $accent;
+    @include ripple-effect($color: $accent-dim);
+  }
 }
 
 .music-btn-icon {
@@ -42,10 +42,10 @@
   font-family: $font-icon;
   font-size: $bar-icon-size;
   font-weight: $bar-icon-weight;
-}
 
-.music-btn-icon.play {
-  color: $on-accent;
+  &.play {
+    color: $on-accent;
+  } 
 }
 
 .music-bar {

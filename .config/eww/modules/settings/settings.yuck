@@ -55,7 +55,7 @@
         (button
           :class "wallpaper-btn"
           :halign "end"
-          :onclick "scripts/wallpaper-picker-toggle.sh & scripts/sysinfo-popup-toggle.sh"
+          :onclick "scripts/wallpaper-picker-toggle.sh"
           (box
             :orientation "h"
             :space-evenly false
