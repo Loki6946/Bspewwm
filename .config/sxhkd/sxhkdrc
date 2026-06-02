@@ -40,6 +40,16 @@ alt + shift + minus
       ~/.config/eww/scripts/volume-osd-toggle.sh --toggle
 
 #
+# eww hotkeys
+#
+
+alt + w
+      ~/.config/eww/scripts/wallpaper-picker-toggle.sh
+
+alt + q
+      ~/.config/eww/scripts/power-popup-toggle.sh
+
+#
 # bspwm hotkeys
 #
 
